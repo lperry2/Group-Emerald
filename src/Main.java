@@ -1,7 +1,5 @@
 package src;
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,4 +10,3 @@ public class Main {
         emeraldFrame.setSize(800, 600);
     }
 }
-
