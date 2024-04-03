@@ -4,6 +4,12 @@ import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar
+ * @version v0.00
+ * 
+ * Creates an empty GUI window.
+ */
 public class Main {
     public static void main(String[] args) {
         JFrame emeraldFrame = new JFrame("Emerald");
@@ -16,7 +22,7 @@ public class Main {
             public void actionPerformed(final ActionEvent theEvent) {
                 System.exit(0);
             }
-        };
+        }
 
         closeButton.addActionListener(new myListener());
         emeraldFrame.add(closeButton);
