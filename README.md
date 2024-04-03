@@ -5,6 +5,17 @@
 
 ## PROJECT INFORMATION, ASSIGNMENTS, and DELIVERABLES
 
+- Iteration 0 - within the newly created repository, create an empty application UI (a window with a close button) as product version v0.00
+
+- Iteration 1 - validates the team repository and “ships” product version v0.10 with functionality for a basic About screen.
+
+- Iteration 2 - your team ships product version v0.20 including unit tests and additional functionality to be defined such as data input and export.
+
+- Iteration 3 - your team ships product version v1.00 (actually your 3rd deliverable) with functionality from your Design Deliverable.
+
+
+
+
 - The project your team will take on is based on the Client Interview
 #### There will be 3 major deliverables and two incremental exercises as part of that project:
 - Requirements
