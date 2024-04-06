@@ -28,3 +28,4 @@ public class Main {
         emeraldFrame.add(closeButton);
     }
 }
+// -Alex: For the moment this is just a comment to see if I can add to the project.
