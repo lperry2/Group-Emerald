@@ -30,6 +30,7 @@ public class Main {
 
         closeButton.addActionListener(new myListener());
         emeraldFrame.add(closeButton, BorderLayout.SOUTH);
+        System.out.println("");
 
     }
 }
