@@ -3,10 +3,7 @@ package src;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 
 public class AddUser extends JPanel{
     private final JTextField userName = new JTextField(20);
@@ -30,7 +27,7 @@ public class AddUser extends JPanel{
     public void userLookUp() {
         //Search through the text file eventually
         try {
-            PrintStream myStream  = new PrintStream("src/Users.txt");
+            PrintStream myStream  = new PrintStream(new FileOutputStream("src/Users.txt", true));
             myStream.println(userName.getText());
             myStream.close();
             currentUser = userName.getText();
