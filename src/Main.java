@@ -12,6 +12,9 @@ import src.AddUser;
  * Creates an empty GUI window.
  */
 public class Main {
+    // This is the version constant for the project
+    public static String VERSION = "0.0";
+
     public static void main(String[] args) {
         JFrame emeraldFrame = new JFrame("Emerald");
         emeraldFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +51,7 @@ public class Main {
             public void actionPerformed(final ActionEvent theEvent) {
                 JOptionPane.showMessageDialog(null, "This app is registered to: PLACEHOLDER\n" +
                         "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
-                        "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: 0.00");
+                        "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION);
             }
         });
         emeraldFrame.add(aboutButton, BorderLayout.WEST);
