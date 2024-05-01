@@ -31,6 +31,7 @@ public class Main {
         emeraldFrame.add(closeButton, BorderLayout.SOUTH);
 
         // Adding the About tab
+        /*
         JTabbedPane tabbedPane = new JTabbedPane();
         JPanel aboutPanel = new JPanel();
         aboutPanel.add(new JLabel("Project: Emerald"));
@@ -38,6 +39,17 @@ public class Main {
         aboutPanel.add(new JLabel("Authors: Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar"));
         tabbedPane.addTab("About", aboutPanel);
         emeraldFrame.add(tabbedPane, BorderLayout.CENTER);
+        */
+
+
+        JButton aboutButton = new JButton("About");
+        aboutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+                JOptionPane.showMessageDialog(null, "version 0.00");
+            }
+        });
+        emeraldFrame.add(aboutButton, BorderLayout.WEST);
     }
 }
 // -Alex: For the moment this is just a comment to see if I can add to the project.
