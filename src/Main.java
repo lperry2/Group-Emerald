@@ -46,10 +46,11 @@ public class Main {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-                JOptionPane.showMessageDialog(null, "version 0.00");
+                JOptionPane.showMessageDialog(null, "This app is registered to: PLACEHOLDER\n" +
+                        "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
+                        "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: 0.00");
             }
         });
         emeraldFrame.add(aboutButton, BorderLayout.WEST);
     }
 }
-// -Alex: For the moment this is just a comment to see if I can add to the project.
