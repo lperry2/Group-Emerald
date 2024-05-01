@@ -1,6 +1,5 @@
 package src;
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +8,7 @@ import src.AddUser;
 /**
  * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar
  * @version v0.00
- * 
+ *
  * Creates an empty GUI window.
  */
 public class Main {
@@ -32,6 +31,14 @@ public class Main {
         emeraldFrame.add(closeButton, BorderLayout.SOUTH);
         System.out.println("");
 
+        // Adding the About tab
+        JTabbedPane tabbedPane = new JTabbedPane();
+        JPanel aboutPanel = new JPanel();
+        aboutPanel.add(new JLabel("Project: Emerald"));
+        aboutPanel.add(new JLabel("Version: v0.00"));
+        aboutPanel.add(new JLabel("Authors: Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar"));
+        tabbedPane.addTab("About", aboutPanel);
+        emeraldFrame.add(tabbedPane, BorderLayout.CENTER);
     }
 }
 // -Alex: For the moment this is just a comment to see if I can add to the project.
