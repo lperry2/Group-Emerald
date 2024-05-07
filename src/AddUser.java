@@ -36,9 +36,13 @@ public class AddUser extends JPanel{
             myStream.println(userName.getText());
             myStream.close();
             currentUser = userName.getText();
+            this.setVisible(false);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+    }
+    public String getCurrentUser() {
+        return currentUser;
     }
 }

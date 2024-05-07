@@ -50,7 +50,7 @@ public class Main {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-                JOptionPane.showMessageDialog(null, "This app is registered to: PLACEHOLDER\n" +
+                JOptionPane.showMessageDialog(null, "This app is registered to: " + dialog.getCurrentUser() +"\n" +
                         "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
                         "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION);
             }
