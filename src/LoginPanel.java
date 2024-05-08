@@ -10,16 +10,29 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class AddUser extends JPanel{
-    private final JTextField userName = new JTextField(20);
-    private String currentUser = "";
-    public AddUser() {
+public class LoginPanel extends JPanel{
+    private final JTextField nameField;
+    private final JTextField emailField;
+    private String currentUser;
+    private String currentEmail;
+
+    public LoginPanel() {
+        currentUser = "";
+        currentEmail = "";
+        nameField = new JTextField(20);
+        emailField = new JTextField(20);
         setup();
     }
+
     public void setup() {
         JLabel userNameLabel = new JLabel("Username");
         this.add(userNameLabel);
-        this.add(userName);
+        this.add(nameField);
+
+        JLabel userEmailLabel = new JLabel("Email");
+        this.add(userEmailLabel);
+        this.add(emailField);
+
         JButton login = new JButton("Login");
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -33,9 +46,10 @@ public class AddUser extends JPanel{
         //Search through the text file eventually
         try {
             PrintStream myStream  = new PrintStream(new FileOutputStream("src/Users.txt", true));
-            myStream.println(userName.getText());
+            myStream.println(nameField.getText() + "|" + emailField.getText());
             myStream.close();
-            currentUser = userName.getText();
+            currentUser = nameField.getText();
+            currentEmail = emailField.getText();
             this.setVisible(false);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -45,4 +59,6 @@ public class AddUser extends JPanel{
     public String getCurrentUser() {
         return currentUser;
     }
+
+    public String getCurrentEmail(){return currentEmail;}
 }

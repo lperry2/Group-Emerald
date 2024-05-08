@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import src.AddUser;
 
 /**
  * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar
@@ -18,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame emeraldFrame = new JFrame("Emerald");
         emeraldFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        AddUser dialog = new AddUser();
+        LoginPanel dialog = new LoginPanel();
         JPanel loginButtonPanel = new JPanel();
         emeraldFrame.add(loginButtonPanel, BorderLayout.SOUTH);
         emeraldFrame.add(dialog, BorderLayout.NORTH);
