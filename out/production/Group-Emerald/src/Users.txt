@@ -1,10 +1,4 @@
-<<<<<<< Updated upstream
 xdbdfb
-fvsdfvds
-YOOo
-=======
-lperry
->>>>>>> Stashed changes
 lperry
 Alex Ewing
 Alex Ewing
@@ -19,3 +13,5 @@ Alex Ewing
 Alex Ewing
 Alex Ewing
 dfvsdrsb
+Daniel
+oorlic14
