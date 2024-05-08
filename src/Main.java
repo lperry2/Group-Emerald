@@ -19,6 +19,8 @@ public class Main {
         JFrame emeraldFrame = new JFrame("Emerald");
         emeraldFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         AddUser dialog = new AddUser();
+        JPanel loginButtonPanel = new JPanel();
+        emeraldFrame.add(loginButtonPanel, BorderLayout.SOUTH);
         emeraldFrame.add(dialog, BorderLayout.NORTH);
         emeraldFrame.setVisible(true);
         emeraldFrame.setResizable(true);
@@ -31,7 +33,7 @@ public class Main {
         }
 
         closeButton.addActionListener(new myListener());
-        emeraldFrame.add(closeButton, BorderLayout.SOUTH);
+        loginButtonPanel.add(closeButton);
         System.out.println("");
 
         // Adding the About tab
@@ -55,6 +57,6 @@ public class Main {
                         "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION);
             }
         });
-        emeraldFrame.add(aboutButton, BorderLayout.WEST);
+        loginButtonPanel.add(aboutButton);
     }
 }
