@@ -93,10 +93,10 @@ public class MainGUI {
         // replace the default JFrame icon
         //myFrame.setIconImage(PAINT_ICON.getImage());
 
+        myFrame.add(myUserInfo, BorderLayout.NORTH);
+
         // Set the JFrame to visible
         myFrame.setVisible(true);
-
-        myFrame.add(myUserInfo, BorderLayout.NORTH);
     }
 
     /**
