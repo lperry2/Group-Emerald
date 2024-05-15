@@ -99,6 +99,10 @@ public class MainGUI {
         myFrame.setVisible(true);
     }
 
+    public void dispose() {
+        myFrame.dispose();
+    }
+
     /**
      * Represents the login and user info section of the GUI.
      *
