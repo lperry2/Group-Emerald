@@ -1,5 +1,24 @@
 package src.model;
 
 public class Project {
-    // TODO: Implement Project object class
+    private String projectName;
+    private String projectDescription;
+
+    // Getters and setters
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public String getProjectDescription() {
+        return projectDescription;
+    }
+
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
+    }
 }
+
