@@ -79,7 +79,7 @@ public class MainGUI {
      * Performs all tasks necessary to display the UI.
      */
     private void start() {
-        // Set the size of the JFrame to 1/3rd of the screen
+        // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
         myFrame.setSize(SCREEN_WIDTH / SCALE, SCREEN_HEIGHT / SCALE);
 
         // Set the location of the JFrame to the center
@@ -105,9 +105,13 @@ public class MainGUI {
      * @version 1.00
      * */
     private final class LoginPanel extends JPanel {
+        /** Text field for the username . */
         private final JTextField nameField;
+        /** Text field for the email. */
         private final JTextField emailField;
+        /** Current username. */
         private String currentUser;
+        /** Current email. */
         private String currentEmail;
 
         /** The no args constructor for the LoginPanel class. */
@@ -182,24 +186,9 @@ public class MainGUI {
      * @version 1.00
      * */
     private final class AboutPanel extends JPanel {
-        /** Text field for the username . */
-        private final JTextField nameField;
-
-        /** Text field for the email. */
-        private final JTextField emailField;
-
-        /** Current username. */
-        private final String currentUser;
-
-        /** Current email. */
-        private final String currentEmail;
 
         /** The no args constructor for the AboutPanel class. */
         public AboutPanel() {
-            currentUser = "";
-            currentEmail = "";
-            nameField = new JTextField(20);
-            emailField = new JTextField(20);
             setup();
         }
 
