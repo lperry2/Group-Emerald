@@ -60,6 +60,8 @@ public class TestUI {
 //        assertFalse(mainGUI.myUserInfo.isVisible());
 //        assertTrue(mainGUI.myAboutPanel.isVisible());
 //        assertTrue(mainGUI.myPLPanel.isVisible());
+
+        // the for real comment
     }
 
 }
