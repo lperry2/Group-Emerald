@@ -1,0 +1,47 @@
+ private final File contents;
+
+    private JPanel leftPanel;
+    public AdaptivePage(final File theFile) throws FileNotFoundException {
+        contents = theFile;
+        leftPanel = new JPanel();
+        setup();
+    }
+
+    private void setup() throws FileNotFoundException {
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+        this.add(leftPanel, BorderLayout.WEST);
+        Scanner sc = new Scanner(contents);
+        while (sc.hasNextLine()) {
+            String type = sc.nextLine();
+            System.out.println(type);
+            if ("+".equals(type)) {
+                JLabel titleLabel = new JLabel((String)sc.nextLine());
+                titleLabel.setHorizontalAlignment(JLabel.CENTER); // Set label text alignment to center
+
+                // Add the title label to the frame at the top center position
+                this.add(titleLabel, BorderLayout.PAGE_START);
+            } else if ("-".equals(type)) {
+                JPanel newPanel = new JPanel();
+                JLabel titleLabel = new JLabel((String)sc.nextLine());
+                titleLabel.setHorizontalAlignment(JLabel.CENTER); // Set label text alignment to center
+                // Add the title label to the frame at the top center position
+                newPanel.add(titleLabel, BorderLayout.PAGE_START);
+                String nextLine = sc.nextLine();
+                while((!nextLine.equals("-")) || sc.hasNextLine()) {
+                    newPanel.setToolTipText("\n" + nextLine);
+                    if (sc.hasNextLine()) {
+                        nextLine = sc.nextLine();
+                    } else {
+                        break;
+                    }
+                }
+
+                leftPanel.add(newPanel);
+            }
+        }
+
+        sc.close();
+
+        this.setVisible(true);
+
+    }

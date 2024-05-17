@@ -1,5 +1,7 @@
 package src.view;
 
+import src.model.CreateProjectFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,9 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 
 /**
  * The main GUI class for the Project Partner Application.
@@ -245,6 +245,16 @@ public class MainGUI {
                 }
             });
             this.add(searchBtn);
+
+            JButton addProj = new JButton("Add Project");
+            addProj.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(final ActionEvent theEvent) {
+                    new CreateProjectFrame();
+                }
+            });
+
+            this.add(addProj);
         }
     }
 }
