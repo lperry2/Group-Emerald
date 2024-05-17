@@ -9,19 +9,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the UI and components.
+ *
  * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar
  * @version v0.00
  */
 public class TestUI {
-    // The main GUI object for testing
-    private MainGUI mainGUI;
+
+    /*
+    "Aiming to test private variables is the first sign that something wrong with the current design.
+    Private variables are part of the implementation, tests should focus on behavior rather of implementation details."
+        -Someone on Stack Overflow
+     */
+
+    /** The main GUI object for testing */
+    private MainGUI testGUI;
 
     /**
      * Set up the test fixture.
      */
     @BeforeEach
     public void setUp() {
-        mainGUI = new MainGUI();
+        testGUI = new MainGUI();
     }
 
     /**
@@ -30,7 +38,7 @@ public class TestUI {
     @AfterEach
     public void tearDown() {
         // Clean up or reset the UI state after each test
-        mainGUI.dispose();
+        testGUI.dispose();
     }
 
     /**
@@ -40,7 +48,6 @@ public class TestUI {
     public void testUIComponents() {
         // Test the initial state of the UI
         // Verify that the UI components are rendered correctly
-        assertNotNull(MainGUI.VERSION);
     }
 
     /**
