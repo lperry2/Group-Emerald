@@ -6,6 +6,8 @@ public class Project {
     /** The description of the project. */
     private String myProjectDescription;
 
+    private boolean isPrivate;
+
     /**
      * The constructor for the Project class.
      *
