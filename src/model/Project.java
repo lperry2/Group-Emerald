@@ -1,24 +1,52 @@
 package src.model;
 
 public class Project {
-    private String projectName;
-    private String projectDescription;
+    /** The name of the project. */
+    private String myProjectName;
+    /** The description of the project. */
+    private String myProjectDescription;
 
-    // Getters and setters
+    /**
+     * The constructor for the Project class.
+     *
+     * @param theProjectName the name of the project
+     * @param theProjectDescription the description of the project
+     */
+    public Project(String theProjectName, String theProjectDescription){
+        myProjectName = theProjectName;
+        myProjectDescription = theProjectDescription;
+    }
+
+    /**
+     * Gets the project name.
+     * @return myProjectName the name of the project
+     */
     public String getProjectName() {
-        return projectName;
+        return myProjectName;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    /**
+     * Sets the project name.
+     * @param  theProjectName the new name of the project
+     */
+    public void setProjectName(String theProjectName) {
+        this.myProjectName = theProjectName;
     }
 
+    /**
+     * Gets the project description.
+     * @return myProjectDescription the description of the project
+     */
     public String getProjectDescription() {
-        return projectDescription;
+        return myProjectDescription;
     }
 
-    public void setProjectDescription(String projectDescription) {
-        this.projectDescription = projectDescription;
+    /**
+     * Sets the project description.
+     * @param theProjectDescription the new description of the project
+     */
+    public void setProjectDescription(String theProjectDescription) {
+        this.myProjectDescription = theProjectDescription;
     }
 }
 
