@@ -1,5 +1,6 @@
 package src.model;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.io.File;
@@ -25,13 +26,21 @@ public class Budget {
     /** File that will hold all of the project's budget and expense info. */
     private PrintStream budgetFile;
 
+    /**
+     * Creates the budget for the entire project. Sets expenses to zero and instantiates the
+     * myExpense list as an empty ArrayList. Also creates the ProjectBudget txt file to store
+     * budget info.
+     *
+     * @param theTotal project's total budget
+     * @author Owen Orlic
+     */
     public Budget(double theTotal) {
         myTotal = theTotal;
         myTotalExpenses = 0; //set expenses to zero at project creation
         myExpenses = new ArrayList<>();
         try {
             //creates a file to store all of this project's budget info
-            budgetFile = new PrintStream(new File("src/ProjectBudget.txt"));
+            budgetFile = new PrintStream(new FileOutputStream("src/ProjectBudget.txt"));
             budgetFile.println("++++");
             budgetFile.println("Project Budget | " + myTotal); //adds the project's total budget to file on instantiation
         } catch (IOException e) {
@@ -69,6 +78,14 @@ public class Budget {
         return myTotalExpenses;
     }
 
+    /**
+     * Creates a new ExpenseItem, adds it to the myExpenses list, and adds it to the
+     * budget file.
+     *
+     * @param theName name of the expense
+     * @param theExpense cost of the expense
+     * @author Owen Orlic
+     */
     private void addExpense(String theName, double theExpense) {
         ExpenseItem expense = new ExpenseItem(theName, theExpense);
         myExpenses.add(expense);

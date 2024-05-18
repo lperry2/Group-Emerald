@@ -106,7 +106,11 @@ public class CreateProjectFrame extends JFrame {
             }
         });
 
-        this.add(createProjectBtn);
+        JPanel createButtonPanel = new JPanel();
+
+        createButtonPanel.add(createProjectBtn, BorderLayout.SOUTH);
+
+        this.add(createButtonPanel);
 
     }
 
