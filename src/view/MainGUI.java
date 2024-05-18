@@ -181,7 +181,9 @@ public class MainGUI {
          *
          * @return String currentEmail the current username
          */
-        public String getCurrentEmail(){return currentEmail;}
+        public String getCurrentEmail() {
+            return currentEmail;
+        }
     }
 
     /**
@@ -205,7 +207,8 @@ public class MainGUI {
                 public void actionPerformed(final ActionEvent theEvent) {
                     JOptionPane.showMessageDialog(null, "This app is registered to: " + myUserInfo.getCurrentUser() +"\n" +
                             "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
-                            "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION);
+                            "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION,
+                            "About", JOptionPane.PLAIN_MESSAGE, new ImageIcon("src/project pete.png"));
                 }
             });
         }
