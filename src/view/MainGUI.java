@@ -245,7 +245,17 @@ public class MainGUI {
             searchBtn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     // TODO: Implement Project Search
+                    projectLabel.setText("File not found");
+                    projectLabel.setForeground(Color.RED);
+                    projectLabel.setVisible(true);
+
+                    // Trying to create a popup window to tell the user that the project was not found
+//                    JLabel messageLabel = new JLabel("Project not found");
+//                    messageLabel.setVisible(true);
+//                    messageLabel.setForeground(Color.RED);
                 }
+
+
             });
             this.add(searchBtn);
 
