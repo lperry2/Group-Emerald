@@ -1,4 +1,6 @@
-package src.model;
+package src.view;
+
+import src.model.Budget;
 
 import javax.swing.*;
 import java.awt.*;

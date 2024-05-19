@@ -1,7 +1,5 @@
 package src.view;
 
-import src.model.CreateProjectFrame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
