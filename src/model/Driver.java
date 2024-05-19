@@ -9,7 +9,7 @@ import src.view.MainGUI;
  * @version v1.00
  */
 public class Driver {
-    /* private constructor to inhibit instantiation. */
+    /** private constructor to inhibit instantiation. */
     private Driver() {}
 
     /**

@@ -1,5 +1,7 @@
 package src.view;
 
+import src.model.CreateProjectFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,9 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 
 /**
  * The main GUI class for the Project Partner Application.
@@ -79,7 +79,7 @@ public class MainGUI {
      * Performs all tasks necessary to display the UI.
      */
     private void start() {
-        // Set the size of the JFrame to 1/3rd of the screen
+        // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
         myFrame.setSize(SCREEN_WIDTH / SCALE, SCREEN_HEIGHT / SCALE);
 
         // Set the location of the JFrame to the center
@@ -93,10 +93,14 @@ public class MainGUI {
         // replace the default JFrame icon
         //myFrame.setIconImage(PAINT_ICON.getImage());
 
+        myFrame.add(myUserInfo, BorderLayout.NORTH);
+
         // Set the JFrame to visible
         myFrame.setVisible(true);
+    }
 
-        myFrame.add(myUserInfo, BorderLayout.NORTH);
+    public void dispose() {
+        myFrame.dispose();
     }
 
     /**
@@ -105,9 +109,13 @@ public class MainGUI {
      * @version 1.00
      * */
     private final class LoginPanel extends JPanel {
+        /** Text field for the username . */
         private final JTextField nameField;
+        /** Text field for the email. */
         private final JTextField emailField;
+        /** Current username. */
         private String currentUser;
+        /** Current email. */
         private String currentEmail;
 
         /** The no args constructor for the LoginPanel class. */
@@ -173,7 +181,9 @@ public class MainGUI {
          *
          * @return String currentEmail the current username
          */
-        public String getCurrentEmail(){return currentEmail;}
+        public String getCurrentEmail() {
+            return currentEmail;
+        }
     }
 
     /**
@@ -182,24 +192,9 @@ public class MainGUI {
      * @version 1.00
      * */
     private final class AboutPanel extends JPanel {
-        /** Text field for the username . */
-        private final JTextField nameField;
-
-        /** Text field for the email. */
-        private final JTextField emailField;
-
-        /** Current username. */
-        private final String currentUser;
-
-        /** Current email. */
-        private final String currentEmail;
 
         /** The no args constructor for the AboutPanel class. */
         public AboutPanel() {
-            currentUser = "";
-            currentEmail = "";
-            nameField = new JTextField(20);
-            emailField = new JTextField(20);
             setup();
         }
 
@@ -212,7 +207,8 @@ public class MainGUI {
                 public void actionPerformed(final ActionEvent theEvent) {
                     JOptionPane.showMessageDialog(null, "This app is registered to: " + myUserInfo.getCurrentUser() +"\n" +
                             "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
-                            "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION);
+                            "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION,
+                            "About", JOptionPane.PLAIN_MESSAGE, new ImageIcon("src/project pete.png"));
                 }
             });
         }
@@ -249,9 +245,29 @@ public class MainGUI {
             searchBtn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     // TODO: Implement Project Search
+                    projectLabel.setText("File not found");
+                    projectLabel.setForeground(Color.RED);
+                    projectLabel.setVisible(true);
+
+                    // Trying to create a popup window to tell the user that the project was not found
+//                    JLabel messageLabel = new JLabel("Project not found");
+//                    messageLabel.setVisible(true);
+//                    messageLabel.setForeground(Color.RED);
                 }
+
+
             });
             this.add(searchBtn);
+
+            JButton addProj = new JButton("Add Project");
+            addProj.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(final ActionEvent theEvent) {
+                    new CreateProjectFrame();
+                }
+            });
+
+            this.add(addProj);
         }
     }
 }
