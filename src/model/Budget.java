@@ -23,7 +23,7 @@ public class Budget {
     /** List of all the individual expenses. */
     private ArrayList<ExpenseItem> myExpenses;
 
-    /** File that will hold all of the project's budget and expense info. */
+    /** File that will hold all the project's budget and expense info. */
     private PrintStream budgetFile;
 
     /**

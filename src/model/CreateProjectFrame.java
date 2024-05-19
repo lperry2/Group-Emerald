@@ -49,6 +49,7 @@ public class CreateProjectFrame extends JFrame {
         newProjectBudget = "";
         nameField = new JTextField(15);
         budgetField = new JTextField(10);
+        //setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         start();
     }
 
@@ -56,7 +57,8 @@ public class CreateProjectFrame extends JFrame {
      * Sets up the create project frame's location and visibility. Calls setupComponents() to
      * add text fields and buttons.
      *
-     * @author Daniel Sanchez Aguilar, Owen Orlic
+     * @author Daniel Sanchez Aguilar
+     * @author Owen Orlic
      */
     private void start() {
         // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
