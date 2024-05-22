@@ -1,6 +1,8 @@
 package src.model;
 
-
+/**
+ *
+ */
 public class ExpenseItem {
 
     /** Name of the expense item. */

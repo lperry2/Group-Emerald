@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class CreateProjectFrame extends JFrame {
     /** A ToolKit. */
@@ -39,7 +41,6 @@ public class CreateProjectFrame extends JFrame {
     private String newProjectBudget;
 
     private JPanel creationPanel;
-
 
     public CreateProjectFrame() {
         super("Create New Project");
@@ -101,10 +102,22 @@ public class CreateProjectFrame extends JFrame {
         JButton createProjectBtn = new JButton("Create Project");
         createProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                // adds the user to the users.txt file if not included
-                Budget projectBudget = new Budget(Double.parseDouble(budgetField.getText()));
+                // Get project name and budget from the text fields
+                newProjectName = nameField.getText();
+                newProjectBudget = budgetField.getText();
 
+                // Create Budget object (if necessary for other operations)
+                Budget projectBudget = new Budget(Double.parseDouble(newProjectBudget));
 
+                // Write the project data to a file
+                try (FileWriter writer = new FileWriter("project_data.txt", true)) {
+                    writer.write("Project Name: " + newProjectName + "\n");
+                    writer.write("Project Budget: " + newProjectBudget + "\n\n");
+                    JOptionPane.showMessageDialog(null, "Project data saved successfully!");
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -113,7 +126,6 @@ public class CreateProjectFrame extends JFrame {
         createButtonPanel.add(createProjectBtn, BorderLayout.SOUTH);
 
         this.add(createButtonPanel);
-
     }
 
 }
