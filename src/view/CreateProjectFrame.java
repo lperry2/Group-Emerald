@@ -6,10 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class CreateProjectFrame extends JFrame {
+
+    /**
+     * support for firing property change events from this class.
+     */
+    private final PropertyChangeSupport myPCS = new PropertyChangeSupport(this);
     /** A ToolKit. */
     private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 
@@ -104,7 +111,7 @@ public class CreateProjectFrame extends JFrame {
 
                 // Write the project data to a file
                 try (FileWriter writer = new FileWriter("project_data.txt", true)) {
-                    writer.write("Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
+                    writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
 
 
                     // Load the custom PNG file
@@ -116,6 +123,8 @@ public class CreateProjectFrame extends JFrame {
 
                     // Show success message with the resized custom icon
                     JOptionPane.showMessageDialog(null, "Project data saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
+                    myPCS.firePropertyChange("repaint", false, true);
+                    dispose();
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace();
@@ -128,5 +137,9 @@ public class CreateProjectFrame extends JFrame {
         createButtonPanel.add(createProjectBtn, BorderLayout.SOUTH);
 
         this.add(createButtonPanel);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener actionListener) {
+        myPCS.addPropertyChangeListener(actionListener);
     }
 }

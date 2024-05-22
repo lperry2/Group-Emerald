@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.util.Scanner;
 
@@ -265,7 +267,16 @@ public class MainGUI {
             addProj.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
-                    new CreateProjectFrame();
+                    CreateProjectFrame createFrame = new CreateProjectFrame();
+                    createFrame.addPropertyChangeListener(new PropertyChangeListener() {
+                        @Override
+                        public void propertyChange(PropertyChangeEvent evt) {
+                            if ("repaint".equals(evt.getPropertyName())) {
+                                myPVPanel.updateProjectList();
+                                System.out.println("Reached");
+                            }
+                        }
+                    });
                 }
             });
 
@@ -279,13 +290,21 @@ public class MainGUI {
         }
 
         private void setup() {
-            this.setLayout(new GridLayout(0,1));
+            this.setLayout(new GridLayout(0, 1));
+            updateProjectList();
+        }
+
+        public void updateProjectList() {
+            System.out.println("We want to update");
+            this.removeAll(); // Clear the panel
+
             JLabel projectLabel = new JLabel("Project List:");
             projectLabel.setHorizontalAlignment(JLabel.CENTER);
             this.add(projectLabel);
+
             Scanner sc = null;
             try {
-                sc = new Scanner((new File("project_data.txt")));
+                sc = new Scanner(new File("project_data.txt"));
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -293,6 +312,9 @@ public class MainGUI {
                 JButton button = new JButton(sc.nextLine());
                 this.add(button);
             }
+
+            this.revalidate(); // Revalidate the panel to update the UI
+            this.repaint();// Repaint the panel to reflect changes
         }
 
     }
