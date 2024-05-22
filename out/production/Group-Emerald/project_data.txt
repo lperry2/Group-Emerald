@@ -1,10 +1,23 @@
-Project Name: alpha       Project Budget: 100
-Project Name: bravo       Project Budget: 200
-Project Name: gg          Project Budget: 420
-Project Name: f           Project Budget: 66
-Project Name: ertyujikl   Project Budget: 88
-Project Name: ggs         Project Budget: 69
-Project Name: lsdjfo      Project Budget: 999
+Project Name: alpha
+Project Budget: 100
+
+Project Name: bravo
+Project Budget: 200
+
+Project Name: gg
+Project Budget: 420
+
+Project Name: f
+Project Budget: 66
+
+Project Name: ertyujikl
+Project Budget: 88
+
+Project Name: ggs
+Project Budget: 69
+
+Project Name: lsdjfo
+Project Budget: 999
 
 Project Name: hey you
 Project Budget: 4000
@@ -17,4 +30,7 @@ Project Budget: 23
 
 Project Name: yeah
 Project Budget: 90
+
+Project Name: Josh
+Project Budget: 234
 
