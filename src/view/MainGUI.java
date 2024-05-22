@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * The main GUI class for the Project Partner Application.
@@ -57,6 +58,9 @@ public class MainGUI {
     /** The panel that contains the project search bar and functionality*/
     ProjectListPanel myPLPanel;
 
+    /** The panel that contains the project list*/
+    ProjectViewPanel myPVPanel;
+
     /**
      * The no argument constructor for the PaintGUI class
      * that initializes the fields and sets up the frame.
@@ -68,6 +72,7 @@ public class MainGUI {
         myUserInfo = new LoginPanel();
         myAboutPanel = new AboutPanel();
         myPLPanel = new ProjectListPanel();
+        myPVPanel = new ProjectViewPanel();
 
         // setup and display the GUI
         start();
@@ -145,6 +150,7 @@ public class MainGUI {
                     myUserInfo.setVisible(false);
                     myFrame.add(myAboutPanel, BorderLayout.SOUTH);
                     myFrame.add(myPLPanel, BorderLayout.NORTH);
+                    myFrame.add(myPVPanel,BorderLayout.CENTER);
                 }
             });
             this.add(loginBtn);
@@ -267,5 +273,29 @@ public class MainGUI {
 
             this.add(addProj);
         }
+    }
+
+    private final class ProjectViewPanel extends JPanel {
+        public ProjectViewPanel() {
+            setup();
+        }
+
+        private void setup() {
+            this.setLayout(new GridLayout(0,1));
+            JLabel projectLabel = new JLabel("Project List:");
+            projectLabel.setHorizontalAlignment(JLabel.CENTER);
+            this.add(projectLabel);
+            Scanner sc = null;
+            try {
+                sc = new Scanner((new File("project_data.txt")));
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            while (sc.hasNextLine()) {
+                JButton button = new JButton(sc.nextLine());
+                this.add(button);
+            }
+        }
+
     }
 }
