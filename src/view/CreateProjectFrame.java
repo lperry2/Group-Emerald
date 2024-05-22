@@ -121,6 +121,8 @@ public class CreateProjectFrame extends JFrame {
                     JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace();
                 }
+                //this.setVisible(false);
+
             }
         });
 
