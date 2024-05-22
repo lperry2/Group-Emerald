@@ -44,15 +44,11 @@ public class CreateProjectFrame extends JFrame {
 
     public CreateProjectFrame() {
         super("Create New Project");
-        //JLabel titleLabel = new JLabel("NEW PROJECT MENU:");
-        //titleLabel.setHorizontalAlignment(JLabel.CENTER);
-        //myFrame.add(titleLabel, BorderLayout.NORTH);
         creationPanel = new JPanel();
         newProjectName = "";
         newProjectBudget = "";
         nameField = new JTextField(15);
         budgetField = new JTextField(10);
-        //setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         start();
     }
 
@@ -60,8 +56,7 @@ public class CreateProjectFrame extends JFrame {
      * Sets up the create project frame's location and visibility. Calls setupComponents() to
      * add text fields and buttons.
      *
-     * @author Daniel Sanchez Aguilar
-     * @author Owen Orlic
+     * @author Daniel Sanchez Aguilar, Owen Orlic
      */
     private void start() {
         // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
@@ -72,12 +67,7 @@ public class CreateProjectFrame extends JFrame {
                 SCREEN_HEIGHT / 2 - this.getHeight() / 2);
 
         // Set the default close operation to close on exit
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-
-        // TODO: Replace icon using the constant PAINT_ICON
-        // replace the default JFrame icon
-        //myFrame.setIconImage(new ImageIcon());
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //adds name and budget text fields and create project button
         setupComponents();
@@ -116,13 +106,20 @@ public class CreateProjectFrame extends JFrame {
                 try (FileWriter writer = new FileWriter("project_data.txt", true)) {
                     writer.write("Project Name: " + newProjectName + "\n");
                     writer.write("Project Budget: " + newProjectBudget + "\n\n");
-                    JOptionPane.showMessageDialog(null, "Project data saved successfully!");
+
+                    // Load the custom PNG file
+                    ImageIcon icon = new ImageIcon("src/project pete.png");
+                    Image img = icon.getImage();
+                    // Resize the image to 50x50 pixels
+                    Image resizedImg = img.getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+                    ImageIcon resizedIcon = new ImageIcon(resizedImg);
+
+                    // Show success message with the resized custom icon
+                    JOptionPane.showMessageDialog(null, "Project data saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace();
                 }
-                //this.setVisible(false);
-
             }
         });
 
@@ -132,5 +129,4 @@ public class CreateProjectFrame extends JFrame {
 
         this.add(createButtonPanel);
     }
-
 }
