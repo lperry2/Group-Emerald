@@ -72,7 +72,7 @@ public class CreateProjectFrame extends JFrame {
                 SCREEN_HEIGHT / 2 - this.getHeight() / 2);
 
         // Set the default close operation to close on exit
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // TODO: Replace icon using the constant PAINT_ICON
         // replace the default JFrame icon
