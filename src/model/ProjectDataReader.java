@@ -3,6 +3,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Reads project data from a text file and displays it.
+ * @TODO Implement this into the rest of the project.
+ */
 public class ProjectDataReader {
 
     public static void main(String[] args) {
