@@ -39,9 +39,8 @@ public class MainGUI {
     /** This is the title of the Application. */
     private static final String APP_TITLE = "Project Partner";
 
-    // TODO: replace this file path with a new one later
-    ///** The icon for the Paint Program. */
-    //private static final ImageIcon PAINT_ICON = new ImageIcon("files/Paint-Palette.png");
+    /** The icon for project Pete. */
+    private static final ImageIcon PAINT_ICON = new ImageIcon("src/project pete.png");
 
     // This is the version constant for the project
     public static String VERSION = "1.0";
@@ -92,9 +91,8 @@ public class MainGUI {
         // Set the default close operation to close on exit
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // TODO: Replace icon using the constant PAINT_ICON
         // replace the default JFrame icon
-        //myFrame.setIconImage(PAINT_ICON.getImage());
+        myFrame.setIconImage(PAINT_ICON.getImage());
 
         myFrame.add(myUserInfo, BorderLayout.NORTH);
 
