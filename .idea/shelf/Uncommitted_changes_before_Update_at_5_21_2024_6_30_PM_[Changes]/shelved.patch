@@ -1,0 +1,107 @@
+Index: src/view/MainGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.view;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport javax.swing.JButton;\r\nimport javax.swing.JLabel;\r\nimport javax.swing.JPanel;\r\nimport javax.swing.JTextField;\r\nimport java.io.*;\r\n\r\n/**\r\n * The main GUI class for the Project Partner Application.\r\n *\r\n * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar\r\n * @version v1.00\r\n */\r\npublic class MainGUI {\r\n    /** A ToolKit. */\r\n    private static final Toolkit KIT = Toolkit.getDefaultToolkit();\r\n\r\n    /** The Dimension of the screen. */\r\n    private static final Dimension SCREEN_SIZE = KIT.getScreenSize();\r\n\r\n    /** The width of the screen. */\r\n    private static final int SCREEN_WIDTH = SCREEN_SIZE.width;\r\n\r\n    /** The height of the screen. */\r\n    private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;\r\n\r\n    /**\r\n     * A factor for scaling the size of the GUI relative to\r\n     * the current screen size.\r\n     */\r\n    private static final int SCALE = 2;\r\n\r\n    /** This is the title of the Application. */\r\n    private static final String APP_TITLE = \"Project Partner\";\r\n\r\n    // TODO: replace this file path with a new one later\r\n    ///** The icon for the Paint Program. */\r\n    //private static final ImageIcon PAINT_ICON = new ImageIcon(\"files/Paint-Palette.png\");\r\n\r\n    // This is the version constant for the project\r\n    public static String VERSION = \"1.0\";\r\n\r\n    /** The JFrame that everything is built on. */\r\n    private final JFrame myFrame;\r\n\r\n    /** The panel that contains the username/email dialog boxes. */\r\n    LoginPanel myUserInfo;\r\n\r\n    /** The panel that contains the about btn and functionality*/\r\n    AboutPanel myAboutPanel;\r\n\r\n    /** The panel that contains the project search bar and functionality*/\r\n    ProjectListPanel myPLPanel;\r\n\r\n    /**\r\n     * The no argument constructor for the PaintGUI class\r\n     * that initializes the fields and sets up the frame.\r\n     */\r\n    public MainGUI() {\r\n        super();\r\n\r\n        myFrame = new JFrame(APP_TITLE);\r\n        myUserInfo = new LoginPanel();\r\n        myAboutPanel = new AboutPanel();\r\n        myPLPanel = new ProjectListPanel();\r\n\r\n        // setup and display the GUI\r\n        start();\r\n    }\r\n\r\n    /**\r\n     * Performs all tasks necessary to display the UI.\r\n     */\r\n    private void start() {\r\n        // Set the size of the JFrame to 1/2 (current scaling factor) of the screen\r\n        myFrame.setSize(SCREEN_WIDTH / SCALE, SCREEN_HEIGHT / SCALE);\r\n\r\n        // Set the location of the JFrame to the center\r\n        myFrame.setLocation(SCREEN_WIDTH / 2 - myFrame.getWidth() / 2,\r\n                SCREEN_HEIGHT / 2 - myFrame.getHeight() / 2);\r\n\r\n        // Set the default close operation to close on exit\r\n        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\r\n        // TODO: Replace icon using the constant PAINT_ICON\r\n        // replace the default JFrame icon\r\n        //myFrame.setIconImage(PAINT_ICON.getImage());\r\n\r\n        myFrame.add(myUserInfo, BorderLayout.NORTH);\r\n\r\n        // Set the JFrame to visible\r\n        myFrame.setVisible(true);\r\n    }\r\n\r\n    public void dispose() {\r\n        myFrame.dispose();\r\n    }\r\n\r\n    /**\r\n     * Represents the login and user info section of the GUI.\r\n     *\r\n     * @version 1.00\r\n     * */\r\n    private final class LoginPanel extends JPanel {\r\n        /** Text field for the username . */\r\n        private final JTextField nameField;\r\n        /** Text field for the email. */\r\n        private final JTextField emailField;\r\n        /** Current username. */\r\n        private String currentUser;\r\n        /** Current email. */\r\n        private String currentEmail;\r\n\r\n        /** The no args constructor for the LoginPanel class. */\r\n        public LoginPanel() {\r\n            currentUser = \"\";\r\n            currentEmail = \"\";\r\n            nameField = new JTextField(20);\r\n            emailField = new JTextField(20);\r\n            setup();\r\n        }\r\n\r\n        /** Sets up the LoginPanel. */\r\n        private void setup() {\r\n            JLabel userNameLabel = new JLabel(\"Username\");\r\n            this.add(userNameLabel);\r\n            this.add(nameField);\r\n\r\n            JLabel userEmailLabel = new JLabel(\"Email\");\r\n            this.add(userEmailLabel);\r\n            this.add(emailField);\r\n\r\n            JButton loginBtn = new JButton(\"Login\");\r\n            loginBtn.addActionListener(new ActionListener() {\r\n                public void actionPerformed(ActionEvent arg0) {\r\n                    // adds the user to the users.txt file if not included\r\n                    addUser();\r\n\r\n                    // Sets up the main/about panels\r\n                    myUserInfo.setVisible(false);\r\n                    myFrame.add(myAboutPanel, BorderLayout.SOUTH);\r\n                    myFrame.add(myPLPanel, BorderLayout.NORTH);\r\n                }\r\n            });\r\n            this.add(loginBtn);\r\n        }\r\n\r\n        /** Adds the name and email to the users.txt file if not already included. */\r\n        private void addUser() {\r\n            //TODO: Implement the user data search feature (do not add if exists)\r\n            try {\r\n                PrintStream myStream  = new PrintStream(new FileOutputStream(\"src/Users.txt\", true));\r\n                myStream.println(nameField.getText() + \"|\" + emailField.getText());\r\n                myStream.close();\r\n                currentUser = nameField.getText();\r\n                currentEmail = emailField.getText();\r\n            } catch (IOException e) {\r\n                throw new RuntimeException(e);\r\n            }\r\n\r\n        }\r\n\r\n        /**\r\n         * Gets the current Username.\r\n         *\r\n         * @return String currentUser the current username\r\n         */\r\n        public String getCurrentUser() {\r\n            return currentUser;\r\n        }\r\n\r\n        /**\r\n         * Gets the current Email.\r\n         *\r\n         * @return String currentEmail the current username\r\n         */\r\n        public String getCurrentEmail() {\r\n            return currentEmail;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Represents the about section of the GUI.\r\n     *\r\n     * @version 1.00\r\n     * */\r\n    private final class AboutPanel extends JPanel {\r\n\r\n        /** The no args constructor for the AboutPanel class. */\r\n        public AboutPanel() {\r\n            setup();\r\n        }\r\n\r\n        /** Sets up the AboutPanel. */\r\n        private void setup() {\r\n            JButton aboutBtn = new JButton(\"About\");\r\n            this.add(aboutBtn);\r\n            aboutBtn.addActionListener(new ActionListener() {\r\n                @Override\r\n                public void actionPerformed(final ActionEvent theEvent) {\r\n                    JOptionPane.showMessageDialog(null, \"This app is registered to: \" + myUserInfo.getCurrentUser() +\"\\n\" +\r\n                            \"This app provided by: Team Emerald\\nAlexander Dean Ewing - Alex for short\\nOwen Orlic - He's cool\\n\" +\r\n                            \"Lucas Perry - GitHub Guy\\nDaniel Alberto Sanchez Aguilar - GUI Guy\\nVersion: \" + VERSION,\r\n                            \"About\", JOptionPane.PLAIN_MESSAGE, new ImageIcon(\"src/project pete.png\"));\r\n                }\r\n            });\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Represents the project search section of the GUI.\r\n     *\r\n     * @version 1.00\r\n     * */\r\n    private final class ProjectListPanel extends JPanel {\r\n        /** Text field for the searched project. */\r\n        private final JTextField projectField;\r\n\r\n        /** Current searched project. */\r\n        private String currentProject;\r\n\r\n        /** The no args constructor for the ProjectListPanel class. */\r\n        public ProjectListPanel() {\r\n            projectField = new JTextField(20);\r\n            currentProject = \"\";\r\n            setup();\r\n        }\r\n\r\n        /** Sets up the Project searchPanel. */\r\n        private void setup() {\r\n            JLabel projectLabel = new JLabel(\"Project\");\r\n            this.add(projectLabel);\r\n            this.add(projectField);\r\n\r\n            // TODO: Implement create project option\r\n\r\n            JButton searchBtn = new JButton(\"Search\");\r\n            searchBtn.addActionListener(new ActionListener() {\r\n                public void actionPerformed(ActionEvent arg0) {\r\n                    // TODO: Implement Project Search\r\n                    projectLabel.setText(\"File not found\");\r\n                    projectLabel.setForeground(Color.RED);\r\n                    projectLabel.setVisible(true);\r\n\r\n                    // Trying to create a popup window to tell the user that the project was not found\r\n//                    JLabel messageLabel = new JLabel(\"Project not found\");\r\n//                    messageLabel.setVisible(true);\r\n//                    messageLabel.setForeground(Color.RED);\r\n                }\r\n\r\n\r\n            });\r\n            this.add(searchBtn);\r\n\r\n            JButton addProj = new JButton(\"Add Project\");\r\n            addProj.addActionListener(new ActionListener() {\r\n                @Override\r\n                public void actionPerformed(final ActionEvent theEvent) {\r\n                    new CreateProjectFrame();\r\n                }\r\n            });\r\n\r\n            this.add(addProj);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/view/MainGUI.java b/src/view/MainGUI.java
+--- a/src/view/MainGUI.java	(revision bc2eb3469afcd906650ab3860b1488af2d9d277c)
++++ b/src/view/MainGUI.java	(date 1716339521379)
+@@ -237,8 +237,6 @@
+             this.add(projectLabel);
+             this.add(projectField);
+ 
+-            // TODO: Implement create project option
+-
+             JButton searchBtn = new JButton("Search");
+             searchBtn.addActionListener(new ActionListener() {
+                 public void actionPerformed(ActionEvent arg0) {
+Index: src/Users.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nAlex Ewing|aewing24@uw.edu\r\n|\r\nlperry2|lperry2@uw.edu\r\noo|oo@uw.edu\r\n\r\nsdflj|sldkfj\r\nsdfsd|sdfsdf\r\nsdf|sdf\r\nsdf|sdf\r\nsdflkj|sdfkj\r\nsdf|sdf\r\nsdf|sdf\r\nsdf|sdf\r\ndsf|sdfd\r\nsdf|sdfk\r\nsdf|sdfsd\r\nsdfs|sdfds\r\n|\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Users.txt b/src/Users.txt
+--- a/src/Users.txt	(revision bc2eb3469afcd906650ab3860b1488af2d9d277c)
++++ b/src/Users.txt	(date 1716339609205)
+@@ -2,6 +2,7 @@
+ Alex Ewing|aewing24@uw.edu
+ |
+ lperry2|lperry2@uw.edu
++|
+ oo|oo@uw.edu
+ 
+ sdflj|sldkfj
+@@ -17,3 +18,5 @@
+ sdf|sdfsd
+ sdfs|sdfds
+ |
++|
++|
+Index: out/production/Group-Emerald/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PDMPlugin\">\r\n    <option name=\"skipTestSources\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/out/production/Group-Emerald/.idea/misc.xml b/out/production/Group-Emerald/.idea/misc.xml
+--- a/out/production/Group-Emerald/.idea/misc.xml	(revision bc2eb3469afcd906650ab3860b1488af2d9d277c)
++++ b/out/production/Group-Emerald/.idea/misc.xml	(date 1716339285009)
+@@ -3,7 +3,7 @@
+   <component name="PDMPlugin">
+     <option name="skipTestSources" value="false" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: out/production/Group-Emerald/src/Users.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nAlex Ewing|aewing24@uw.edu\r\n|\r\nlperry2|lperry2@uw.edu\r\noo|oo@uw.edu\r\n\r\nsdflj|sldkfj\r\nsdfsd|sdfsdf\r\nsdf|sdf\r\nsdf|sdf\r\nsdflkj|sdfkj\r\nsdf|sdf\r\nsdf|sdf\r\nsdf|sdf\r\ndsf|sdfd\r\nsdf|sdfk\r\nsdf|sdfsd\r\nsdfs|sdfds\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/out/production/Group-Emerald/src/Users.txt b/out/production/Group-Emerald/src/Users.txt
+--- a/out/production/Group-Emerald/src/Users.txt	(revision bc2eb3469afcd906650ab3860b1488af2d9d277c)
++++ b/out/production/Group-Emerald/src/Users.txt	(date 1716339528874)
+@@ -2,6 +2,7 @@
+ Alex Ewing|aewing24@uw.edu
+ |
+ lperry2|lperry2@uw.edu
++|
+ oo|oo@uw.edu
+ 
+ sdflj|sldkfj
+@@ -16,3 +17,5 @@
+ sdf|sdfk
+ sdf|sdfsd
+ sdfs|sdfds
++|
++|
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PDMPlugin\">\r\n    <option name=\"skipTestSources\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision bc2eb3469afcd906650ab3860b1488af2d9d277c)
++++ b/.idea/misc.xml	(date 1716339285009)
+@@ -3,7 +3,7 @@
+   <component name="PDMPlugin">
+     <option name="skipTestSources" value="false" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -1,0 +1,45 @@
+Index: src/Users.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nAlex Ewing|aewing24@uw.edu\r\n|\r\nlperry2|lperry2@uw.edu\r\nsv|vf \r\noo|oo@uw.edu\r\n\r\nsdflj|sldkfj\r\nsdfsd|sdfsdf\r\nsdf|sdf\r\nsdf|sdf\r\nsdflkj|sdfkj\r\nsdf|sdf\r\nsdf|sdf\r\nsdf|sdf\r\ndsf|sdfd\r\nsdf|sdfk\r\nsdf|sdfsd\r\nsdfs|sdfds\r\n|\r\n|\r\n|\r\n|\r\n|\r\ngjhbj,|\r\n|\r\nfre|fr3gr\r\n|\r\nfgh|fghj\r\ndfghjk|ertyui\r\n
+===================================================================
+diff --git a/src/Users.txt b/src/Users.txt
+--- a/src/Users.txt	
++++ b/src/Users.txt	
+@@ -26,5 +26,8 @@
+ |
+ fre|fr3gr
+ |
++|
++|
+ fgh|fghj
+ dfghjk|ertyui
++|
+Index: out/production/Group-Emerald/src/Users.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nAlex Ewing|aewing24@uw.edu\r\n|\r\nlperry2|lperry2@uw.edu\r\noo|oo@uw.edu\r\n\r\nsdflj|sldkfj\r\nsdfsd|sdfsdf\r\nsdf|sdf\r\nsdf|sdf\r\nsdflkj|sdfkj\r\nsdf|sdf\r\nsdf|sdf\r\nsdf|sdf\r\ndsf|sdfd\r\nsdf|sdfk\r\nsdf|sdfsd\r\nsdfs|sdfds\r\n|\r\n|\r\n|\r\n|\r\n|\r\n|\r\nfgh|fghj\r\n
+===================================================================
+diff --git a/out/production/Group-Emerald/src/Users.txt b/out/production/Group-Emerald/src/Users.txt
+--- a/out/production/Group-Emerald/src/Users.txt	
++++ b/out/production/Group-Emerald/src/Users.txt	
+@@ -2,6 +2,7 @@
+ Alex Ewing|aewing24@uw.edu
+ |
+ lperry2|lperry2@uw.edu
++sv|vf 
+ oo|oo@uw.edu
+ 
+ sdflj|sldkfj
+@@ -21,5 +22,11 @@
+ |
+ |
+ |
++gjhbj,|
++|
++fre|fr3gr
++|
++|
+ |
+ fgh|fghj
++dfghjk|ertyui
