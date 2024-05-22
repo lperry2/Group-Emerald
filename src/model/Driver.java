@@ -2,6 +2,9 @@ package src.model;
 
 import src.view.MainGUI;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 /**
  * The driver for the Project Partner Application.
  *
@@ -17,7 +20,8 @@ public class Driver {
      *
      * @param theArgs command line arguments - ignored in this program
      */
-    public static void main(final String[] theArgs) {
+    public static void main(final String[] theArgs) throws FileNotFoundException {
         new MainGUI();
+        new MenuReaderPopulation(new File("src/Test.txt"));
     }
 }

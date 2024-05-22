@@ -1,10 +1,15 @@
 +
 Budget
 -
-A budget Name
-325
-blog
-jog
+Journal Entry 1:
+Content Line1
+Content Line2
+Content Line3
 -
-Another budget Name
-400
+-
+budget Entry 1:
+Another Content Line1
+-
+-
+File Entry 1:
+Another Another Content Line1
