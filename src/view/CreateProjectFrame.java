@@ -74,6 +74,7 @@ public class CreateProjectFrame extends JFrame {
         // Set the default close operation to close on exit
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+
         // TODO: Replace icon using the constant PAINT_ICON
         // replace the default JFrame icon
         //myFrame.setIconImage(new ImageIcon());
