@@ -38,7 +38,7 @@ public class MainGUI {
     /** This is the title of the Application. */
     private static final String APP_TITLE = "Project Partner";
 
-    /** The icon for the Paint Program. */
+    /** The icon for project Pete. */
     private static final ImageIcon PAINT_ICON = new ImageIcon("src/project pete.png");
 
     // This is the version constant for the project
