@@ -104,8 +104,8 @@ public class CreateProjectFrame extends JFrame {
 
                 // Write the project data to a file
                 try (FileWriter writer = new FileWriter("project_data.txt", true)) {
-                    writer.write("Project Name: " + newProjectName + "\n");
-                    writer.write("Project Budget: " + newProjectBudget + "\n\n");
+                    writer.write("Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
+
 
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/project pete.png");
