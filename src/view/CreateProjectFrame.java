@@ -112,8 +112,7 @@ public class CreateProjectFrame extends JFrame {
                 // Write the project data to a file
                 try (FileWriter writer = new FileWriter("project_data.txt", true)) {
                     writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
-
-
+                    writer.close();
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/project pete.png");
                     Image img = icon.getImage();
@@ -123,7 +122,7 @@ public class CreateProjectFrame extends JFrame {
 
                     // Show success message with the resized custom icon
                     JOptionPane.showMessageDialog(null, "Project data saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
-                    myPCS.firePropertyChange("repaint", false, true);
+                    myPCS.firePropertyChange("repaint", null, null);
                     dispose();
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);

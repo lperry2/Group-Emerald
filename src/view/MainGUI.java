@@ -273,7 +273,6 @@ public class MainGUI {
                         public void propertyChange(PropertyChangeEvent evt) {
                             if ("repaint".equals(evt.getPropertyName())) {
                                 myPVPanel.updateProjectList();
-                                System.out.println("Reached");
                             }
                         }
                     });
@@ -295,7 +294,6 @@ public class MainGUI {
         }
 
         public void updateProjectList() {
-            System.out.println("We want to update");
             this.removeAll(); // Clear the panel
 
             JLabel projectLabel = new JLabel("Project List:");
@@ -313,8 +311,11 @@ public class MainGUI {
                 this.add(button);
             }
 
+            sc.close();
+
+
             this.revalidate(); // Revalidate the panel to update the UI
-            this.repaint();// Repaint the panel to reflect changes
+            super.repaint();// Repaint the panel to reflect changes
         }
 
     }
