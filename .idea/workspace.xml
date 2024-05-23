@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="Added test file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/project_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/project_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/project_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,13 +188,28 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Iteration-1" />
+                        <option value="origin/Iteration-3" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Iteration-3" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>

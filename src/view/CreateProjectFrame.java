@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -113,6 +114,18 @@ public class CreateProjectFrame extends JFrame {
                 try (FileWriter writer = new FileWriter("project_data.txt", true)) {
                     writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
                     writer.close();
+                    //Creation of project files is here! File initializers should be worked on a seperate method for each
+                    File dir = new File("src/" + newProjectName);
+                    dir.mkdirs();
+                    File budgetFile = new File(dir, "Budget.txt");
+                    budgetFile.createNewFile();
+                    fileInitializer(budgetFile, "Budget");
+                    File journalFile = new File(dir, "Journal.txt");
+                    journalFile.createNewFile();
+                    fileInitializer(journalFile, "Journal");
+                    File fileFile = new File(dir, "Files.txt");
+                    fileFile.createNewFile();
+                    fileInitializer(fileFile, "Files");
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/project pete.png");
                     Image img = icon.getImage();
@@ -140,5 +153,17 @@ public class CreateProjectFrame extends JFrame {
 
     public void addPropertyChangeListener(PropertyChangeListener actionListener) {
         myPCS.addPropertyChangeListener(actionListener);
+    }
+
+    public void fileInitializer(File theFile, String type) {
+        try {
+            FileWriter writer = new FileWriter(theFile, true);
+            writer.write("+\n" + type + "\n");
+            writer.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
