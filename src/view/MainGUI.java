@@ -51,16 +51,16 @@ public class MainGUI {
     private final JFrame myFrame;
 
     /** The panel that contains the username/email dialog boxes. */
-    LoginPanel myUserInfo;
+    private final LoginPanel myUserInfo;
 
     /** The panel that contains the about btn and functionality*/
-    AboutPanel myAboutPanel;
+    private final AboutPanel myAboutPanel;
 
     /** The panel that contains the project search bar and functionality*/
-    ProjectListPanel myPLPanel;
+    private final ProjectListPanel myPLPanel;
 
     /** The panel that contains the project list*/
-    ProjectViewPanel myPVPanel;
+    private final ProjectViewPanel myPVPanel;
 
     /**
      * The no argument constructor for the PaintGUI class

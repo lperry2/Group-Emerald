@@ -6,13 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="Added test file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/project_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/project_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ExpenseItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ExpenseItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ProjectDataReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ProjectDataReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/tests/TestUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/tests/TestUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/project_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +54,6 @@
     &quot;accountId&quot;: &quot;5eb2575a-c9d7-4d5b-be8a-f03da93de45f&quot;
   }
 }</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -53,21 +65,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Driver.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Iteration-3",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Iteration-3&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\je21\OneDrive\Documents\GitHub\Group-Emerald" />
@@ -188,28 +199,13 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Iteration-3" />
+                        <option value="Iteration-1" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Iteration-3" />
-                </option>
-              </RecentGroup>
-            </list>
           </value>
         </entry>
       </map>
