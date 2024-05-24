@@ -50,6 +50,8 @@ public class CreateProjectFrame extends JFrame {
 
     private JPanel creationPanel;
 
+    private boolean isPrivate;
+
     public CreateProjectFrame() {
         super("Create New Project");
         creationPanel = new JPanel();
@@ -98,6 +100,17 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(budgetLabel);
         creationPanel.add(budgetField);
 
+        JCheckBox privateCheckBox = new JCheckBox("Private");
+        creationPanel.add(privateCheckBox);
+        privateCheckBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                creationPanel.add(new JLabel("Enter PIN"));
+                JTextField privatePin = new JTextField(5);
+                creationPanel.add(privatePin);
+
+            }
+        });
+
         this.add(creationPanel, BorderLayout.NORTH);
 
         JButton createProjectBtn = new JButton("Create Project");
@@ -114,7 +127,7 @@ public class CreateProjectFrame extends JFrame {
                 try (FileWriter writer = new FileWriter("project_data.txt", true)) {
                     writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
                     writer.close();
-                    //Creation of project files is here! File initializers should be worked on a seperate method for each
+                    //Creation of project files is here! File initializers should be worked on a separate method for each
                     File dir = new File("src/" + newProjectName);
                     dir.mkdirs();
                     File budgetFile = new File(dir, "Budget.txt");
