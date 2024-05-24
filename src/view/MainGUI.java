@@ -1,5 +1,7 @@
 package src.view;
 
+import src.model.OptionFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -307,7 +309,22 @@ public class MainGUI {
                 throw new RuntimeException(e);
             }
             while (sc.hasNextLine()) {
-                JButton button = new JButton(sc.nextLine());
+                String line = sc.nextLine();
+                String[] nameBudge = line.split("\t");
+                String projName = nameBudge[0].split(": ")[1];
+                //File f = new File("src/"+projName);
+                JButton button = new JButton(line);
+                button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(final ActionEvent theEvent) {
+                        //if(f.isDirectory()) {
+                            //System.out.println("here");
+                            //class(file)
+                        //}
+                        new OptionFrame(projName);
+                    }
+                });
+
                 this.add(button);
             }
 
