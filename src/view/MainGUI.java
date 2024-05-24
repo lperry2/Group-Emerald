@@ -127,8 +127,8 @@ public class MainGUI {
         public LoginPanel() {
             currentUser = "";
             currentEmail = "";
-            nameField = new JTextField(20);
-            emailField = new JTextField(20);
+            nameField = new JTextField(15);
+            emailField = new JTextField(15);
             setup();
         }
 
@@ -144,18 +144,83 @@ public class MainGUI {
 
             JButton loginBtn = new JButton("Login");
             loginBtn.addActionListener(new ActionListener() {
+                /**
+                 * Searches for the registered user. If one is found, then it changes
+                 * to the project page. If not a JOptionPane pops up explaining no user
+                 * was found.
+                 *
+                 * @param arg0 the event to be processed
+                 * @author Owen Orlic
+                 */
                 public void actionPerformed(ActionEvent arg0) {
                     // adds the user to the users.txt file if not included
-                    addUser();
+                    try (Scanner scan = new Scanner(new File("src/Users.txt"))) {
+
+                        //marks if the user has been found yet
+                        boolean notFound = true;
+                        while (scan.hasNext() && notFound) {
+                            //if the user has registered before
+                            if (scan.next().equals(nameField.getText())) {
+                                currentUser = nameField.getText();
+                                currentEmail = emailField.getText();
+                                notFound = false; //mark the user as found
+
+                                //changes the frame
+                                myUserInfo.setVisible(false);
+                                myFrame.add(myAboutPanel, BorderLayout.SOUTH);
+                                myFrame.add(myPLPanel, BorderLayout.NORTH);
+                                myFrame.add(myPVPanel,BorderLayout.CENTER);
+                            }
+                        }
+
+                        //if there is no registered user with that username
+                        if (notFound) {
+                            JOptionPane.showMessageDialog(null, "No User Found", "Sorry", JOptionPane.OK_OPTION);
+                        }
+                    } catch (FileNotFoundException e) {
+                        JOptionPane.showMessageDialog(null, "Issue Finding FilePath");
+                    }
 
                     // Sets up the main/about panels
-                    myUserInfo.setVisible(false);
-                    myFrame.add(myAboutPanel, BorderLayout.SOUTH);
-                    myFrame.add(myPLPanel, BorderLayout.NORTH);
-                    myFrame.add(myPVPanel,BorderLayout.CENTER);
+//                    myUserInfo.setVisible(false);
+//                    myFrame.add(myAboutPanel, BorderLayout.SOUTH);
+//                    myFrame.add(myPLPanel, BorderLayout.NORTH);
+//                    myFrame.add(myPVPanel,BorderLayout.CENTER);
                 }
             });
             this.add(loginBtn);
+
+            JButton registerBtn = new JButton("Register");
+            registerBtn.addActionListener(new ActionListener() {
+                /**
+                 * registers a user and creates their own directory.
+                 *
+                 * @param e the event to be processed
+                 * @author Owen Orlic
+                 */
+                public void actionPerformed(ActionEvent e) {
+                    addUser();
+
+                    //make new directory for the user
+                        File dir = new File("src/" + currentUser);
+                        dir.mkdirs();
+
+                        //try catch was being weird!! needs fixed
+                        try (Scanner temp = new Scanner("src/Users.txt")) {
+                            File projects = new File(dir, "Projects");
+
+                            projects.createNewFile();
+                            projects.mkdirs();
+
+
+                            JOptionPane.showConfirmDialog(null, "Thank you for registering! Please sign in with your new credentials.");
+                        } catch (IOException exp) {
+                            exp.printStackTrace();
+                        }
+
+                }
+            });
+            this.add(registerBtn);
         }
 
         /** Adds the name and email to the users.txt file if not already included. */
@@ -163,7 +228,7 @@ public class MainGUI {
             //TODO: Implement the user data search feature (do not add if exists)
             try {
                 PrintStream myStream  = new PrintStream(new FileOutputStream("src/Users.txt", true));
-                myStream.println(nameField.getText() + "|" + emailField.getText());
+                myStream.println(nameField.getText() + " | " + emailField.getText());
                 myStream.close();
                 currentUser = nameField.getText();
                 currentEmail = emailField.getText();
