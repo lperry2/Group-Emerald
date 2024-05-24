@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.util.Scanner;
 
@@ -49,16 +51,16 @@ public class MainGUI {
     private final JFrame myFrame;
 
     /** The panel that contains the username/email dialog boxes. */
-    LoginPanel myUserInfo;
+    private final LoginPanel myUserInfo;
 
     /** The panel that contains the about btn and functionality*/
-    AboutPanel myAboutPanel;
+    private final AboutPanel myAboutPanel;
 
     /** The panel that contains the project search bar and functionality*/
-    ProjectListPanel myPLPanel;
+    private final ProjectListPanel myPLPanel;
 
     /** The panel that contains the project list*/
-    ProjectViewPanel myPVPanel;
+    private final ProjectViewPanel myPVPanel;
 
     /**
      * The no argument constructor for the PaintGUI class
@@ -265,7 +267,15 @@ public class MainGUI {
             addProj.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
-                    new CreateProjectFrame();
+                    CreateProjectFrame createFrame = new CreateProjectFrame();
+                    createFrame.addPropertyChangeListener(new PropertyChangeListener() {
+                        @Override
+                        public void propertyChange(PropertyChangeEvent evt) {
+                            if ("repaint".equals(evt.getPropertyName())) {
+                                myPVPanel.updateProjectList();
+                            }
+                        }
+                    });
                 }
             });
 
@@ -279,13 +289,20 @@ public class MainGUI {
         }
 
         private void setup() {
-            this.setLayout(new GridLayout(0,1));
+            this.setLayout(new GridLayout(0, 1));
+            updateProjectList();
+        }
+
+        public void updateProjectList() {
+            this.removeAll(); // Clear the panel
+
             JLabel projectLabel = new JLabel("Project List:");
             projectLabel.setHorizontalAlignment(JLabel.CENTER);
             this.add(projectLabel);
+
             Scanner sc = null;
             try {
-                sc = new Scanner((new File("project_data.txt")));
+                sc = new Scanner(new File("project_data.txt"));
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -293,6 +310,12 @@ public class MainGUI {
                 JButton button = new JButton(sc.nextLine());
                 this.add(button);
             }
+
+            sc.close();
+
+
+            this.revalidate(); // Revalidate the panel to update the UI
+            super.repaint();// Repaint the panel to reflect changes
         }
 
     }
