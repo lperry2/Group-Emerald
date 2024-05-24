@@ -56,9 +56,8 @@ public class CreateProjectFrame extends JFrame {
 
     public CreateProjectFrame() {
         super("Create New Project");
-        //this.setLayout(new FlowLayout());
+        //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
-        //creationPanel.setLayout(new BorderLayout());
         newProjectName = "";
         newProjectBudget = "";
         nameField = new JTextField(15);
@@ -117,7 +116,6 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(pinLabel);
 
         creationPanel.add(privatePin);
-
         privateCheckBox.addActionListener(new ActionListener() {
             /**
              * If the private box is selected, a text field to enter the
@@ -139,12 +137,10 @@ public class CreateProjectFrame extends JFrame {
                     privatePin.setVisible(true);
                     isPrivate = true;
                 }
-
             }
         });
 
-        this.add(creationPanel, BorderLayout.CENTER);
-
+        this.add(creationPanel, BorderLayout.NORTH);
         JButton createProjectBtn = new JButton("Create Project");
         createProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
