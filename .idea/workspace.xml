@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Group-Emerald:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="Added test file">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI$AboutPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI$AboutPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI$LoginPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI$LoginPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI$ProjectListPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI$ProjectListPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/MainGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/Project.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/TestUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_5_59_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Group_Emerald_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/project_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/project_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/project_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,40 +38,47 @@
     &quot;assignee&quot;: &quot;aewing24&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lperry2/Group-Emerald.git",
-    "accountId": "c5620831-e811-4b41-b5a9-f5a6f3396279"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lperry2/Group-Emerald.git&quot;,
+    &quot;accountId&quot;: &quot;5eb2575a-c9d7-4d5b-be8a-f03da93de45f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2ekgbxp183OQ0ayKAHKCdtutZKt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Driver.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Iteration-3&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Driver.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Iteration-3",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\je21\OneDrive\Documents\GitHub\Group-Emerald" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\je21\OneDrive\Documents\GitHub\Group-Emerald\out\artifacts\Group_Emerald_jar" />
     </key>
   </component>
   <component name="RunManager">
@@ -182,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716343217905</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)">
+      <option name="closed" value="true" />
+      <created>1716513282664</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716513282664</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,7 +223,8 @@
     <MESSAGE value="This is the one true version！" />
     <MESSAGE value="I added javadoc comments to what we have of the project class. I also changed the variables to the coding conventions we decided to follow." />
     <MESSAGE value="Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+    <MESSAGE value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
+    <option name="LAST_COMMIT_MESSAGE" value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Group_Emerald$Driver.ic" NAME="Driver Coverage Results" MODIFIED="1716341354433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
