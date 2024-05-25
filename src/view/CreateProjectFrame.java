@@ -54,7 +54,9 @@ public class CreateProjectFrame extends JFrame {
 
     private boolean isPrivate;
 
-    public CreateProjectFrame() {
+    private String userName;
+
+    public CreateProjectFrame(String user) {
         super("Create New Project");
         //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
@@ -63,7 +65,7 @@ public class CreateProjectFrame extends JFrame {
         nameField = new JTextField(15);
         budgetField = new JTextField(10);
         pinField = new JTextField(10);
-
+        userName = user;
         start();
     }
 
@@ -156,7 +158,7 @@ public class CreateProjectFrame extends JFrame {
                     writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
                     writer.close();
                     //Creation of project files is here! File initializers should be worked on a separate method for each
-                    File dir = new File("src/" + newProjectName);
+                    File dir = new File("src/" + userName + "/" + newProjectName);
                     dir.mkdirs();
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();

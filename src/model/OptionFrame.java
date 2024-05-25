@@ -9,9 +9,12 @@ import java.io.FileNotFoundException;
 public class OptionFrame extends JFrame {
     JMenuBar myMenu = new JMenuBar();
     String theProjName;
-    public OptionFrame(String theProjectName) {
+
+    String theUser;
+    public OptionFrame(String theProjectName, String user) {
         this.setJMenuBar(myMenu);
         theProjName = theProjectName;
+        theUser = user;
         setup();
         this.setVisible(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -29,7 +32,7 @@ public class OptionFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("REaches here");
-               File f =  new File("src/" + theProjName + "/" + type + ".txt");
+               File f =  new File("src/" + theUser + "/" + theProjName + "/" + type + ".txt");
                 try {
                     new MenuReaderPopulation(f);
                 } catch (FileNotFoundException ex) {

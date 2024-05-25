@@ -27,3 +27,7 @@ sdfv | xfc
 sd | sd
 dd | cc
 dfgf | b
+ddd | 000
+Daniel | danisan@uw.edu
+ss | dan
+drv | dfd
