@@ -34,7 +34,7 @@ public class OptionFrame extends JFrame {
                 System.out.println("REaches here");
                File f =  new File("src/" + theUser + "/" + theProjName + "/" + type + ".txt");
                 try {
-                    new MenuReaderPopulation(f);
+                    new MenuReaderPopulation(f, theUser, theProjName, type);
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 }
