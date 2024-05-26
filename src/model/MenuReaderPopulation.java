@@ -2,21 +2,49 @@ package src.model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MenuReaderPopulation extends JFrame{
+    /**
+     * A factor for scaling the size of the GUI relative to
+     * the current screen size.
+     */
+    private static final int SCALE = 2;
+    /** A ToolKit. */
+    private static final Toolkit KIT = Toolkit.getDefaultToolkit();
+
+    /** The Dimension of the screen. */
+    private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
+    /** The width of the screen. */
+    private static final int SCREEN_WIDTH = SCREEN_SIZE.width;
+
+    /** The height of the screen. */
+    private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
     private final File contents;
 
+    private final String user;
+
+    private final String projName;
+
+    private final String theType;
     private JPanel leftPanel;
-    public MenuReaderPopulation(final File theFile) throws FileNotFoundException {
+    public MenuReaderPopulation(final File theFile, String theUser, String theProjName, String type) throws FileNotFoundException {
         contents = theFile;
+        user = theUser;
+        projName = theProjName;
+        theType = type;
         leftPanel = new JPanel();
         setup();
     }
 
     private void setup() throws FileNotFoundException {
+        this.setLocation(SCREEN_WIDTH / 2 - this.getWidth() / 2,
+                SCREEN_HEIGHT / 2 - this.getHeight() / 2);
+        this.setSize(SCREEN_WIDTH / SCALE, SCREEN_HEIGHT / SCALE);
         this.add(leftPanel, BorderLayout.WEST);
 
         // Initialize the Scanner with the provided contents
@@ -60,6 +88,15 @@ public class MenuReaderPopulation extends JFrame{
         }
 
         sc.close();
+        JButton addButton = new JButton("Add Item");
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddItem(contents, user, projName, theType);
+            }
+        });
+
+        leftPanel.add(addButton);
         this.setVisible(true);
 
     }

@@ -22,6 +22,5 @@ public class Driver {
      */
     public static void main(final String[] theArgs) throws FileNotFoundException {
         new MainGUI();
-        new MenuReaderPopulation(new File("src/Test.txt"));
     }
 }

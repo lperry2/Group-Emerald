@@ -50,15 +50,22 @@ public class CreateProjectFrame extends JFrame {
 
     private JPanel creationPanel;
 
+    private JTextField pinField;
+
     private boolean isPrivate;
 
-    public CreateProjectFrame() {
+    private String userName;
+
+    public CreateProjectFrame(String user) {
         super("Create New Project");
+        //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
         newProjectName = "";
         newProjectBudget = "";
         nameField = new JTextField(15);
         budgetField = new JTextField(10);
+        pinField = new JTextField(10);
+        userName = user;
         start();
     }
 
@@ -77,7 +84,7 @@ public class CreateProjectFrame extends JFrame {
                 SCREEN_HEIGHT / 2 - this.getHeight() / 2);
 
         // Set the default close operation to close on exit
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //adds name and budget text fields and create project button
         setupComponents();
@@ -100,19 +107,42 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(budgetLabel);
         creationPanel.add(budgetField);
 
+        JLabel pinLabel = new JLabel("Enter PIN"); // make label but don't add immediately
+        JTextField privatePin = new JTextField(5);
+        privatePin.setVisible(false);
+
         JCheckBox privateCheckBox = new JCheckBox("Private");
         creationPanel.add(privateCheckBox);
-        privateCheckBox.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                creationPanel.add(new JLabel("Enter PIN"));
-                JTextField privatePin = new JTextField(5);
-                creationPanel.add(privatePin);
 
+        pinLabel.setVisible(false);
+        creationPanel.add(pinLabel);
+
+        creationPanel.add(privatePin);
+        privateCheckBox.addActionListener(new ActionListener() {
+            /**
+             * If the private box is selected, a text field to enter the
+             * pin will appear. If it is not selected, then it will not
+             * appear on the frame.
+             *
+             * @param e the event to be processed
+             * @author Owen Orlic
+             */
+            public void actionPerformed(ActionEvent e) {
+
+                if (isPrivate) {
+                    pinLabel.setVisible(false);
+                    privatePin.setVisible(false);
+                    isPrivate = false;
+
+                } else {
+                    pinLabel.setVisible(true);
+                    privatePin.setVisible(true);
+                    isPrivate = true;
+                }
             }
         });
 
         this.add(creationPanel, BorderLayout.NORTH);
-
         JButton createProjectBtn = new JButton("Create Project");
         createProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -128,7 +158,7 @@ public class CreateProjectFrame extends JFrame {
                     writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
                     writer.close();
                     //Creation of project files is here! File initializers should be worked on a separate method for each
-                    File dir = new File("src/" + newProjectName);
+                    File dir = new File("src/" + userName + "/" + newProjectName);
                     dir.mkdirs();
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();
