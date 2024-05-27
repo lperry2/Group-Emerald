@@ -334,7 +334,8 @@ public class MainGUI {
             addProj.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
-                    CreateProjectFrame createFrame = new CreateProjectFrame();
+                    //         pass in the currecntUser
+                    CreateProjectFrame createFrame = new CreateProjectFrame(myUserInfo.getCurrentUser());
                     createFrame.addPropertyChangeListener(new PropertyChangeListener() {
                         @Override
                         public void propertyChange(PropertyChangeEvent evt) {
@@ -386,7 +387,7 @@ public class MainGUI {
                             //System.out.println("here");
                             //class(file)
                         //}
-                        new OptionFrame(projName);
+                        new OptionFrame(projName, myUserInfo.getCurrentUser());
                     }
                 });
 

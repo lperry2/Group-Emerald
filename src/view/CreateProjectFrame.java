@@ -54,17 +54,18 @@ public class CreateProjectFrame extends JFrame {
 
     private boolean isPrivate;
 
-    public CreateProjectFrame() {
+    private String userName;
+
+    public CreateProjectFrame(String user) {
         super("Create New Project");
-        //this.setLayout(new FlowLayout());
+        //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
-        //creationPanel.setLayout(new BorderLayout());
         newProjectName = "";
         newProjectBudget = "";
         nameField = new JTextField(15);
         budgetField = new JTextField(10);
         pinField = new JTextField(10);
-
+        userName = user;
         start();
     }
 
@@ -117,7 +118,6 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(pinLabel);
 
         creationPanel.add(privatePin);
-
         privateCheckBox.addActionListener(new ActionListener() {
             /**
              * If the private box is selected, a text field to enter the
@@ -139,12 +139,10 @@ public class CreateProjectFrame extends JFrame {
                     privatePin.setVisible(true);
                     isPrivate = true;
                 }
-
             }
         });
 
-        this.add(creationPanel, BorderLayout.CENTER);
-
+        this.add(creationPanel, BorderLayout.NORTH);
         JButton createProjectBtn = new JButton("Create Project");
         createProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -160,7 +158,7 @@ public class CreateProjectFrame extends JFrame {
                     writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
                     writer.close();
                     //Creation of project files is here! File initializers should be worked on a separate method for each
-                    File dir = new File("src/" + newProjectName);
+                    File dir = new File("src/" + userName + "/" + newProjectName);
                     dir.mkdirs();
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();
