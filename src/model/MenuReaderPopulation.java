@@ -93,6 +93,7 @@ public class MenuReaderPopulation extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AddItem(contents, user, projName, theType);
+                dispose();
             }
         });
 

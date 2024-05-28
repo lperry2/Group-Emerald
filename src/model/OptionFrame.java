@@ -1,12 +1,23 @@
 package src.model;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 
 public class OptionFrame extends JFrame {
+    /** A ToolKit. */
+    private static final Toolkit KIT = Toolkit.getDefaultToolkit();
+
+    /** The Dimension of the screen. */
+    private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
+    /** The width of the screen. */
+    private static final int SCREEN_WIDTH = SCREEN_SIZE.width;
+
+    /** The height of the screen. */
+    private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
     JMenuBar myMenu = new JMenuBar();
     String theProjName;
 
@@ -24,6 +35,8 @@ public class OptionFrame extends JFrame {
         menuMaker("Budget");
         menuMaker("Files");
         menuMaker("Journal");
+        this.setLocation(0,0);
+        this.setSize(SCREEN_WIDTH/4, SCREEN_HEIGHT/4);
     }
 
     public void menuMaker(String type) {

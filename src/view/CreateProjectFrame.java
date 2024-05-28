@@ -154,8 +154,8 @@ public class CreateProjectFrame extends JFrame {
                 Budget projectBudget = new Budget(Double.parseDouble(newProjectBudget));
 
                 // Write the project data to a file
-                try (FileWriter writer = new FileWriter("project_data.txt", true)) {
-                    writer.write("\n"+ "Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget);
+                try (FileWriter writer = new FileWriter("src/" + userName + "/Projects.txt", true)) {
+                    writer.write("Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget + "\n");
                     writer.close();
                     //Creation of project files is here! File initializers should be worked on a separate method for each
                     File dir = new File("src/" + userName + "/" + newProjectName);

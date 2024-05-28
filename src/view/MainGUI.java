@@ -62,7 +62,7 @@ public class MainGUI {
     private final ProjectListPanel myPLPanel;
 
     /** The panel that contains the project list*/
-    private final ProjectViewPanel myPVPanel;
+    private ProjectViewPanel myPVPanel;
 
     /**
      * The no argument constructor for the PaintGUI class
@@ -75,7 +75,7 @@ public class MainGUI {
         myUserInfo = new LoginPanel();
         myAboutPanel = new AboutPanel();
         myPLPanel = new ProjectListPanel();
-        myPVPanel = new ProjectViewPanel();
+        myPVPanel = null;
 
         // setup and display the GUI
         start();
@@ -169,6 +169,7 @@ public class MainGUI {
                                 myUserInfo.setVisible(false);
                                 myFrame.add(myAboutPanel, BorderLayout.SOUTH);
                                 myFrame.add(myPLPanel, BorderLayout.NORTH);
+                                myPVPanel = new ProjectViewPanel();
                                 myFrame.add(myPVPanel,BorderLayout.CENTER);
                             }
                         }
@@ -207,10 +208,10 @@ public class MainGUI {
 
                         //try catch was being weird!! needs fixed
                         try (Scanner temp = new Scanner("src/Users.txt")) {
-                            File projects = new File(dir, "Projects");
+                            File projects = new File(dir, "Projects.txt");
 
                             projects.createNewFile();
-                            projects.mkdirs();
+                            //projects.mkdirs();
 
 
                             JOptionPane.showConfirmDialog(null, "Thank you for registering! Please sign in with your new credentials.");
@@ -370,12 +371,13 @@ public class MainGUI {
 
             Scanner sc = null;
             try {
-                sc = new Scanner(new File("project_data.txt"));
+                sc = new Scanner(new File("src/" + myUserInfo.getCurrentUser() + "/Projects.txt"));
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
+
                 String[] nameBudge = line.split("\t");
                 String projName = nameBudge[0].split(": ")[1];
                 //File f = new File("src/"+projName);
