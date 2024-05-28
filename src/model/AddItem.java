@@ -41,6 +41,7 @@ public class AddItem extends JFrame {
     private void setup() {
         this.setLocation(SCREEN_WIDTH / 2 - this.getWidth() / 2,
                 SCREEN_HEIGHT / 2 - this.getHeight() / 2);
+        this.setSize(SCREEN_WIDTH/3, SCREEN_HEIGHT/2);
         this.setLayout(new BorderLayout());
         questionare.setLayout(new GridLayout(0, 1));
         content.setRows(5);
@@ -59,6 +60,8 @@ public class AddItem extends JFrame {
                     PrintStream myStream  = new PrintStream(new FileOutputStream(theFile, true));
                     myStream.println("\n-" + "\n" + label.getText() + "\n" + content.getText() + "\n-");
                     myStream.close();
+                    dispose();
+                    new MenuReaderPopulation(theFile, theUser, theProj, theType);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
