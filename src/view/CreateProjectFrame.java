@@ -108,8 +108,8 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(budgetField);
 
         JLabel pinLabel = new JLabel("Enter PIN"); // make label but don't add immediately
-        JTextField privatePin = new JTextField(5);
-        privatePin.setVisible(false);
+        JTextField privatePinField = new JTextField(5);
+        privatePinField.setVisible(false);
 
         JCheckBox privateCheckBox = new JCheckBox("Private");
         creationPanel.add(privateCheckBox);
@@ -117,7 +117,7 @@ public class CreateProjectFrame extends JFrame {
         pinLabel.setVisible(false);
         creationPanel.add(pinLabel);
 
-        creationPanel.add(privatePin);
+        creationPanel.add(privatePinField);
         privateCheckBox.addActionListener(new ActionListener() {
             /**
              * If the private box is selected, a text field to enter the
@@ -131,12 +131,12 @@ public class CreateProjectFrame extends JFrame {
 
                 if (isPrivate) {
                     pinLabel.setVisible(false);
-                    privatePin.setVisible(false);
+                    privatePinField.setVisible(false);
                     isPrivate = false;
 
                 } else {
                     pinLabel.setVisible(true);
-                    privatePin.setVisible(true);
+                    privatePinField.setVisible(true);
                     isPrivate = true;
                 }
             }
@@ -155,7 +155,11 @@ public class CreateProjectFrame extends JFrame {
 
                 // Write the project data to a file
                 try (FileWriter writer = new FileWriter("src/" + userName + "/Projects.txt", true)) {
-                    writer.write("Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget + "\n");
+                    if (isPrivate) {
+                        writer.write("Project Name: ~" + newProjectName + "\t" + "Project Budget: " + newProjectBudget + "\n");
+                    } else {
+                        writer.write("Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget + "\n");
+                    }
                     writer.close();
                     //Creation of project files is here! File initializers should be worked on a separate method for each
                     File dir = new File("src/" + userName + "/" + newProjectName);
@@ -169,15 +173,17 @@ public class CreateProjectFrame extends JFrame {
                     File fileFile = new File(dir, "Files.txt");
                     fileFile.createNewFile();
                     fileInitializer(fileFile, "Files");
+
                     // Load the custom PNG file
-                    ImageIcon icon = new ImageIcon("src/project pete.png");
+                    ImageIcon icon = new ImageIcon("src/images/projectpete.png");
                     Image img = icon.getImage();
                     // Resize the image to 50x50 pixels
-                    Image resizedImg = img.getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+                    Image resizedImg = img.getScaledInstance(100, 75, Image.SCALE_SMOOTH);
                     ImageIcon resizedIcon = new ImageIcon(resizedImg);
 
                     // Show success message with the resized custom icon
-                    JOptionPane.showMessageDialog(null, "Project data saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
+                    JOptionPane.showMessageDialog(null, "Project data saved successfully!",
+                                                "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
                     myPCS.firePropertyChange("repaint", null, null);
                     dispose();
                 } catch (IOException e) {
