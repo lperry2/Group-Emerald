@@ -9,14 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_2024_7_26_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_2024_7_26_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_30_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_30_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_36_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oo/Projects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oo/Projects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +49,12 @@
     &quot;assignee&quot;: &quot;aewing24&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/lperry2/Group-Emerald.git&quot;,
-    &quot;accountId&quot;: &quot;c5620831-e811-4b41-b5a9-f5a6f3396279&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/lperry2/Group-Emerald.git",
+    "accountId": "c5620831-e811-4b41-b5a9-f5a6f3396279"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -201,7 +206,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716513282664</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1716957571206</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716957571206</updated>
+    </task>
+    <task id="LOCAL-00012" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1716957583372</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716957583372</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +271,8 @@
     <MESSAGE value="I added javadoc comments to what we have of the project class. I also changed the variables to the coding conventions we decided to follow." />
     <MESSAGE value="Commit" />
     <MESSAGE value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
-    <option name="LAST_COMMIT_MESSAGE" value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
+    <MESSAGE value="makin it look better" />
+    <option name="LAST_COMMIT_MESSAGE" value="makin it look better" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Group_Emerald$Driver.ic" NAME="Driver Coverage Results" MODIFIED="1716341354433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
