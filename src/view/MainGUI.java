@@ -10,10 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
 
 /**
  * The main GUI class for the Project Partner Application.
@@ -44,10 +47,10 @@ public class MainGUI {
     private static final String APP_TITLE = "Project Partner";
 
     /** The icon for project Pete. */
-    private static final ImageIcon PAINT_ICON = new ImageIcon("src/project pete.png");
+    private static final ImageIcon PAINT_ICON = new ImageIcon("src/images/projectpete.png");
 
     // This is the version constant for the project
-    public static String VERSION = "1.0";
+    //public static String VERSION = "1.0";
 
     /** The JFrame that everything is built on. */
     private final JFrame myFrame;
@@ -142,6 +145,8 @@ public class MainGUI {
             this.add(userEmailLabel);
             this.add(emailField);
 
+
+
             JButton loginBtn = new JButton("Login");
             loginBtn.addActionListener(new ActionListener() {
                 /**
@@ -149,8 +154,8 @@ public class MainGUI {
                  * to the project page. If not a JOptionPane pops up explaining no user
                  * was found.
                  *
-                 * @param arg0 the event to be processed
                  * @author Owen Orlic
+                 * @param arg0 the event to be processed
                  */
                 public void actionPerformed(ActionEvent arg0) {
                     // adds the user to the users.txt file if not included
@@ -176,17 +181,12 @@ public class MainGUI {
 
                         //if there is no registered user with that username
                         if (notFound) {
-                            JOptionPane.showMessageDialog(null, "No User Found", "Sorry", JOptionPane.OK_OPTION);
+                            JOptionPane.showMessageDialog(null, "No User Found", "Sorry", JOptionPane.OK_OPTION, makePeteSmall());
                         }
                     } catch (FileNotFoundException e) {
                         JOptionPane.showMessageDialog(null, "Issue Finding FilePath");
                     }
 
-                    // Sets up the main/about panels
-//                    myUserInfo.setVisible(false);
-//                    myFrame.add(myAboutPanel, BorderLayout.SOUTH);
-//                    myFrame.add(myPLPanel, BorderLayout.NORTH);
-//                    myFrame.add(myPVPanel,BorderLayout.CENTER);
                 }
             });
             this.add(loginBtn);
@@ -207,14 +207,15 @@ public class MainGUI {
                         dir.mkdirs();
 
                         //try catch was being weird!! needs fixed
-                        try (Scanner temp = new Scanner("src/Users.txt")) {
+                        try {
+                            Scanner temp = new Scanner("src/Users.txt");
                             File projects = new File(dir, "Projects.txt");
 
                             projects.createNewFile();
-                            //projects.mkdirs();
 
-
-                            JOptionPane.showConfirmDialog(null, "Thank you for registering! Please sign in with your new credentials.");
+                            //Show successful registration
+                            JOptionPane.showMessageDialog(null, "Thank you for registering! Please sign in with your new credentials.",
+                                                            "Successful Registration", JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
                         } catch (IOException exp) {
                             exp.printStackTrace();
                         }
@@ -222,6 +223,18 @@ public class MainGUI {
                 }
             });
             this.add(registerBtn);
+
+            // add the Project Partner logo to fill the space
+            try {
+                BufferedImage logo = ImageIO.read(new File("src/images/projectpartner.png"));
+                JLabel logoLabel = new JLabel(new ImageIcon(logo));
+                //ImageIcon projectPartnerLogo = new ImageIcon("src/Project Partner.png");
+                this.add(logoLabel);
+            } catch (IOException e) {
+                System.out.print(e);
+            }
+
+
         }
 
         /** Adds the name and email to the users.txt file if not already included. */
@@ -256,6 +269,23 @@ public class MainGUI {
         public String getCurrentEmail() {
             return currentEmail;
         }
+
+        /**
+         * Method that returns a small pete for JOptionPanes.
+         *
+         * @author Daniel
+         * @return little version of pete
+         */
+        private static ImageIcon makePeteSmall() {
+            //code to make pete normal-sized
+            ImageIcon icon = new ImageIcon("src/images/projectpete.png");
+            Image img = icon.getImage();
+            // Resize the image to 50x50 pixels
+            Image resizedImg = img.getScaledInstance(100, 75, Image.SCALE_SMOOTH);
+            ImageIcon resizedIcon = new ImageIcon(resizedImg);
+            return resizedIcon;
+        }
+
     }
 
     /**
@@ -265,25 +295,33 @@ public class MainGUI {
      * */
     private final class AboutPanel extends JPanel {
 
+        /** The version of the project. */
+        public static String VERSION = "2.3";
+
         /** The no args constructor for the AboutPanel class. */
         public AboutPanel() {
             setup();
         }
 
-        /** Sets up the AboutPanel. */
+        /** Sets up the AboutPanel.
+         *
+         * @author Alex
+         */
         private void setup() {
             JButton aboutBtn = new JButton("About");
             this.add(aboutBtn);
             aboutBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
-                    JOptionPane.showMessageDialog(null, "This app is registered to: " + myUserInfo.getCurrentUser() +"\n" +
+                    JOptionPane.showMessageDialog(null, "This app is registered to: " + myUserInfo.getCurrentUser() + " (" + myUserInfo.getCurrentEmail() + ")" + "\n \n"  +
                             "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
-                            "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\nVersion: " + VERSION,
-                            "About", JOptionPane.PLAIN_MESSAGE, new ImageIcon("src/project pete.png"));
+                            "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\n \nVersion: " + VERSION + "\n <-- Project Pete!",
+                            "About", JOptionPane.PLAIN_MESSAGE, new ImageIcon("src/images/projectpete.png"));
                 }
             });
         }
+
+
     }
 
     /**

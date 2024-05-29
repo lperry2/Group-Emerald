@@ -35,8 +35,11 @@ public class OptionFrame extends JFrame {
         menuMaker("Budget");
         menuMaker("Files");
         menuMaker("Journal");
-        this.setLocation(0,0);
-        this.setSize(SCREEN_WIDTH/4, SCREEN_HEIGHT/4);
+
+        //set to cover the previous frame
+        this.setLocation(SCREEN_WIDTH / 2 - SCREEN_WIDTH / 4,
+                SCREEN_HEIGHT / 2 - SCREEN_HEIGHT / 4);
+        this.setSize(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     }
 
     public void menuMaker(String type) {
@@ -44,7 +47,7 @@ public class OptionFrame extends JFrame {
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("REaches here");
+                //System.out.println("REaches here");
                File f =  new File("src/" + theUser + "/" + theProjName + "/" + type + ".txt");
                 try {
                     new MenuReaderPopulation(f, theUser, theProjName, type);
