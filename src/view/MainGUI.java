@@ -416,17 +416,44 @@ public class MainGUI {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
 
+                //gets an array of {"Project Name: 'name', "Project Budget: 'budget'}
                 String[] nameBudge = line.split("\t");
+                //splits the name portion again to just have the name itself and not "Project Name"
                 String projName = nameBudge[0].split(": ")[1];
-                //File f = new File("src/"+projName);
+
+                //checking if the project should be private
+                boolean isPrivate = false;
+                String pin = "";
+                char[] charProjName = new char[projName.length()];
+                projName.getChars(0, projName.length() - 1, charProjName, 0);
+
+                //if projects name start with a ~ then they are private
+                if ('~' == charProjName[0]) {
+                    isPrivate = true;
+                    pin = projName.substring(projName.length() - 4, projName.length());
+                    System.out.println(pin);
+                }
+
+
+
                 JButton button = new JButton(line);
+                String finalPin = pin;
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(final ActionEvent theEvent) {
-                        //if(f.isDirectory()) {
-                            //System.out.println("here");
-                            //class(file)
-                        //}
+
+                        boolean enteredCorrectly = false;
+                        while (!enteredCorrectly) {
+                            String givenPin = JOptionPane.showInputDialog("Please Enter PIN");
+                            if (givenPin.equals(finalPin)) {
+                                enteredCorrectly = true;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "PIN Not Recognized. Please Enter Again.");
+
+                            }
+                        }
+
+
                         new OptionFrame(projName, myUserInfo.getCurrentUser());
                     }
                 });
