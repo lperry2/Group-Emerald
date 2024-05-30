@@ -24,20 +24,22 @@ public class MenuReaderPopulation extends JFrame{
 
     /** The height of the screen. */
     private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
-    private final File contents;
+    private final File myContents;
 
-    private final String user;
+    private final String myUser;
 
-    private final String projName;
+    private final String myProjName;
 
-    private final String theType;
-    private JPanel leftPanel;
-    public MenuReaderPopulation(final File theFile, String theUser, String theProjName, String type) throws FileNotFoundException {
-        contents = theFile;
-        user = theUser;
-        projName = theProjName;
-        theType = type;
-        leftPanel = new JPanel();
+    private final String myType;
+
+    private JPanel myLeftPanel;
+
+    public MenuReaderPopulation(final File theFile, String theUser, String theProjName, String theType) throws FileNotFoundException {
+        myContents = theFile;
+        myUser = theUser;
+        myProjName = theProjName;
+        myType = theType;
+        myLeftPanel = new JPanel();
         setup();
     }
 
@@ -45,11 +47,11 @@ public class MenuReaderPopulation extends JFrame{
         this.setLocation(SCREEN_WIDTH / 2 - this.getWidth() / 2,
                 SCREEN_HEIGHT / 2 - this.getHeight() / 2);
         this.setSize(SCREEN_WIDTH / SCALE, SCREEN_HEIGHT / SCALE);
-        this.add(leftPanel, BorderLayout.WEST);
+        this.add(myLeftPanel, BorderLayout.WEST);
 
-        // Initialize the Scanner with the provided contents
-        Scanner sc = new Scanner(contents);
-        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+        // Initialize the Scanner with the provided myContents
+        Scanner sc = new Scanner(myContents);
+        myLeftPanel.setLayout(new BoxLayout(myLeftPanel, BoxLayout.Y_AXIS));
         while (sc.hasNextLine()) {
             String symbol = sc.nextLine();
             if ("+".equals(symbol)) {
@@ -83,7 +85,7 @@ public class MenuReaderPopulation extends JFrame{
                 contentLabel.setHorizontalAlignment(JLabel.CENTER);
                 panel.add(titleLabel, BorderLayout.PAGE_START);
                 panel.add(contentLabel, BorderLayout.CENTER);
-                leftPanel.add(panel);
+                myLeftPanel.add(panel);
             }
         }
 
@@ -92,12 +94,12 @@ public class MenuReaderPopulation extends JFrame{
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddItem(contents, user, projName, theType);
+                new AddItem(myContents, myUser, myProjName, myType);
                 dispose();
             }
         });
 
-        leftPanel.add(addButton);
+        myLeftPanel.add(addButton);
         this.setVisible(true);
 
     }

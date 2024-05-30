@@ -358,14 +358,7 @@ public class MainGUI {
                     projectLabel.setText("File not found");
                     projectLabel.setForeground(Color.RED);
                     projectLabel.setVisible(true);
-
-                    // Trying to create a popup window to tell the user that the project was not found
-//                    JLabel messageLabel = new JLabel("Project not found");
-//                    messageLabel.setVisible(true);
-//                    messageLabel.setForeground(Color.RED);
                 }
-
-
             });
             this.add(searchBtn);
 
@@ -427,16 +420,23 @@ public class MainGUI {
                 char[] charProjName = new char[projName.length()];
                 projName.getChars(0, projName.length() - 1, charProjName, 0);
 
+                //set up string for displaying the project info on project search screen
+                String displayName = "Project Name: ";
+
                 //if projects name start with a ~ then they are private
                 if ('~' == charProjName[0]) {
                     isPrivate = true;
                     pin = projName.substring(projName.length() - 4, projName.length());
-                    System.out.println(pin);
+                    //add only the name of the project to the display name, not the ~ or pin
+                    displayName += projName.substring(1, projName.length() - 4);
+                } else {
+                    displayName += projName;
                 }
 
+                //add the budget to the display name
+                displayName += " | " + nameBudge[1];
 
-
-                JButton button = new JButton(line);
+                JButton button = new JButton(displayName);
                 String finalPin = pin;
                 button.addActionListener(new ActionListener() {
                     @Override
@@ -448,7 +448,8 @@ public class MainGUI {
                             if (givenPin.equals(finalPin)) {
                                 enteredCorrectly = true;
                             } else {
-                                JOptionPane.showMessageDialog(null, "PIN Not Recognized. Please Enter Again.");
+                                JOptionPane.showMessageDialog(null, "PIN Not Recognized. Please Enter Again.",
+                                                                "Uh Oh", JOptionPane.INFORMATION_MESSAGE, LoginPanel.makePeteSmall());
 
                             }
                         }
