@@ -1,7 +1,5 @@
 Project Name: blah	Project Budget: 10000
 Project Name: blafh	Project Budget: 90
 Project Name: other the third	Project Budget: 9
-Project Name: ~PrivateProject	Project Budget: 400
-Project Name: ~private	Project Budget: 5432
-Project Name: ~priv	Project Budget: 65432
 Project Name: ~privtest1234	Project Budget: 4567
+Project Name: ~supersecret1234	Project Budget: 123456
