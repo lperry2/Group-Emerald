@@ -1,56 +1,5 @@
 oo | oo@uw.edu
 ae | ae@uw.edu
 da | da@uw.edu
-dd | dd
-rr | rr
-tt | tt
-qq | qq
- dsa | sz d
- dsa | sz d
-dan | 123
-dan | 123
-sasfcdsaf | asddsc
-a | sdc
-fvc | dsg 
-v xc | xf 
-v xc | xf
-vxc | xf
-dsf  | dfs
-asd | 123
-dfdf | 232
-cx | 33
-ddd | cc
-ggg | 23
-dd | 1212
-csdcs | 99
-sdfv | xfc
-sd | sd
-dd | cc
-dfgf | b
-ddd | 000
-Daniel | danisan@uw.edu
-ss | dan
-drv | dfd
-dan | 12
-fsf | 23
-dg | fg
-jhbj | 35654
-fwef | fvsdf
-help | erer
-atest | rfr
-dan | 123
-po | po
-newboy | newboy@yahoo
-oo | oo
-jeffw | jeffw@uw.edu
-jeffw | jeff@uw.edu
-new user | new email
-newuser | newemail
-tre | trfd
- | 
-gfd | hgfd
-mnbvcx | nbvc
-fgd | 
-fds | 
-fds | fds
-gfds | fds
+lp | lp@uw.edu
+newguy | newguy@gmail.com

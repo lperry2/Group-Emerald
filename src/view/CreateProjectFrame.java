@@ -48,10 +48,12 @@ public class CreateProjectFrame extends JFrame {
     /** Budget of the new project. */
     private String newProjectBudget;
 
+    /** Panel that holds all the text fields. */
     private JPanel creationPanel;
 
     private JTextField pinField;
 
+    /** Tracks if the project should be private. */
     private boolean isPrivate;
 
     private String userName;
@@ -62,9 +64,9 @@ public class CreateProjectFrame extends JFrame {
         creationPanel = new JPanel();
         newProjectName = "";
         newProjectBudget = "";
-        nameField = new JTextField(15);
+        nameField = new JTextField(10);
         budgetField = new JTextField(10);
-        pinField = new JTextField(10);
+        pinField = new JTextField(5);
         userName = user;
         start();
     }
@@ -77,7 +79,7 @@ public class CreateProjectFrame extends JFrame {
      */
     private void start() {
         // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
-        this.setSize(SCREEN_WIDTH / SCALE, SCREEN_HEIGHT / SCALE);
+        this.setSize(SCREEN_WIDTH / SCALE + 135, SCREEN_HEIGHT / SCALE);
 
         // Set the location of the JFrame to the center
         this.setLocation(SCREEN_WIDTH / 2 - this.getWidth() / 2,
@@ -107,9 +109,11 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(budgetLabel);
         creationPanel.add(budgetField);
 
+
+
         JLabel pinLabel = new JLabel("Enter PIN"); // make label but don't add immediately
-        JTextField privatePinField = new JTextField(5);
-        privatePinField.setVisible(false);
+        //pinField = new JTextField(5);
+        pinField.setVisible(false);
 
         JCheckBox privateCheckBox = new JCheckBox("Private");
         creationPanel.add(privateCheckBox);
@@ -117,7 +121,7 @@ public class CreateProjectFrame extends JFrame {
         pinLabel.setVisible(false);
         creationPanel.add(pinLabel);
 
-        creationPanel.add(privatePinField);
+        creationPanel.add(pinField);
         privateCheckBox.addActionListener(new ActionListener() {
             /**
              * If the private box is selected, a text field to enter the
@@ -131,12 +135,12 @@ public class CreateProjectFrame extends JFrame {
 
                 if (isPrivate) {
                     pinLabel.setVisible(false);
-                    privatePinField.setVisible(false);
+                    pinField.setVisible(false);
                     isPrivate = false;
 
                 } else {
                     pinLabel.setVisible(true);
-                    privatePinField.setVisible(true);
+                    pinField.setVisible(true);
                     isPrivate = true;
                 }
             }
@@ -150,19 +154,27 @@ public class CreateProjectFrame extends JFrame {
                 newProjectName = nameField.getText();
                 newProjectBudget = budgetField.getText();
 
+
                 // Create Budget object (if necessary for other operations)
                 Budget projectBudget = new Budget(Double.parseDouble(newProjectBudget));
 
                 // Write the project data to a file
                 try (FileWriter writer = new FileWriter("src/" + userName + "/Projects.txt", true)) {
-                    if (isPrivate) {
-                        writer.write("Project Name: ~" + newProjectName + "\t" + "Project Budget: " + newProjectBudget + "\n");
+                    if (privateCheckBox.isSelected()) {
+                        //if projects are private they will take the form "~ProjectName1234" with 1234 being the pin
+                        writer.write("Project Name: ~" + newProjectName + pinField.getText() + "\t" + "Project Budget: " + newProjectBudget + "\n");
                     } else {
                         writer.write("Project Name: " + newProjectName + "\t" + "Project Budget: " + newProjectBudget + "\n");
                     }
                     writer.close();
+
                     //Creation of project files is here! File initializers should be worked on a separate method for each
-                    File dir = new File("src/" + userName + "/" + newProjectName);
+                    File dir;
+                    if (privateCheckBox.isSelected()) {
+                        dir = new File("src/" + userName + "/" + "~" + newProjectName);
+                    } else {
+                        dir = new File("src/" + userName + "/" + newProjectName);
+                    }
                     dir.mkdirs();
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();

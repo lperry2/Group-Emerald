@@ -49,9 +49,6 @@ public class MainGUI {
     /** The icon for project Pete. */
     private static final ImageIcon PAINT_ICON = new ImageIcon("src/images/projectpete.png");
 
-    // This is the version constant for the project
-    //public static String VERSION = "1.0";
-
     /** The JFrame that everything is built on. */
     private final JFrame myFrame;
 
@@ -358,14 +355,7 @@ public class MainGUI {
                     projectLabel.setText("File not found");
                     projectLabel.setForeground(Color.RED);
                     projectLabel.setVisible(true);
-
-                    // Trying to create a popup window to tell the user that the project was not found
-//                    JLabel messageLabel = new JLabel("Project not found");
-//                    messageLabel.setVisible(true);
-//                    messageLabel.setForeground(Color.RED);
                 }
-
-
             });
             this.add(searchBtn);
 
@@ -416,17 +406,52 @@ public class MainGUI {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
 
+                //gets an array of {"Project Name: 'name', "Project Budget: 'budget'}
                 String[] nameBudge = line.split("\t");
+                //splits the name portion again to just have the name itself and not "Project Name"
                 String projName = nameBudge[0].split(": ")[1];
-                //File f = new File("src/"+projName);
-                JButton button = new JButton(line);
+
+                //checking if the project should be private
+                boolean isPrivate = false;
+                String pin = "";
+                char[] charProjName = new char[projName.length()];
+                projName.getChars(0, projName.length() - 1, charProjName, 0);
+
+                //set up string for displaying the project info on project search screen
+                String displayName = "Project Name: ";
+
+                //if projects name start with a ~ then they are private
+                if ('~' == charProjName[0]) {
+                    isPrivate = true;
+                    pin = projName.substring(projName.length() - 4, projName.length());
+                    //add only the name of the project to the display name, not the ~ or pin
+                    displayName += projName.substring(1, projName.length() - 4);
+                } else {
+                    displayName += projName;
+                }
+
+                //add the budget to the display name
+                displayName += " | " + nameBudge[1];
+
+                JButton button = new JButton(displayName);
+                String finalPin = pin;
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(final ActionEvent theEvent) {
-                        //if(f.isDirectory()) {
-                            //System.out.println("here");
-                            //class(file)
-                        //}
+
+                        boolean enteredCorrectly = false;
+                        while (!enteredCorrectly && '~' == charProjName[0]) {
+                            String givenPin = JOptionPane.showInputDialog("Please Enter PIN");
+                            if (givenPin.equals(finalPin)) {
+                                enteredCorrectly = true;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "PIN Not Recognized. Please Enter Again.",
+                                                                "Uh Oh", JOptionPane.INFORMATION_MESSAGE, LoginPanel.makePeteSmall());
+
+                            }
+                        }
+
+
                         new OptionFrame(projName, myUserInfo.getCurrentUser());
                     }
                 });

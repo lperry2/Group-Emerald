@@ -24,7 +24,7 @@ public class OptionFrame extends JFrame {
     String theUser;
     public OptionFrame(String theProjectName, String user) {
         this.setJMenuBar(myMenu);
-        theProjName = theProjectName;
+        theProjName = checkIfPrivate(theProjectName);
         theUser = user;
         setup();
         this.setVisible(true);
@@ -58,5 +58,29 @@ public class OptionFrame extends JFrame {
             }
         });
         myMenu.add(menu);
+    }
+
+    /**
+     * Used to check if a project is private by seeing if the last
+     * character of the project name is a number.
+     *
+     * @author Owen Orlic
+     * @param theName a project name
+     * @return if the project is private
+     */
+    private static String checkIfPrivate(String theName) {
+        //don't include pin numbers in project name
+        int len = theName.length();
+        String[] nums = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        for (int i = 0; i < 10; i++) {
+
+            //checks if there is a number in the name
+            //means no numbers allowed in project names for now!!!
+            if (theName.contains(nums[i])) {
+                theName = theName.substring(0, len - 4);
+
+            }
+        }
+        return theName;
     }
 }
