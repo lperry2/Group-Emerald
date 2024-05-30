@@ -1,5 +1,4 @@
-Project Name: blah	Project Budget: 10000
-Project Name: blafh	Project Budget: 90
-Project Name: other the third	Project Budget: 9
-Project Name: ~privtest1234	Project Budget: 4567
-Project Name: ~supersecret1234	Project Budget: 123456
+Project Name: Kitchen	Project Budget: 8000
+Project Name: Chicken Coop	Project Budget: 400
+Project Name: Car	Project Budget: 850
+Project Name: ~Dungeon1234	Project Budget: 30000

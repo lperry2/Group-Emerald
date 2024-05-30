@@ -49,9 +49,6 @@ public class MainGUI {
     /** The icon for project Pete. */
     private static final ImageIcon PAINT_ICON = new ImageIcon("src/images/projectpete.png");
 
-    // This is the version constant for the project
-    //public static String VERSION = "1.0";
-
     /** The JFrame that everything is built on. */
     private final JFrame myFrame;
 
@@ -443,7 +440,7 @@ public class MainGUI {
                     public void actionPerformed(final ActionEvent theEvent) {
 
                         boolean enteredCorrectly = false;
-                        while (!enteredCorrectly) {
+                        while (!enteredCorrectly && '~' == charProjName[0]) {
                             String givenPin = JOptionPane.showInputDialog("Please Enter PIN");
                             if (givenPin.equals(finalPin)) {
                                 enteredCorrectly = true;
