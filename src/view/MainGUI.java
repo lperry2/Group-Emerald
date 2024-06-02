@@ -64,6 +64,8 @@ public class MainGUI {
     /** The panel that contains the project list*/
     private ProjectViewPanel myPVPanel;
 
+    private User myUser;
+
     /**
      * The no argument constructor for the PaintGUI class
      * that initializes the fields and sets up the frame.
@@ -167,6 +169,8 @@ public class MainGUI {
                                 currentEmail = emailField.getText();
                                 notFound = false; //mark the user as found
 
+                                makeUser(currentUser, currentEmail);
+
                                 //changes the frame
                                 myUserInfo.setVisible(false);
                                 myFrame.add(myAboutPanel, BorderLayout.SOUTH);
@@ -247,6 +251,15 @@ public class MainGUI {
                 throw new RuntimeException(e);
             }
 
+        }
+
+        private void makeUser(String theUsername, String theEmail) {
+            try (Scanner scan = new Scanner(new File("src/" + theUsername))) {
+
+                myUser = new User()
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         }
 
         /**
