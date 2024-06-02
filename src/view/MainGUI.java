@@ -358,7 +358,7 @@ public class MainGUI {
 
         /**
          * Sets up the Project searchPanel.
-         *  @author Alex Ewing
+         * @author Alex Ewing
          */
         private void setup() {
             JLabel projectLabel = new JLabel("Project");
