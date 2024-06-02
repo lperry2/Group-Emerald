@@ -348,7 +348,7 @@ public class MainGUI {
 
         /**
          * The no args constructor for the ProjectListPanel class.
-         *  @author Alex Ewing
+         * @author Alex Ewing
          */
         public ProjectListPanel() {
             projectField = new JTextField(20);
