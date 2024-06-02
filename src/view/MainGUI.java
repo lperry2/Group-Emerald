@@ -67,6 +67,7 @@ public class MainGUI {
     /**
      * The no argument constructor for the PaintGUI class
      * that initializes the fields and sets up the frame.
+     * @author Alex Ewing
      */
     public MainGUI() {
         super();
@@ -83,6 +84,7 @@ public class MainGUI {
 
     /**
      * Performs all tasks necessary to display the UI.
+     * @author Alex Ewing
      */
     private void start() {
         // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
@@ -112,6 +114,7 @@ public class MainGUI {
      * Represents the login and user info section of the GUI.
      *
      * @version 1.00
+     * @author Alex Ewing
      * */
     private final class LoginPanel extends JPanel {
         /** Text field for the username . */
@@ -132,7 +135,10 @@ public class MainGUI {
             setup();
         }
 
-        /** Sets up the LoginPanel. */
+        /**
+         * Sets up the LoginPanel.
+         * @author Alex Ewing
+         */
         private void setup() {
             JLabel userNameLabel = new JLabel("Username");
             this.add(userNameLabel);
@@ -234,7 +240,10 @@ public class MainGUI {
 
         }
 
-        /** Adds the name and email to the users.txt file if not already included. */
+        /**
+         * Adds the name and email to the users.txt file if not already included.
+         *  @author Alex Ewing
+         */
         private void addUser() {
             //TODO: Implement the user data search feature (do not add if exists)
             try {
@@ -253,6 +262,7 @@ public class MainGUI {
          * Gets the current Username.
          *
          * @return String currentUser the current username
+         * @author Alex Ewing
          */
         public String getCurrentUser() {
             return currentUser;
@@ -262,6 +272,7 @@ public class MainGUI {
          * Gets the current Email.
          *
          * @return String currentEmail the current username
+         * @author Alex Ewing
          */
         public String getCurrentEmail() {
             return currentEmail;
@@ -289,6 +300,7 @@ public class MainGUI {
      * Represents the about section of the GUI.
      *
      * @version 1.00
+     * @author Alex Ewing
      * */
     private final class AboutPanel extends JPanel {
 
@@ -302,7 +314,7 @@ public class MainGUI {
 
         /** Sets up the AboutPanel.
          *
-         * @author Alex
+         * @author Alex Ewing
          */
         private void setup() {
             JButton aboutBtn = new JButton("About");
@@ -325,6 +337,7 @@ public class MainGUI {
      * Represents the project search section of the GUI.
      *
      * @version 1.00
+     * @author Alex Ewing
      * */
     private final class ProjectListPanel extends JPanel {
         /** Text field for the searched project. */
@@ -333,20 +346,24 @@ public class MainGUI {
         /** Current searched project. */
         private String currentProject;
 
-        /** The no args constructor for the ProjectListPanel class. */
+        /**
+         * The no args constructor for the ProjectListPanel class.
+         *  @author Alex Ewing
+         */
         public ProjectListPanel() {
             projectField = new JTextField(20);
             currentProject = "";
             setup();
         }
 
-        /** Sets up the Project searchPanel. */
+        /**
+         * Sets up the Project searchPanel.
+         *  @author Alex Ewing
+         */
         private void setup() {
             JLabel projectLabel = new JLabel("Project");
             this.add(projectLabel);
             this.add(projectField);
-
-            // TODO: Implement create project option
 
             JButton searchBtn = new JButton("Search");
             searchBtn.addActionListener(new ActionListener() {
@@ -380,6 +397,7 @@ public class MainGUI {
         }
     }
 
+    /** Represents the project view portion of the gui*/
     private final class ProjectViewPanel extends JPanel {
         public ProjectViewPanel() {
             setup();

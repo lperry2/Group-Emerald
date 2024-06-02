@@ -1,5 +1,6 @@
 package src.model;
 
+/** Represents a project */
 public class Project {
     /** The name of the project. */
     private String myProjectName;
@@ -13,6 +14,7 @@ public class Project {
      *
      * @param theProjectName the name of the project
      * @param theProjectDescription the description of the project
+     * @author Alex Ewing
      */
     public Project(String theProjectName, String theProjectDescription){
         myProjectName = theProjectName;
@@ -22,6 +24,7 @@ public class Project {
     /**
      * Gets the project name.
      * @return myProjectName the name of the project
+     * @author Alex Ewing
      */
     public String getProjectName() {
         return myProjectName;
@@ -30,6 +33,7 @@ public class Project {
     /**
      * Sets the project name.
      * @param  theProjectName the new name of the project
+     *                        @author Alex Ewing
      */
     public void setProjectName(String theProjectName) {
         this.myProjectName = theProjectName;
@@ -38,6 +42,7 @@ public class Project {
     /**
      * Gets the project description.
      * @return myProjectDescription the description of the project
+     * @author Alex Ewing
      */
     public String getProjectDescription() {
         return myProjectDescription;
@@ -46,6 +51,7 @@ public class Project {
     /**
      * Sets the project description.
      * @param theProjectDescription the new description of the project
+     * @author Alex Ewing
      */
     public void setProjectDescription(String theProjectDescription) {
         this.myProjectDescription = theProjectDescription;
