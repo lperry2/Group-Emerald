@@ -11,6 +11,7 @@ import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 
 public class CreateProjectFrame extends JFrame {
 
@@ -58,7 +59,7 @@ public class CreateProjectFrame extends JFrame {
 
     private String userName;
 
-    public CreateProjectFrame(String user) {
+    public CreateProjectFrame(String theUserName) {
         super("Create New Project");
         //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
@@ -67,7 +68,7 @@ public class CreateProjectFrame extends JFrame {
         nameField = new JTextField(10);
         budgetField = new JTextField(10);
         pinField = new JTextField(5);
-        userName = user;
+        userName = theUserName;
         start();
     }
 
@@ -170,21 +171,25 @@ public class CreateProjectFrame extends JFrame {
 
                     //Creation of project files is here! File initializers should be worked on a separate method for each
                     File dir;
+                    String dirName;
                     if (privateCheckBox.isSelected()) {
                         dir = new File("src/" + userName + "/" + "~" + newProjectName);
+                        dirName = "src/" + userName + "/" + "~" + newProjectName;
                     } else {
                         dir = new File("src/" + userName + "/" + newProjectName);
+                        dirName = "src/" + userName + "/" + newProjectName;
                     }
                     dir.mkdirs();
+                    //PrintStream budgetFile = new PrintStream(new File(dirName + "/Budget.txt"));
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();
-                    fileInitializer(budgetFile, "Budget");
+                    fileInitializer(budgetFile, "Budget | " + budgetField.getText());
                     File journalFile = new File(dir, "Journal.txt");
                     journalFile.createNewFile();
-                    fileInitializer(journalFile, "Journal");
+                    fileInitializer(journalFile, "Journal | " + nameField.getText());
                     File fileFile = new File(dir, "Files.txt");
                     fileFile.createNewFile();
-                    fileInitializer(fileFile, "Files");
+                    fileInitializer(fileFile, "Files | " + nameField.getText());
 
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/images/projectpete.png");

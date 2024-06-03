@@ -5,7 +5,9 @@ public class Project {
     /** The name of the project. */
     private String myProjectName;
     /** The description of the project. */
-    private String myProjectDescription;
+    //private String myProjectDescription;
+    /** The project's budget. */
+    private Budget myBudget;
 
     private boolean isPrivate;
 
@@ -16,9 +18,10 @@ public class Project {
      * @param theProjectDescription the description of the project
      * @author Alex Ewing
      */
-    public Project(String theProjectName, String theProjectDescription){
+    public Project(String theProjectName, Budget theBudget){
         myProjectName = theProjectName;
-        myProjectDescription = theProjectDescription;
+        //myProjectDescription = theProjectDescription;
+        myBudget = theBudget;
     }
 
     /**
@@ -39,22 +42,33 @@ public class Project {
         this.myProjectName = theProjectName;
     }
 
+    public Budget getBudget() {
+        return myBudget;
+    }
+
     /**
      * Gets the project description.
      * @return myProjectDescription the description of the project
      * @author Alex Ewing
      */
-    public String getProjectDescription() {
-        return myProjectDescription;
-    }
+//    public String getProjectDescription() {
+//        return myProjectDescription;
+//    }
 
     /**
      * Sets the project description.
      * @param theProjectDescription the new description of the project
      * @author Alex Ewing
      */
-    public void setProjectDescription(String theProjectDescription) {
-        this.myProjectDescription = theProjectDescription;
+//    public void setProjectDescription(String theProjectDescription) {
+//        this.myProjectDescription = theProjectDescription;
+//    }
+
+    @Override
+    public String toString() {
+        String result = "Project " + myProjectName;
+        result += myBudget.toString();
+        return result;
     }
 }
 

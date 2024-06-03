@@ -20,9 +20,9 @@ public class ExpenseItem {
     /**
      * Creates an ExpenseItem based on a name and a cost.
      *
+     * @author Owen Orlic
      * @param theName name of the ExpenseItem
      * @param theExpense cost of the ExpenseItem
-     * @author Owen Orlic
      */
     public ExpenseItem(String theName, double theExpense) {
         myName = theName;
@@ -32,8 +32,8 @@ public class ExpenseItem {
     /**
      * Returns the name of the ExpenseItem.
      *
-     * @return name of expense
      * @author Owen Orlic
+     * @return name of expense
      */
     public String getName() {
         return myName;
@@ -42,8 +42,8 @@ public class ExpenseItem {
     /**
      * Returns the cost of the ExpenseItem.
      *
-     * @return cost of expense
      * @author Owen Orlic
+     * @return cost of expense
      */
     public double getExpense() {
         return myExpense;
@@ -52,8 +52,8 @@ public class ExpenseItem {
     /**
      * Changes the cost of the ExpenseItem. Used for editing budget.
      *
-     * @param theExpense the new expense for the time
      * @author Owen Orlic
+     * @param theExpense the new expense for the time
      */
     public void setExpense(double theExpense) {
         myExpense = theExpense;
@@ -64,11 +64,22 @@ public class ExpenseItem {
      * Checks if two ExpenseItems have the same name.
      * Cost of expense does not play a factor in equality.
      *
+     * @author Owen Orlic
      * @param theOther another ExpenseItem
      * @return if the expenses have the same name
-     * @author Owen Orlic
      */
     public boolean equals(ExpenseItem theOther) {
         return this.myName.equals(theOther.getName());
+    }
+
+    /**
+     * Returns the ExpenseItem in the form "myName: myExpense".
+     *
+     * @author Owen Orlic
+     * @return a string representation of an ExpenseItem
+     */
+    @Override
+    public String toString() {
+        return myName + ": " + myExpense;
     }
 }

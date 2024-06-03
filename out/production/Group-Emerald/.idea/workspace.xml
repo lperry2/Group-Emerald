@@ -10,53 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/CreateProjectFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/CreateProjectFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$AboutPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$AboutPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$LoginPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$LoginPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$ProjectListPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$ProjectListPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI$ProjectListPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MainGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/MenuReaderPopulation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/ProjectDataReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_6_56_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/CreateProjectFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$AboutPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$AboutPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$LoginPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$LoginPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$ProjectListPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$ProjectListPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI$ProjectListPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/MainGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_54_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/CreateProjectFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/CreateProjectFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/ExpenseItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$AboutPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$AboutPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$LoginPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$LoginPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$ProjectListPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$ProjectListPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI$ProjectListPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/MainGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_44_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/MenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ExpenseItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ExpenseItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/OptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/OptionFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/blah/Budget.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/blah/Budget.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" afterDir="false" />
@@ -69,10 +34,14 @@
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/MenuReaderPopulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/MenuReaderPopulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ExpenseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ExpenseItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/OptionFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/blah/Budget.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oo/blah/Budget.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/~supersecret/Budget.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oo/~supersecret/Budget.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oo/Projects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oo/Projects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +73,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/lperry2/Group-Emerald.git&quot;,
-    &quot;accountId&quot;: &quot;c5620831-e811-4b41-b5a9-f5a6f3396279&quot;
+    &quot;accountId&quot;: &quot;af34fdb1-ea19-4069-9292-d61bd40a42a0&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">

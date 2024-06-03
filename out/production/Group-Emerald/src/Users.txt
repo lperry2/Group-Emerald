@@ -4,3 +4,5 @@ da | da@uw.edu
 lp | lp@uw.edu
 newguy | newguy@gmail.com
 newuser | oo@uw.edu
+test | t
+t | t

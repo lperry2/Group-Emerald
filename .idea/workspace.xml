@@ -10,11 +10,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
+      <change afterPath="$PROJECT_DIR$/src/model/AbstractPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/BackButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/BudgetPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/MenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ExpenseItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ExpenseItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/OptionFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/OptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/OptionFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ProjectDataReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/ProjectDataReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/~supersecret/Budget.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/~supersecret/Files.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/~supersecret/Journal.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/tests/TestUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/tests/TestUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ExpenseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ExpenseItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/OptionFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oo/Projects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oo/Projects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,12 +82,12 @@
     &quot;assignee&quot;: &quot;aewing24&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lperry2/Group-Emerald.git",
-    "accountId": "af34fdb1-ea19-4069-9292-d61bd40a42a0"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lperry2/Group-Emerald.git&quot;,
+    &quot;accountId&quot;: &quot;af34fdb1-ea19-4069-9292-d61bd40a42a0&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>

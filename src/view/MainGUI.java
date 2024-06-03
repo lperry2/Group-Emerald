@@ -1,6 +1,6 @@
 package src.view;
 
-import src.model.OptionFrame;
+import src.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -262,13 +263,141 @@ public class MainGUI {
 
         }
 
+        /**
+         * Creates the user that is currently using the program so that their info
+         * can be accessed by the methods. Instantiates the myUser field.
+         *
+         * @author Owen Orlic
+         * @param theUsername the user's username
+         * @param theEmail the user's email
+         */
         private void makeUser(String theUsername, String theEmail) {
-            try (Scanner scan = new Scanner(new File("src/" + theUsername))) {
 
-                myUser = new User()
-            } catch (IOException e) {
-                System.out.println(e);
+            String[] projectPaths = readProjects(theUsername);
+            Budget[] projectBudgets = readBudgets(projectPaths);
+            for (int i = 0; i < projectBudgets.length; i++) {
+                System.out.println(projectPaths[i] + " | " + projectBudgets[i].getTotal());
             }
+            ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets);
+
+
+            //instantiate the User with this infomation
+            myUser = new User(theUsername, theEmail, projects);
+            System.out.println(myUser);
+        }
+
+        /**
+         * Creates an array list of the user's projects.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the pathnames to the projects
+         * @param theBudgets an array of the budgets of the projects
+         * @return an arraylist of all the user's projects
+         */
+        private ArrayList<Project> makeProjectList(String[] thePaths, Budget[] theBudgets) {
+            ArrayList<Project> projects = new ArrayList<>();
+            for (int i = 0; i < thePaths.length; i++) {
+                String[] pathname = thePaths[i].split("/");
+                projects.add(new Project(pathname[pathname.length - 1], theBudgets[i]));
+            }
+            return projects;
+        }
+
+        /**
+         * Creates an array of the pathnames to all the project folders
+         * the user has. Excludes the Projects.txt file.
+         *
+         * @author Owen Orlic
+         * @param theUsername the user whose projects we want
+         * @return an array of the pathnames to each project directory
+         */
+        private String[] readProjects(String theUsername) {
+            File userDir = new File("src/" + theUsername);
+            File[] dirs = userDir.listFiles();
+            //stores the strings of project paths besides the Projects.txt file
+            String[] projects = new String[dirs.length - 1];
+            //used to avoid out of bounds on projects[]
+            int counter = 0;
+            for (int i = 0; i < dirs.length; i++) {
+                //if the path name isn't for the Projects.txt file
+                if (!dirs[i].toString().equals("src/" + theUsername + "/Projects.txt")) {
+                    projects[counter] = dirs[i].toString();
+                    counter++;
+                }
+            }
+            return projects;
+        }
+
+        /**
+         * Goes through a list of pathnames that are directories, creates a scanner
+         * for the Budget.txt file in those directories, passes that scanner to the
+         * readBudgetFile() method.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the project pathnames
+         * @return an array of Budget objects for each project
+         */
+        private Budget[] readBudgets(String[] thePaths) {
+            Budget[] budgets = new Budget[thePaths.length];
+            for (int i = 0; i < thePaths.length; i++) {
+                //Scanner scan = new Scanner(new File(thePaths[i] + "/Budget.txt"));
+                System.out.println(thePaths[i]);
+                budgets[i] = readBudgetFile(thePaths[i] + "/Budget.txt");
+
+
+            }
+            return budgets;
+        }
+
+        /**
+         * Reads a Budget.txt file to create a budget object with the total and
+         * total expenses and expense items if there are any.
+         *
+         * @author Owen Orlic
+         * @param thePath the Budget.txt file to be read
+         * @return the Budget object representing the Budget.txt file
+         */
+        private Budget readBudgetFile(String thePath) {
+            Budget budget;
+            double total = 0;
+            double totalExpenses = 0;
+            ArrayList<ExpenseItem> expenses = new ArrayList<>();
+            try (Scanner scan = new Scanner(new File(thePath))) {
+                //scan.nextLine();
+                while (scan.hasNextLine()) {
+                    String next = scan.next();
+                    //System.out.println("This is next: " + next);
+                    if (next.equals("+")) {
+                        scan.next();
+                        scan.next();
+                        String totalStr = scan.next();
+
+                        //System.out.println("This is next: " + nextLine);
+                        //String[] mainInfo = nextLine.split("| ");
+                        System.out.println("Total in reading: " + totalStr);
+                        total = Double.parseDouble(totalStr);
+
+                    } else if (next.equals("-")) {
+                        String expenseName = scan.next();
+                        double expenseCost = Double.parseDouble(scan.next());
+                        totalExpenses += expenseCost;
+                        ExpenseItem expense = new ExpenseItem(expenseName, expenseCost);
+                        expenses.add(expense);
+                        //move past the ending "-"
+                        scan.nextLine();
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Main GUI, readBudgetFile()");
+            }
+            //if the project has no expenses
+            if (expenses.size() == 0) {
+                budget = new Budget(total);
+            } else {
+                budget = new Budget(total, totalExpenses, expenses);
+            }
+            System.out.println(budget);
+            return budget;
         }
 
         /**
@@ -482,8 +611,8 @@ public class MainGUI {
                             }
                         }
 
-
-                        new OptionFrame(projName, myUserInfo.getCurrentUser());
+                        //System.out.println(projName);
+                        new OptionFrame(myUser, projName);
                     }
                 });
 
