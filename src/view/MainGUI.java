@@ -276,14 +276,14 @@ public class MainGUI {
             String[] projectPaths = readProjects(theUsername);
             Budget[] projectBudgets = readBudgets(projectPaths);
             for (int i = 0; i < projectBudgets.length; i++) {
-                System.out.println(projectPaths[i] + " | " + projectBudgets[i].getTotal());
+                //System.out.println(projectPaths[i] + " | " + projectBudgets[i].getTotal());
             }
             ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets);
 
 
             //instantiate the User with this infomation
             myUser = new User(theUsername, theEmail, projects);
-            System.out.println(myUser);
+            //System.out.println(myUser);
         }
 
         /**
@@ -341,7 +341,7 @@ public class MainGUI {
             Budget[] budgets = new Budget[thePaths.length];
             for (int i = 0; i < thePaths.length; i++) {
                 //Scanner scan = new Scanner(new File(thePaths[i] + "/Budget.txt"));
-                System.out.println(thePaths[i]);
+                //System.out.println(thePaths[i]);
                 budgets[i] = readBudgetFile(thePaths[i] + "/Budget.txt");
 
 
@@ -362,10 +362,13 @@ public class MainGUI {
             double total = 0;
             double totalExpenses = 0;
             ArrayList<ExpenseItem> expenses = new ArrayList<>();
+
+            System.out.println("thePath: " + thePath);
+
             try (Scanner scan = new Scanner(new File(thePath))) {
                 //scan.nextLine();
                 while (scan.hasNextLine()) {
-                    String next = scan.next();
+                    String next = scan.nextLine();
                     //System.out.println("This is next: " + next);
                     if (next.equals("+")) {
                         scan.next();
@@ -374,18 +377,22 @@ public class MainGUI {
 
                         //System.out.println("This is next: " + nextLine);
                         //String[] mainInfo = nextLine.split("| ");
-                        System.out.println("Total in reading: " + totalStr);
+                        //System.out.println("Total in reading: " + totalStr);
                         total = Double.parseDouble(totalStr);
 
-                    } else if (next.equals("-")) {
-                        String expenseName = scan.next();
-                        double expenseCost = Double.parseDouble(scan.next());
+                    } else if (next.equals("----")) {
+                        String expenseName = scan.nextLine();
+                        //System.out.println("expense name: " + expenseName);
+                        String line = scan.nextLine();
+                        //System.out.println("line: " + line);
+                        double expenseCost = Double.parseDouble(line);
                         totalExpenses += expenseCost;
                         ExpenseItem expense = new ExpenseItem(expenseName, expenseCost);
                         expenses.add(expense);
                         //move past the ending "-"
-                        scan.nextLine();
+                        //scan.nextLine();
                     }
+                    //System.out.println(scan.nextLine());
                 }
             } catch (IOException e) {
                 System.out.println("Main GUI, readBudgetFile()");
@@ -396,7 +403,7 @@ public class MainGUI {
             } else {
                 budget = new Budget(total, totalExpenses, expenses);
             }
-            System.out.println(budget);
+            //System.out.println(budget);
             return budget;
         }
 
@@ -523,7 +530,7 @@ public class MainGUI {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
                     //         pass in the currecntUser
-                    CreateProjectFrame createFrame = new CreateProjectFrame(myUserInfo.getCurrentUser());
+                    CreateProjectFrame createFrame = new CreateProjectFrame(myUser);
                     createFrame.addPropertyChangeListener(new PropertyChangeListener() {
                         @Override
                         public void propertyChange(PropertyChangeEvent evt) {

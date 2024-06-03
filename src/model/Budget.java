@@ -37,14 +37,19 @@ public class Budget {
         myTotal = theTotal;
         myTotalExpenses = 0; //set expenses to zero at project creation
         myExpenses = new ArrayList<>();
-//        try {
-//            //creates a file to store all of this project's budget info
-//            budgetFile = new PrintStream(new FileOutputStream("src/ProjectBudget.txt"));
-//            budgetFile.println("++++");
-//            budgetFile.println("Project Budget | " + myTotal); //adds the project's total budget to file on instantiation
-//        } catch (IOException e) {
-//            throw new RuntimeException("No file found: " + e);
-//        }
+    }
+
+    /**
+     * Creates the new budget for the entire project. Sets expenses to zero and instantiates the
+     * myExpense list as an empty ArrayList. Takes total from a String instead of a double.
+     *
+     * @param theTotal project's total budget
+     * @author Owen Orlic
+     */
+    public Budget(String theTotal) {
+        myTotal = Double.parseDouble(theTotal);
+        myTotalExpenses = 0; //set expenses to zero at project creation
+        myExpenses = new ArrayList<>();
     }
 
     /**

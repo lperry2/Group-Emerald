@@ -1,2 +1,15 @@
 +
-Budget | 1000
+Budget | 1000.0
+
+----
+Product A
+300.0
+----
+Product B
+25.0
+----
+Product C
+129.0
+----
+Product D
+87.0

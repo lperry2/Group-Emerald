@@ -58,7 +58,7 @@ public class AddItem extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     PrintStream myStream  = new PrintStream(new FileOutputStream(theFile, true));
-                    myStream.println("\n-" + "\n" + label.getText() + "\n" + content.getText() + "\n-");
+                    myStream.println("\n----" + "\n" + label.getText() + "\n" + content.getText());
                     myStream.close();
                     dispose();
                     new MenuReaderPopulation(theFile, theUser, theProj, theType);

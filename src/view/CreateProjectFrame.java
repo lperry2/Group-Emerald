@@ -1,7 +1,8 @@
 package src.view;
 
 import src.model.Budget;
-
+import src.model.User;
+import src.model.Project;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -57,9 +58,9 @@ public class CreateProjectFrame extends JFrame {
     /** Tracks if the project should be private. */
     private boolean isPrivate;
 
-    private String userName;
+    private User myCurrentUser;
 
-    public CreateProjectFrame(String theUserName) {
+    public CreateProjectFrame(User theCurrentUser) {
         super("Create New Project");
         //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
@@ -68,7 +69,7 @@ public class CreateProjectFrame extends JFrame {
         nameField = new JTextField(10);
         budgetField = new JTextField(10);
         pinField = new JTextField(5);
-        userName = theUserName;
+        myCurrentUser = theCurrentUser;
         start();
     }
 
@@ -160,7 +161,7 @@ public class CreateProjectFrame extends JFrame {
                 Budget projectBudget = new Budget(Double.parseDouble(newProjectBudget));
 
                 // Write the project data to a file
-                try (FileWriter writer = new FileWriter("src/" + userName + "/Projects.txt", true)) {
+                try (FileWriter writer = new FileWriter("src/" + myCurrentUser.getName() + "/Projects.txt", true)) {
                     if (privateCheckBox.isSelected()) {
                         //if projects are private they will take the form "~ProjectName1234" with 1234 being the pin
                         writer.write("Project Name: ~" + newProjectName + pinField.getText() + "\t" + "Project Budget: " + newProjectBudget + "\n");
@@ -172,6 +173,7 @@ public class CreateProjectFrame extends JFrame {
                     //Creation of project files is here! File initializers should be worked on a separate method for each
                     File dir;
                     String dirName;
+                    String userName = myCurrentUser.getName();
                     if (privateCheckBox.isSelected()) {
                         dir = new File("src/" + userName + "/" + "~" + newProjectName);
                         dirName = "src/" + userName + "/" + "~" + newProjectName;
@@ -201,6 +203,10 @@ public class CreateProjectFrame extends JFrame {
                     // Show success message with the resized custom icon
                     JOptionPane.showMessageDialog(null, "Project data saved successfully!",
                                                 "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
+
+                    //add project to the user's project list
+                    myCurrentUser.addProject(new Project(newProjectName, new Budget(newProjectBudget)));
+
                     myPCS.firePropertyChange("repaint", null, null);
                     dispose();
                 } catch (IOException e) {
