@@ -210,7 +210,9 @@ public class CreateProjectFrame extends JFrame {
                     myPCS.firePropertyChange("repaint", null, null);
                     dispose();
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,
+                                            "An error occurred while saving the project data.",
+                                                "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace();
                 }
             }
