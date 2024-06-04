@@ -279,9 +279,6 @@ public class MainGUI {
             String[] projectPaths = readProjects(theUsername);
             Budget[] projectBudgets = readBudgets(projectPaths);
             Journal[] projectJournals = readJournals(projectPaths);
-            //for (int i = 0; i < projectBudgets.length; i++) {
-                //System.out.println(projectPaths[i] + " | " + projectBudgets[i].getTotal());
-            //}
             ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets, projectJournals);
 
 
@@ -387,8 +384,8 @@ public class MainGUI {
 
                         } else if (next.equals("----")) {
                             String expenseName = scan.nextLine(); //get the name of the expense
-                            String line = scan.nextLine(); //get the cost
-                            double expenseCost = Double.parseDouble(line); //turn String to double
+                            String expenseCostStr = scan.nextLine(); //get the cost
+                            double expenseCost = Double.parseDouble(expenseCostStr); //turn String to double
                             totalExpenses += expenseCost; //add expense to total expenses
                             ExpenseItem expense = new ExpenseItem(expenseName, expenseCost); //create new ExpenseItem
                             expenses.add(expense);
@@ -435,7 +432,7 @@ public class MainGUI {
          * @return the Journal object representing the Journal.txt file
          */
         private Journal readJournalFile(String thePath) {
-            Journal journal;
+            //Journal journal;
             ArrayList<JournalEntry> entries = new ArrayList<>();
             BufferedReader reader = null;
             int lines = 0;
