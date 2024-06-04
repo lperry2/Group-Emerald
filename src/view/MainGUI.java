@@ -14,8 +14,11 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 import javax.imageio.ImageIO;
 
@@ -360,29 +363,42 @@ public class MainGUI {
             double total = 0;
             double totalExpenses = 0;
             ArrayList<ExpenseItem> expenses = new ArrayList<>();
-
-            try (Scanner scan = new Scanner(new File(thePath))) {
-                while (scan.hasNextLine()) {
-                    String next = scan.nextLine();
-                    if (next.equals("+")) {
-                        scan.next(); //skip type word
-                        scan.next(); //skip bar character
-                        String totalStr = scan.next(); //take the total
-                        //String[] mainInfo = nextLine.split("| ");
-                        total = Double.parseDouble(totalStr);
-
-                    } else if (next.equals("----")) {
-                        String expenseName = scan.nextLine(); //get the name of the expense
-                        String line = scan.nextLine(); //get the cost
-                        double expenseCost = Double.parseDouble(line); //turn String to double
-                        totalExpenses += expenseCost; //add expense to total expenses
-                        ExpenseItem expense = new ExpenseItem(expenseName, expenseCost); //create new ExpenseItem
-                        expenses.add(expense);
-                    }
+            BufferedReader reader = null;
+            int lines = 0;
+            try {
+                reader = new BufferedReader(new FileReader(thePath));
+                while (reader.readLine() != null) {
+                    lines++;
+                    //reader.close();
                 }
             } catch (IOException e) {
-                System.out.println("Main GUI, readBudgetFile()");
+                throw new RuntimeException(e);
             }
+            if (lines > 2) {
+                try (Scanner scan = new Scanner(new File(thePath))) {
+                    while (scan.hasNextLine()) {
+                        String next = scan.nextLine();
+                        if (next.equals("+")) {
+                            scan.next(); //skip type word
+                            scan.next(); //skip bar character
+                            String totalStr = scan.next(); //take the total
+                            //String[] mainInfo = nextLine.split("| ");
+                            total = Double.parseDouble(totalStr);
+
+                        } else if (next.equals("----")) {
+                            String expenseName = scan.nextLine(); //get the name of the expense
+                            String line = scan.nextLine(); //get the cost
+                            double expenseCost = Double.parseDouble(line); //turn String to double
+                            totalExpenses += expenseCost; //add expense to total expenses
+                            ExpenseItem expense = new ExpenseItem(expenseName, expenseCost); //create new ExpenseItem
+                            expenses.add(expense);
+                        }
+                    }
+                } catch (IOException e) {
+                    System.out.println("Main GUI, readBudgetFile()");
+                }
+            }
+
             //if the project has no expenses
             if (expenses.size() == 0) {
                 budget = new Budget(total);
@@ -421,25 +437,37 @@ public class MainGUI {
         private Journal readJournalFile(String thePath) {
             Journal journal;
             ArrayList<JournalEntry> entries = new ArrayList<>();
-
-            try (Scanner scan = new Scanner(new File(thePath))) {
-                while (scan.hasNextLine()) {
-                    String next = scan.nextLine();
-                    if (next.equals("+")) {
-                        scan.next(); //skip type word
-                        scan.next(); //skip bar character
-                        String mainTitle = scan.next(); //take the main title
-                        //String[] mainInfo = nextLine.split("| ");
-
-                    } else if (next.equals("----")) {
-                        String entryTitle = scan.nextLine(); //get the title of the entry
-                        String entryContent = scan.nextLine(); //get the content of the entry
-                        JournalEntry entry = new JournalEntry(entryTitle, entryContent); //create new JournalEntry
-                        entries.add(entry);
-                    }
+            BufferedReader reader = null;
+            int lines = 0;
+            try {
+                reader = new BufferedReader(new FileReader(thePath));
+                while (reader.readLine() != null) {
+                    lines++;
+                    //reader.close();
                 }
             } catch (IOException e) {
-                System.out.println("Main GUI, readJournalFile()");
+                throw new RuntimeException(e);
+            }
+            if (lines > 2) {
+                try (Scanner scan = new Scanner(new File(thePath))) {
+                    while (scan.hasNextLine()) {
+                        String next = scan.nextLine();
+                        if (next.equals("+")) {
+                            scan.next(); //skip type word
+                            scan.next(); //skip bar character
+                            String mainTitle = scan.next(); //take the main title
+                            //String[] mainInfo = nextLine.split("| ");
+
+                        } else if (next.equals("----")) {
+                            String entryTitle = scan.nextLine(); //get the title of the entry
+                            String entryContent = scan.nextLine(); //get the content of the entry
+                            JournalEntry entry = new JournalEntry(entryTitle, entryContent); //create new JournalEntry
+                            entries.add(entry);
+                        }
+                    }
+                } catch (IOException e) {
+                    System.out.println("Main GUI, readJournalFile()");
+                }
             }
 
             return new Journal(entries);
