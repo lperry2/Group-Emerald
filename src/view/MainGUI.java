@@ -448,7 +448,7 @@ public class MainGUI {
     /**
      * Represents the about section of the GUI.
      *
-     * @version 1.00
+     * @version 1.1
      * @author Alex Ewing
      * */
     private final class AboutPanel extends JPanel {
