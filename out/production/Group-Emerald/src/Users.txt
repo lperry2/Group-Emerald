@@ -7,6 +7,4 @@ newuser | oo@uw.edu
 test | t
 t | t
 other | o
-other | o
-other | o
 blah | b
