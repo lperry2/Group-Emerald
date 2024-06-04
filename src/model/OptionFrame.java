@@ -39,33 +39,13 @@ public class OptionFrame extends JFrame {
     }
 
     public void setup() {
-//        menuMaker("Budget");
-//        menuMaker("Files");
-//        menuMaker("Journal");
-
         //set to cover the previous frame
         this.setLocation(SCREEN_WIDTH / 2 - SCREEN_WIDTH / 4,
                 SCREEN_HEIGHT / 2 - SCREEN_HEIGHT / 4);
         this.setSize(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-    }
 
-//    public void menuMaker(String type) {
-//        JMenuItem menu = new JMenuItem(type);
-//        menu.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                //System.out.println("REaches here");
-//               File f =  new File("src/" + myCurrentUser + "/" + myProjName + "/" + type + ".txt");
-//                try {
-//                    new MenuReaderPopulation(f, myCurrentUser, myProjName, type);
-//                } catch (FileNotFoundException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//
-//            }
-//        });
-//        myMenu.add(menu);
-//    }
+
+    }
 
     /**
      * Used to check if a project is private by seeing if the last
