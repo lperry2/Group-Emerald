@@ -1,6 +1,6 @@
 package src.view;
 
-import src.model.OptionFrame;
+import src.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -64,9 +65,12 @@ public class MainGUI {
     /** The panel that contains the project list*/
     private ProjectViewPanel myPVPanel;
 
+    private User myUser;
+
     /**
      * The no argument constructor for the PaintGUI class
      * that initializes the fields and sets up the frame.
+     * @author Alex Ewing
      */
     public MainGUI() {
         super();
@@ -83,6 +87,7 @@ public class MainGUI {
 
     /**
      * Performs all tasks necessary to display the UI.
+     * @author Alex Ewing
      */
     private void start() {
         // Set the size of the JFrame to 1/2 (current scaling factor) of the screen
@@ -112,6 +117,7 @@ public class MainGUI {
      * Represents the login and user info section of the GUI.
      *
      * @version 1.00
+     * @author Alex Ewing
      * */
     private final class LoginPanel extends JPanel {
         /** Text field for the username . */
@@ -132,7 +138,10 @@ public class MainGUI {
             setup();
         }
 
-        /** Sets up the LoginPanel. */
+        /**
+         * Sets up the LoginPanel.
+         * @author Alex Ewing
+         */
         private void setup() {
             JLabel userNameLabel = new JLabel("Username");
             this.add(userNameLabel);
@@ -166,6 +175,8 @@ public class MainGUI {
                                 currentUser = nameField.getText();
                                 currentEmail = emailField.getText();
                                 notFound = false; //mark the user as found
+
+                                makeUser(currentUser, currentEmail);
 
                                 //changes the frame
                                 myUserInfo.setVisible(false);
@@ -234,7 +245,10 @@ public class MainGUI {
 
         }
 
-        /** Adds the name and email to the users.txt file if not already included. */
+        /**
+         * Adds the name and email to the users.txt file if not already included.
+         *  @author Alex Ewing
+         */
         private void addUser() {
             //TODO: Implement the user data search feature (do not add if exists)
             try {
@@ -250,9 +264,192 @@ public class MainGUI {
         }
 
         /**
+         * Creates the user that is currently using the program so that their info
+         * can be accessed by the methods. Instantiates the myUser field.
+         *
+         * @author Owen Orlic
+         * @param theUsername the user's username
+         * @param theEmail the user's email
+         */
+        private void makeUser(String theUsername, String theEmail) {
+
+            String[] projectPaths = readProjects(theUsername);
+            Budget[] projectBudgets = readBudgets(projectPaths);
+            Journal[] projectJournals = readJournals(projectPaths);
+            //for (int i = 0; i < projectBudgets.length; i++) {
+                //System.out.println(projectPaths[i] + " | " + projectBudgets[i].getTotal());
+            //}
+            ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets, projectJournals);
+
+
+            //instantiate the User with this infomation
+            myUser = new User(theUsername, theEmail, projects);
+            //System.out.println(myUser);
+        }
+
+        /**
+         * Creates an array list of the user's projects.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the pathnames to the projects
+         * @param theBudgets an array of the budgets of the projects
+         * @return an arraylist of all the user's projects
+         */
+        private ArrayList<Project> makeProjectList(String[] thePaths, Budget[] theBudgets, Journal[] theJournals) {
+            ArrayList<Project> projects = new ArrayList<>();
+            for (int i = 0; i < thePaths.length; i++) {
+                String[] pathname = thePaths[i].split("/"); //split up the pathname so that
+                String projectName = pathname[pathname.length - 1]; //we can get the project name
+                projects.add(new Project(projectName, theBudgets[i], theJournals[i]));
+            }
+            return projects;
+        }
+
+        /**
+         * Creates an array of the pathnames to all the project folders
+         * the user has. Excludes the Projects.txt file.
+         *
+         * @author Owen Orlic
+         * @param theUsername the user whose projects we want
+         * @return an array of the pathnames to each project directory
+         */
+        private String[] readProjects(String theUsername) {
+            File userDir = new File("src/" + theUsername);
+            File[] dirs = userDir.listFiles();
+            //stores the strings of project paths besides the Projects.txt file
+            String[] projects = new String[dirs.length - 1];
+            //used to avoid out of bounds on projects[]
+            int counter = 0;
+            for (int i = 0; i < dirs.length; i++) {
+                //if the path name isn't for the Projects.txt file
+                if (!dirs[i].toString().equals("src/" + theUsername + "/Projects.txt")) {
+                    projects[counter] = dirs[i].toString();
+                    counter++;
+                }
+            }
+            return projects;
+        }
+
+        /**
+         * Goes through a list of pathnames that are directories, creates a scanner
+         * for the Budget.txt file in those directories, passes that scanner to the
+         * readBudgetFile() method.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the project pathnames
+         * @return an array of Budget objects for each project
+         */
+        private Budget[] readBudgets(String[] thePaths) {
+            Budget[] budgets = new Budget[thePaths.length];
+            for (int i = 0; i < thePaths.length; i++) {
+                budgets[i] = readBudgetFile(thePaths[i] + "/Budget.txt");
+            }
+            return budgets;
+        }
+
+        /**
+         * Reads a Budget.txt file to create a budget object with the total and
+         * total expenses and expense items if there are any.
+         *
+         * @author Owen Orlic
+         * @param thePath the Budget.txt file to be read
+         * @return the Budget object representing the Budget.txt file
+         */
+        private Budget readBudgetFile(String thePath) {
+            Budget budget;
+            double total = 0;
+            double totalExpenses = 0;
+            ArrayList<ExpenseItem> expenses = new ArrayList<>();
+
+            try (Scanner scan = new Scanner(new File(thePath))) {
+                while (scan.hasNextLine()) {
+                    String next = scan.nextLine();
+                    if (next.equals("+")) {
+                        scan.next(); //skip type word
+                        scan.next(); //skip bar character
+                        String totalStr = scan.next(); //take the total
+                        //String[] mainInfo = nextLine.split("| ");
+                        total = Double.parseDouble(totalStr);
+
+                    } else if (next.equals("----")) {
+                        String expenseName = scan.nextLine(); //get the name of the expense
+                        String line = scan.nextLine(); //get the cost
+                        double expenseCost = Double.parseDouble(line); //turn String to double
+                        totalExpenses += expenseCost; //add expense to total expenses
+                        ExpenseItem expense = new ExpenseItem(expenseName, expenseCost); //create new ExpenseItem
+                        expenses.add(expense);
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Main GUI, readBudgetFile()");
+            }
+            //if the project has no expenses
+            if (expenses.size() == 0) {
+                budget = new Budget(total);
+            } else {
+                budget = new Budget(total, totalExpenses, expenses);
+            }
+            //System.out.println(budget);
+            return budget;
+        }
+
+        /**
+         * Goes through a list of pathnames that are directories, creates a scanner
+         * for the Journal.txt file in those directories, passes that scanner to the
+         * readJournalFile() method.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the project pathnames
+         * @return an array of Journal objects for each project
+         */
+        private Journal[] readJournals(String[] thePaths) {
+            Journal[] journals = new Journal[thePaths.length];
+            for (int i = 0; i < thePaths.length; i++) {
+                journals[i] = readJournalFile(thePaths[i] + "/Journal.txt");
+            }
+            return journals;
+        }
+
+        /**
+         * Reads a Journal.txt file to create a journal object with the
+         * journal entry items if there are any.
+         *
+         * @author Owen Orlic
+         * @param thePath the Journal.txt file to be read
+         * @return the Journal object representing the Journal.txt file
+         */
+        private Journal readJournalFile(String thePath) {
+            Journal journal;
+            ArrayList<JournalEntry> entries = new ArrayList<>();
+
+            try (Scanner scan = new Scanner(new File(thePath))) {
+                while (scan.hasNextLine()) {
+                    String next = scan.nextLine();
+                    if (next.equals("+")) {
+                        scan.next(); //skip type word
+                        scan.next(); //skip bar character
+                        String mainTitle = scan.next(); //take the main title
+                        //String[] mainInfo = nextLine.split("| ");
+
+                    } else if (next.equals("----")) {
+                        String entryTitle = scan.nextLine(); //get the title of the entry
+                        String entryContent = scan.nextLine(); //get the content of the entry
+                        JournalEntry entry = new JournalEntry(entryTitle, entryContent); //create new JournalEntry
+                        entries.add(entry);
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Main GUI, readJournalFile()");
+            }
+
+            return new Journal(entries);
+        }
+
+        /**
          * Gets the current Username.
          *
          * @return String currentUser the current username
+         * @author Alex Ewing
          */
         public String getCurrentUser() {
             return currentUser;
@@ -262,6 +459,7 @@ public class MainGUI {
          * Gets the current Email.
          *
          * @return String currentEmail the current username
+         * @author Alex Ewing
          */
         public String getCurrentEmail() {
             return currentEmail;
@@ -288,7 +486,8 @@ public class MainGUI {
     /**
      * Represents the about section of the GUI.
      *
-     * @version 1.00
+     * @version 1.1
+     * @author Alex Ewing
      * */
     private final class AboutPanel extends JPanel {
 
@@ -302,7 +501,7 @@ public class MainGUI {
 
         /** Sets up the AboutPanel.
          *
-         * @author Alex
+         * @author Alex Ewing
          */
         private void setup() {
             JButton aboutBtn = new JButton("About");
@@ -325,6 +524,7 @@ public class MainGUI {
      * Represents the project search section of the GUI.
      *
      * @version 1.00
+     * @author Alex Ewing
      * */
     private final class ProjectListPanel extends JPanel {
         /** Text field for the searched project. */
@@ -333,28 +533,37 @@ public class MainGUI {
         /** Current searched project. */
         private String currentProject;
 
-        /** The no args constructor for the ProjectListPanel class. */
+        /**
+         * The no args constructor for the ProjectListPanel class.
+         * @author Alex Ewing
+         */
         public ProjectListPanel() {
             projectField = new JTextField(20);
             currentProject = "";
             setup();
         }
 
-        /** Sets up the Project searchPanel. */
+        /**
+         * Sets up the Project searchPanel.
+         * @author Alex Ewing
+         */
         private void setup() {
             JLabel projectLabel = new JLabel("Project");
             this.add(projectLabel);
             this.add(projectField);
 
-            // TODO: Implement create project option
-
             JButton searchBtn = new JButton("Search");
             searchBtn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     // TODO: Implement Project Search
+
+                    new SearchFrame(myUser, projectField.getText());
+
                     projectLabel.setText("File not found");
                     projectLabel.setForeground(Color.RED);
                     projectLabel.setVisible(true);
+
+
                 }
             });
             this.add(searchBtn);
@@ -364,7 +573,7 @@ public class MainGUI {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
                     //         pass in the currecntUser
-                    CreateProjectFrame createFrame = new CreateProjectFrame(myUserInfo.getCurrentUser());
+                    CreateProjectFrame createFrame = new CreateProjectFrame(myUser);
                     createFrame.addPropertyChangeListener(new PropertyChangeListener() {
                         @Override
                         public void propertyChange(PropertyChangeEvent evt) {
@@ -380,6 +589,7 @@ public class MainGUI {
         }
     }
 
+    /** Represents the project view portion of the gui*/
     private final class ProjectViewPanel extends JPanel {
         public ProjectViewPanel() {
             setup();
@@ -451,8 +661,8 @@ public class MainGUI {
                             }
                         }
 
-
-                        new OptionFrame(projName, myUserInfo.getCurrentUser());
+                        //System.out.println(projName);
+                        new OptionFrame(myUser, projName);
                     }
                 });
 

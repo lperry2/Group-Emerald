@@ -1,11 +1,9 @@
-package src.model;
+package src.view;
+
+import src.model.User;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 public class OptionFrame extends JFrame {
     /** A ToolKit. */
@@ -18,46 +16,33 @@ public class OptionFrame extends JFrame {
 
     /** The height of the screen. */
     private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
-    JMenuBar myMenu = new JMenuBar();
-    String theProjName;
 
-    String theUser;
-    public OptionFrame(String theProjectName, String user) {
+    private JMenuBar myMenu;
+
+    private String myProjName;
+
+    private User myCurrentUser;
+
+    public OptionFrame(User theUser, String theProjectName) {
+
+        myProjName = checkIfPrivate(theProjectName);
+        myCurrentUser = theUser;
+
+        myMenu = new MenuBar(myProjName, myCurrentUser);
         this.setJMenuBar(myMenu);
-        theProjName = checkIfPrivate(theProjectName);
-        theUser = user;
+
         setup();
         this.setVisible(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     public void setup() {
-        menuMaker("Budget");
-        menuMaker("Files");
-        menuMaker("Journal");
-
         //set to cover the previous frame
         this.setLocation(SCREEN_WIDTH / 2 - SCREEN_WIDTH / 4,
                 SCREEN_HEIGHT / 2 - SCREEN_HEIGHT / 4);
         this.setSize(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-    }
 
-    public void menuMaker(String type) {
-        JMenuItem menu = new JMenuItem(type);
-        menu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //System.out.println("REaches here");
-               File f =  new File("src/" + theUser + "/" + theProjName + "/" + type + ".txt");
-                try {
-                    new MenuReaderPopulation(f, theUser, theProjName, type);
-                } catch (FileNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                }
 
-            }
-        });
-        myMenu.add(menu);
     }
 
     /**
@@ -73,7 +58,6 @@ public class OptionFrame extends JFrame {
         int len = theName.length();
         String[] nums = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         for (int i = 0; i < 10; i++) {
-
             //checks if there is a number in the name
             //means no numbers allowed in project names for now!!!
             if (theName.contains(nums[i])) {

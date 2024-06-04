@@ -27,9 +27,8 @@ public class Budget {
     private PrintStream budgetFile;
 
     /**
-     * Creates the budget for the entire project. Sets expenses to zero and instantiates the
-     * myExpense list as an empty ArrayList. Also creates the ProjectBudget txt file to store
-     * budget info.
+     * Creates the new budget for the entire project. Sets expenses to zero and instantiates the
+     * myExpense list as an empty ArrayList.
      *
      * @param theTotal project's total budget
      * @author Owen Orlic
@@ -38,14 +37,31 @@ public class Budget {
         myTotal = theTotal;
         myTotalExpenses = 0; //set expenses to zero at project creation
         myExpenses = new ArrayList<>();
-//        try {
-//            //creates a file to store all of this project's budget info
-//            budgetFile = new PrintStream(new FileOutputStream("src/ProjectBudget.txt"));
-//            budgetFile.println("++++");
-//            budgetFile.println("Project Budget | " + myTotal); //adds the project's total budget to file on instantiation
-//        } catch (IOException e) {
-//            throw new RuntimeException("No file found: " + e);
-//        }
+    }
+
+    /**
+     * Creates the new budget for the entire project. Sets expenses to zero and instantiates the
+     * myExpense list as an empty ArrayList. Takes total from a String instead of a double.
+     *
+     * @param theTotal project's total budget
+     * @author Owen Orlic
+     */
+    public Budget(String theTotal) {
+        myTotal = Double.parseDouble(theTotal);
+        myTotalExpenses = 0; //set expenses to zero at project creation
+        myExpenses = new ArrayList<>();
+    }
+
+    /**
+     * Creates the budget for the previously existing project.
+     *
+     * @param theTotal project's total budget
+     * @author Owen Orlic
+     */
+    public Budget(double theTotal, double theTotalExpenses, ArrayList<ExpenseItem> theExpenses) {
+        myTotal = theTotal;
+        myTotalExpenses = theTotalExpenses;
+        myExpenses = theExpenses;
     }
 
     /**
@@ -78,6 +94,10 @@ public class Budget {
         return myTotalExpenses;
     }
 
+    public ArrayList<ExpenseItem> getExpenses() {
+        return myExpenses;
+    }
+
     /**
      * Creates a new ExpenseItem, adds it to the myExpenses list, and adds it to the
      * budget file.
@@ -86,11 +106,22 @@ public class Budget {
      * @param theExpense cost of the expense
      * @author Owen Orlic
      */
-    private void addExpense(String theName, double theExpense) {
+    public void addExpense(String theName, double theExpense) {
         ExpenseItem expense = new ExpenseItem(theName, theExpense);
+        myTotalExpenses += theExpense;
         myExpenses.add(expense);
-        budgetFile.println("----");
-        budgetFile.println(theName + " | " + theExpense);
+        //budgetFile.println("----");
+        //budgetFile.println(theName + " | " + theExpense);
+    }
+
+    @Override
+    public String toString() {
+        String result = "Total: " + myTotal + "\n";
+        result += "Expense Total: " + myTotalExpenses + "\n";
+        for (int i = 0; i < myExpenses.size(); i++ ) {
+            result += myExpenses.get(i).toString() + "\n";
+        }
+        return result;
     }
 
 }

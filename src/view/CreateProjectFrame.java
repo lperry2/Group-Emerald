@@ -1,7 +1,8 @@
 package src.view;
 
 import src.model.Budget;
-
+import src.model.User;
+import src.model.Project;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,7 @@ import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 
 public class CreateProjectFrame extends JFrame {
 
@@ -56,9 +58,9 @@ public class CreateProjectFrame extends JFrame {
     /** Tracks if the project should be private. */
     private boolean isPrivate;
 
-    private String userName;
+    private User myCurrentUser;
 
-    public CreateProjectFrame(String user) {
+    public CreateProjectFrame(User theCurrentUser) {
         super("Create New Project");
         //this.setLayout(new BorderLayout());
         creationPanel = new JPanel();
@@ -67,7 +69,7 @@ public class CreateProjectFrame extends JFrame {
         nameField = new JTextField(10);
         budgetField = new JTextField(10);
         pinField = new JTextField(5);
-        userName = user;
+        myCurrentUser = theCurrentUser;
         start();
     }
 
@@ -159,7 +161,7 @@ public class CreateProjectFrame extends JFrame {
                 Budget projectBudget = new Budget(Double.parseDouble(newProjectBudget));
 
                 // Write the project data to a file
-                try (FileWriter writer = new FileWriter("src/" + userName + "/Projects.txt", true)) {
+                try (FileWriter writer = new FileWriter("src/" + myCurrentUser.getName() + "/Projects.txt", true)) {
                     if (privateCheckBox.isSelected()) {
                         //if projects are private they will take the form "~ProjectName1234" with 1234 being the pin
                         writer.write("Project Name: ~" + newProjectName + pinField.getText() + "\t" + "Project Budget: " + newProjectBudget + "\n");
@@ -170,21 +172,26 @@ public class CreateProjectFrame extends JFrame {
 
                     //Creation of project files is here! File initializers should be worked on a separate method for each
                     File dir;
+                    String dirName;
+                    String userName = myCurrentUser.getName();
                     if (privateCheckBox.isSelected()) {
                         dir = new File("src/" + userName + "/" + "~" + newProjectName);
+                        dirName = "src/" + userName + "/" + "~" + newProjectName;
                     } else {
                         dir = new File("src/" + userName + "/" + newProjectName);
+                        dirName = "src/" + userName + "/" + newProjectName;
                     }
                     dir.mkdirs();
+                    //PrintStream budgetFile = new PrintStream(new File(dirName + "/Budget.txt"));
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();
-                    fileInitializer(budgetFile, "Budget");
+                    fileInitializer(budgetFile, "Budget | " + budgetField.getText());
                     File journalFile = new File(dir, "Journal.txt");
                     journalFile.createNewFile();
-                    fileInitializer(journalFile, "Journal");
+                    fileInitializer(journalFile, "Journal | " + nameField.getText());
                     File fileFile = new File(dir, "Files.txt");
                     fileFile.createNewFile();
-                    fileInitializer(fileFile, "Files");
+                    fileInitializer(fileFile, "Files | " + nameField.getText());
 
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/images/projectpete.png");
@@ -196,10 +203,16 @@ public class CreateProjectFrame extends JFrame {
                     // Show success message with the resized custom icon
                     JOptionPane.showMessageDialog(null, "Project data saved successfully!",
                                                 "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
+
+                    //add project to the user's project list
+                    myCurrentUser.addProject(new Project(newProjectName, new Budget(newProjectBudget)));
+
                     myPCS.firePropertyChange("repaint", null, null);
                     dispose();
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "An error occurred while saving the project data.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,
+                                            "An error occurred while saving the project data.",
+                                                "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace();
                 }
             }
