@@ -1,4 +1,6 @@
-package src.model;
+package src.view;
+
+import src.model.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

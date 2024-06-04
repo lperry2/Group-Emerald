@@ -1,26 +1,28 @@
-package src.model;
+package src.view;
+
+import src.model.Budget;
+import src.model.ExpenseItem;
+import src.model.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class BudgetPage extends AbstractPage {
 
     private Budget myCurrentBudget;
 
-    private JLabel myTitleLabel;
-
-    private JPanel myTitlePanel;
-
-    private JLabel myExpenseLabel;
-
-    private JPanel myExpensePanel;
-
-    private JPanel myButtonPanel;
+//    private JLabel myTitleLabel;
+//
+//    private JPanel myTitlePanel;
+//
+//    private JLabel myExpenseLabel;
+//
+//    private JPanel myExpensePanel;
+//
+//    private JPanel myButtonPanel;
 
 
     /**
