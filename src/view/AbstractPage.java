@@ -1,8 +1,11 @@
-package src.model;
+package src.view;
+
+import src.model.Project;
+import src.model.User;
 
 import java.awt.*;
 import java.io.File;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class AbstractPage extends JFrame {
     /**
@@ -36,6 +39,16 @@ public class AbstractPage extends JFrame {
     protected User myCurrentUser;
 
     protected Project myCurrentProject;
+
+    protected JLabel myTitleLabel;
+
+    protected JPanel myTitlePanel;
+
+    protected JLabel myExpenseLabel;
+
+    protected JPanel myExpensePanel;
+
+    protected JPanel myButtonPanel;
 
     public AbstractPage(User theUser, String theProjectName, String theType) {
         super(theType);

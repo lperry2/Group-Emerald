@@ -1,10 +1,10 @@
-package src.model;
+package src.view;
+
+import src.model.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 public class MenuBar extends JMenuBar {
 

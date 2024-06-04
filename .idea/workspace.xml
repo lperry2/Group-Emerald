@@ -10,9 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
+      <change afterPath="$PROJECT_DIR$/src/model/Journal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/JournalEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/JournalPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/OptionFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AbstractPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BackButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BackButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BudgetPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BudgetPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OptionFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +102,7 @@
       <module name="Group-Emerald" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="src.model.*" />
+          <option name="PATTERN" value="src.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -270,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717453863564</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717459090039</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717459090039</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
