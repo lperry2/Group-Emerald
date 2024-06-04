@@ -63,6 +63,8 @@ public class MenuBar extends JMenuBar {
             public void actionPerformed(ActionEvent e) {
                 if (theType.equals("Budget")) {
                     new BudgetPage(myCurrentUser, myProjectName, theType);
+                } else if (theType.equals("Journal")) {
+                    new JournalPage(myCurrentUser, myProjectName, theType);
                 }
 //                try {
 //                    new MenuReaderPopulation(f, myCurrentUser, myProjectName, theType);

@@ -44,9 +44,9 @@ public class AbstractPage extends JFrame {
 
     protected JPanel myTitlePanel;
 
-    protected JLabel myExpenseLabel;
+    protected JLabel myContentLabel;
 
-    protected JPanel myExpensePanel;
+    protected JPanel myContentPanel;
 
     protected JPanel myButtonPanel;
 

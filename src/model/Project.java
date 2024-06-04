@@ -1,5 +1,7 @@
 package src.model;
 
+import java.util.ArrayList;
+
 /** Represents a project */
 public class Project {
     /** The name of the project. */
@@ -9,25 +11,43 @@ public class Project {
     /** The project's budget. */
     private Budget myBudget;
 
+    private Journal myJournal;
+
     private boolean isPrivate;
+
 
     /**
      * The constructor for the Project class.
      *
-     * @param theProjectName the name of the project
-     * @param theProjectDescription the description of the project
      * @author Alex Ewing
+     * @param theProjectName the name of the project
+     * @param theBudget the budget of the project
      */
     public Project(String theProjectName, Budget theBudget){
         myProjectName = theProjectName;
-        //myProjectDescription = theProjectDescription;
         myBudget = theBudget;
+        myJournal = new Journal(new ArrayList<JournalEntry>());
+    }
+
+    /**
+     * The constructor for the Project class, with a Journal too.
+     *
+     * @author Alex Ewing
+     * @param theProjectName the name of the project
+     * @param theBudget the budget of the project
+     * @param theJournal the journal for the project
+     */
+    public Project(String theProjectName, Budget theBudget, Journal theJournal){
+        myProjectName = theProjectName;
+        myBudget = theBudget;
+        myJournal = theJournal;
     }
 
     /**
      * Gets the project name.
-     * @return myProjectName the name of the project
+     *
      * @author Alex Ewing
+     * @return myProjectName the name of the project
      */
     public String getProjectName() {
         return myProjectName;
@@ -35,8 +55,9 @@ public class Project {
 
     /**
      * Sets the project name.
+     *
+     * @author Alex Ewing
      * @param  theProjectName the new name of the project
-     *                        @author Alex Ewing
      */
     public void setProjectName(String theProjectName) {
         this.myProjectName = theProjectName;
@@ -44,6 +65,10 @@ public class Project {
 
     public Budget getBudget() {
         return myBudget;
+    }
+
+    public Journal getJournal() {
+        return myJournal;
     }
 
     /**

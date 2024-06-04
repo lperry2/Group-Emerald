@@ -1,2 +1,6 @@
 +
-Journal | testa
+Journal | placeholderInUser.javaSaveJournal
+
+----
+May 30th
+Going to start the tests today

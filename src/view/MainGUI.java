@@ -275,10 +275,11 @@ public class MainGUI {
 
             String[] projectPaths = readProjects(theUsername);
             Budget[] projectBudgets = readBudgets(projectPaths);
-            for (int i = 0; i < projectBudgets.length; i++) {
+            Journal[] projectJournals = readJournals(projectPaths);
+            //for (int i = 0; i < projectBudgets.length; i++) {
                 //System.out.println(projectPaths[i] + " | " + projectBudgets[i].getTotal());
-            }
-            ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets);
+            //}
+            ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets, projectJournals);
 
 
             //instantiate the User with this infomation
@@ -294,11 +295,12 @@ public class MainGUI {
          * @param theBudgets an array of the budgets of the projects
          * @return an arraylist of all the user's projects
          */
-        private ArrayList<Project> makeProjectList(String[] thePaths, Budget[] theBudgets) {
+        private ArrayList<Project> makeProjectList(String[] thePaths, Budget[] theBudgets, Journal[] theJournals) {
             ArrayList<Project> projects = new ArrayList<>();
             for (int i = 0; i < thePaths.length; i++) {
-                String[] pathname = thePaths[i].split("/");
-                projects.add(new Project(pathname[pathname.length - 1], theBudgets[i]));
+                String[] pathname = thePaths[i].split("/"); //split up the pathname so that
+                String projectName = pathname[pathname.length - 1]; //we can get the project name
+                projects.add(new Project(projectName, theBudgets[i], theJournals[i]));
             }
             return projects;
         }
@@ -340,11 +342,7 @@ public class MainGUI {
         private Budget[] readBudgets(String[] thePaths) {
             Budget[] budgets = new Budget[thePaths.length];
             for (int i = 0; i < thePaths.length; i++) {
-                //Scanner scan = new Scanner(new File(thePaths[i] + "/Budget.txt"));
-                //System.out.println(thePaths[i]);
                 budgets[i] = readBudgetFile(thePaths[i] + "/Budget.txt");
-
-
             }
             return budgets;
         }
@@ -363,36 +361,24 @@ public class MainGUI {
             double totalExpenses = 0;
             ArrayList<ExpenseItem> expenses = new ArrayList<>();
 
-            System.out.println("thePath: " + thePath);
-
             try (Scanner scan = new Scanner(new File(thePath))) {
-                //scan.nextLine();
                 while (scan.hasNextLine()) {
                     String next = scan.nextLine();
-                    //System.out.println("This is next: " + next);
                     if (next.equals("+")) {
-                        scan.next();
-                        scan.next();
-                        String totalStr = scan.next();
-
-                        //System.out.println("This is next: " + nextLine);
+                        scan.next(); //skip type word
+                        scan.next(); //skip bar character
+                        String totalStr = scan.next(); //take the total
                         //String[] mainInfo = nextLine.split("| ");
-                        //System.out.println("Total in reading: " + totalStr);
                         total = Double.parseDouble(totalStr);
 
                     } else if (next.equals("----")) {
-                        String expenseName = scan.nextLine();
-                        //System.out.println("expense name: " + expenseName);
-                        String line = scan.nextLine();
-                        //System.out.println("line: " + line);
-                        double expenseCost = Double.parseDouble(line);
-                        totalExpenses += expenseCost;
-                        ExpenseItem expense = new ExpenseItem(expenseName, expenseCost);
+                        String expenseName = scan.nextLine(); //get the name of the expense
+                        String line = scan.nextLine(); //get the cost
+                        double expenseCost = Double.parseDouble(line); //turn String to double
+                        totalExpenses += expenseCost; //add expense to total expenses
+                        ExpenseItem expense = new ExpenseItem(expenseName, expenseCost); //create new ExpenseItem
                         expenses.add(expense);
-                        //move past the ending "-"
-                        //scan.nextLine();
                     }
-                    //System.out.println(scan.nextLine());
                 }
             } catch (IOException e) {
                 System.out.println("Main GUI, readBudgetFile()");
@@ -405,6 +391,58 @@ public class MainGUI {
             }
             //System.out.println(budget);
             return budget;
+        }
+
+        /**
+         * Goes through a list of pathnames that are directories, creates a scanner
+         * for the Journal.txt file in those directories, passes that scanner to the
+         * readJournalFile() method.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the project pathnames
+         * @return an array of Journal objects for each project
+         */
+        private Journal[] readJournals(String[] thePaths) {
+            Journal[] journals = new Journal[thePaths.length];
+            for (int i = 0; i < thePaths.length; i++) {
+                journals[i] = readJournalFile(thePaths[i] + "/Journal.txt");
+            }
+            return journals;
+        }
+
+        /**
+         * Reads a Journal.txt file to create a journal object with the
+         * journal entry items if there are any.
+         *
+         * @author Owen Orlic
+         * @param thePath the Journal.txt file to be read
+         * @return the Journal object representing the Journal.txt file
+         */
+        private Journal readJournalFile(String thePath) {
+            Journal journal;
+            ArrayList<JournalEntry> entries = new ArrayList<>();
+
+            try (Scanner scan = new Scanner(new File(thePath))) {
+                while (scan.hasNextLine()) {
+                    String next = scan.nextLine();
+                    if (next.equals("+")) {
+                        scan.next(); //skip type word
+                        scan.next(); //skip bar character
+                        String mainTitle = scan.next(); //take the main title
+                        //String[] mainInfo = nextLine.split("| ");
+
+                    } else if (next.equals("----")) {
+                        String entryTitle = scan.nextLine(); //get the title of the entry
+                        String entryContent = scan.nextLine(); //get the content of the entry
+                        JournalEntry entry = new JournalEntry(entryTitle, entryContent); //create new JournalEntry
+                        entries.add(entry);
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Main GUI, readJournalFile()");
+            }
+
+            return new Journal(entries);
         }
 
         /**
@@ -518,9 +556,14 @@ public class MainGUI {
             searchBtn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     // TODO: Implement Project Search
+
+                    new SearchFrame(myUser, projectField.getText());
+
                     projectLabel.setText("File not found");
                     projectLabel.setForeground(Color.RED);
                     projectLabel.setVisible(true);
+
+
                 }
             });
             this.add(searchBtn);

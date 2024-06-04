@@ -37,7 +37,7 @@ public class BudgetPage extends AbstractPage {
     public BudgetPage(User theUser, String theProjectName, String theType) {
         super(theUser, theProjectName, theType);
         myCurrentBudget = myCurrentProject.getBudget();
-        System.out.println("Project Name: " + theProjectName);
+        //System.out.println("Project Name: " + theProjectName);
 
         setup();
 
@@ -86,15 +86,15 @@ public class BudgetPage extends AbstractPage {
             }
             allExpenses += "</html>";
         }
-        myExpenseLabel = new JLabel(allExpenses);
-        myExpensePanel = new JPanel();
+        myContentLabel = new JLabel(allExpenses);
+        myContentPanel = new JPanel();
 
-        myExpensePanel.add(myExpenseLabel);
-        this.add(myExpensePanel, BorderLayout.CENTER);
+        myContentPanel.add(myContentLabel);
+        this.add(myContentPanel, BorderLayout.CENTER);
     }
 
     /**
-     * Sets up the add item and edit item buttons.
+     * Sets up the add item and save buttons.
      *
      * @author Owen Orlic
      */
@@ -136,7 +136,7 @@ public class BudgetPage extends AbstractPage {
 
         //remove labels
         myTitlePanel.removeAll();
-        myExpensePanel.removeAll();
+        myContentPanel.removeAll();
 
         //get label's info again
         for (int i = 0; i < expenseItems.size(); i++) {
@@ -145,14 +145,14 @@ public class BudgetPage extends AbstractPage {
         allExpenses += "</html>";
         double expenses = myCurrentBudget.getTotalExpenses();
         double total = myCurrentBudget.getTotal();
-        myExpenseLabel = new JLabel(allExpenses);
+        myContentLabel = new JLabel(allExpenses);
         myTitleLabel = new JLabel("Budget: $" + expenses + "/" + total);
         myTitleLabel.setFont(new Font("Arial", Font.BOLD, 30));
 
         //add everything back
         myTitlePanel.add(myTitleLabel);
-        myExpensePanel.add(myExpenseLabel);
-        this.add(myExpensePanel, BorderLayout.CENTER);
+        myContentPanel.add(myContentLabel);
+        this.add(myContentPanel, BorderLayout.CENTER);
         this.add(myTitlePanel, BorderLayout.NORTH);
         this.revalidate();
         this.repaint();

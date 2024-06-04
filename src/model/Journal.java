@@ -1,5 +1,7 @@
 package src.model;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Journal {
@@ -10,11 +12,13 @@ public class Journal {
         myEntries = theEntries;
     }
 
-//    public ArrayList<JournalEntry> getEntries() {
-//
-//    }
+    public ArrayList<JournalEntry> getEntries() {
+        return myEntries;
+    }
 
-    private void addEntry(String theTitle, String theContent) {
+
+
+    public void addEntry(String theTitle, String theContent) {
         JournalEntry entry = new JournalEntry(theTitle, theContent);
         myEntries.add(entry);
     }

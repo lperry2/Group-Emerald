@@ -26,4 +26,9 @@ public class JournalEntry {
     public void setContent(String theContent) {
         myContent = theContent;
     }
+
+    @Override
+    public String toString() {
+        return myTitle + ": " + myContent;
+    }
 }
