@@ -5,6 +5,10 @@ import src.model.User;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The frame that allows us to open the budget, file, or journal frame
+ * @author Daniel Sanchez, Owen Orlic
+ */
 public class OptionFrame extends JFrame {
     /** A ToolKit. */
     private static final Toolkit KIT = Toolkit.getDefaultToolkit();
@@ -23,6 +27,11 @@ public class OptionFrame extends JFrame {
 
     private User myCurrentUser;
 
+    /**
+     * The constructor for the option frame
+     * @param theUser the name of the current user
+     * @param theProjectName the name of the current project
+     */
     public OptionFrame(User theUser, String theProjectName) {
 
         myProjName = checkIfPrivate(theProjectName);
@@ -36,6 +45,10 @@ public class OptionFrame extends JFrame {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * sets up the dimensions of the optionframe
+     * @author Daniel Sanchez, Owen Orlic
+     */
     public void setup() {
         //set to cover the previous frame
         this.setLocation(SCREEN_WIDTH / 2 - SCREEN_WIDTH / 4,

@@ -614,17 +614,30 @@ public class MainGUI {
         }
     }
 
-    /** Represents the project view portion of the gui*/
+    /** Represents the project list view portion of the gui
+     * @author Daniel Sanchez, Owen Orlic
+     */
     private final class ProjectViewPanel extends JPanel {
+        /**
+         * the constructor of the panel
+         */
         public ProjectViewPanel() {
             setup();
         }
 
+        /**
+         * the setup of the project view panel
+         */
         private void setup() {
             this.setLayout(new GridLayout(0, 1));
             updateProjectList();
         }
 
+        /**
+         * allows the list to populate itself and update whenever
+         * a new project is added.
+         * @author Daniel Sanchez, Owen Orlic
+         */
         public void updateProjectList() {
             this.removeAll(); // Clear the panel
 
