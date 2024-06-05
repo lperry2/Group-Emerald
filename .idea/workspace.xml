@@ -11,138 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/2/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/2/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/2/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/First Project/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/First Project/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/First Project/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/~Private/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/~Private/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Alex/~Private/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Name/Projects.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/bla/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/bla/hum/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/bla/hum/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/bla/hum/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/blah/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/blah/good/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/blah/good/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/blah/good/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/dan/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/dan/~nskejcnakren/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/dan/~nskejcnakren/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/dan/~nskejcnakren/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Car/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Car/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Car/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Chicken Coop/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Chicken Coop/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Chicken Coop/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Kitchen/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Kitchen/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Kitchen/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/bedrroom/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/bedrroom/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/bedrroom/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/blah/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/blah/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/blah/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/~Dungeon/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/~Dungeon/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/oo/~Dungeon/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/other/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/other/tester/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/other/tester/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/other/tester/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/testa/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/testa/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/testa/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/2/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/2/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/2/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/First Project/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/First Project/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/First Project/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/~Private/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/~Private/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alex/~Private/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Name/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bla/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bla/hum/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bla/hum/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bla/hum/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blah/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blah/good/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blah/good/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blah/good/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dan/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dan/~nskejcnakren/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dan/~nskejcnakren/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dan/~nskejcnakren/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lp/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/newguy/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/newguy/newProj/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/newguy/newProj/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/newguy/newProj/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Car/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Car/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Car/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Chicken Coop/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Chicken Coop/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Chicken Coop/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Kitchen/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Kitchen/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Kitchen/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/bedrroom/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/bedrroom/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/bedrroom/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/blah/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/blah/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/blah/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/~Dungeon/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/~Dungeon/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oo/~Dungeon/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/other/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/other/tester/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/other/tester/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/other/tester/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/Projects.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/heloo/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/heloo/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/heloo/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/te/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/te/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/te/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/test/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/test/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/test/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/testa/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/testa/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/testa/Journal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/~tester/Budget.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/~tester/Files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/~tester/Journal.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,25 +61,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Driver.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Iteration-3&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Driver.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowGit.ShowToolbar": "false",
+    "git-widget-placeholder": "Iteration-3",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\je21\OneDrive\Documents\GitHub\Group-Emerald" />
@@ -416,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717462424579</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="makin it look better">
+      <created>1717607222697</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1717607222697</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
