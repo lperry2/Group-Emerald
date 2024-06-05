@@ -1,2 +1,0 @@
-Project Name: ~First Project	Project Budget: 100
-Project Name: 2	Project Budget: 1000
