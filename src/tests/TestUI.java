@@ -3,7 +3,13 @@ package src.tests;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
+import src.model.*;
+import src.view.BudgetPage;
 import src.view.MainGUI;
+
+import javax.swing.*;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,8 +27,28 @@ public class TestUI {
         -Someone on Stack Overflow
      */
 
-    /** The main GUI object for testing */
+    /**
+     * The main GUI object for testing
+     */
     private MainGUI testGUI;
+    /**
+     * An empty project to test
+     */
+    private Project emptyProject;
+
+    /**
+     * An empty private project to test
+     */
+    private Project emptyPrivateProject;
+    /**
+     * An empty budget to test
+     */
+    private Budget testBudget;
+
+    /**
+     * An empty journal to test
+     */
+    private Journal testJournal;
 
     /**
      * Set up the test fixture.
@@ -30,6 +56,10 @@ public class TestUI {
     @BeforeEach
     public void setUp() {
         testGUI = new MainGUI();
+        testBudget = new Budget(123);
+        testJournal = new Journal(new ArrayList<JournalEntry>());
+        emptyProject = new Project("test", testBudget, testJournal);
+        emptyPrivateProject = new Project("test", "123", testBudget);
     }
 
     /**
@@ -42,28 +72,118 @@ public class TestUI {
     }
 
     /**
-     * Test the UI components.
+     * Test if the correct project name is stored in empty project
      */
     @Test
-    public void testUIComponents() {
-        // Test the initial state of the UI
-        // Verify that the UI components are rendered correctly
+    public void testEmptyProjectName() {
+        assertEquals("test", emptyProject.getProjectName());
     }
 
     /**
-     * Test the visibility of UI components.
+     * checks whether we store the correct pin in private empty project
      */
     @Test
-    public void testUIComponentVisibility() {
-
+    public void testEmptyPrivateProjectPin() {
+        assertEquals("123", emptyPrivateProject.getPin());
+    }
+    /**
+     * Test if it stores the correct budget in empty project
+     */
+    @Test
+    public void testEmptyProjectBudget() {
+        assertEquals(testBudget, emptyProject.getBudget());
     }
 
     /**
-     * Test the login button click.
+     * Test if it stores the correct budget value in empty project
      */
     @Test
-    public void testLoginButtonClick() {
-
+    public void testEmptyProjectBudgetValue() {
+        assertEquals(testBudget.getTotal(), emptyProject.getBudget().getTotal());
     }
 
+    /**
+     * Test if we have 0 expenses in our empty project
+     */
+    @Test
+    public void testNumBudgetExpensesEmptyProject() {
+        assertEquals(0, emptyProject.getBudget().getExpenses().size());
+        assertEquals(0, emptyProject.getBudget().getTotalExpenses());
+    }
+
+    /**
+     * Test if the storage of a Expense item is correct within empty project
+     */
+    @Test
+    public void TestNewExpenseItemEmptyProject() {
+        testBudget.addExpense("tester1", 33.33);
+        assertEquals(1, emptyProject.getBudget().getExpenses().size());
+        assertEquals(33.33, emptyProject.getBudget().getTotalExpenses());
+    }
+
+    /**
+     * Tests if we can edit an expense within empty project
+     */
+    @Test
+    public void TestEditExpenseItemEmptyProject() {
+        testBudget.addExpense("tester1", 33.33);
+        testBudget.editExpense("tester1", 12.99);
+        assertEquals(12.99, emptyProject.getBudget().getTotalExpenses());
+    }
+
+    /**
+     * Tests if we can delete an expense within empty project
+     */
+    @Test
+    public void TestDeleteExpenseItemEmptyProject() {
+        testBudget.addExpense("tester1", 33.33);
+        testBudget.deleteExpense("tester1");
+        assertEquals(0, emptyProject.getBudget().getExpenses().size());
+        assertEquals(0, emptyProject.getBudget().getTotalExpenses());
+    }
+
+    /**
+     * Test if we have the correct budget of the empty project
+     */
+    @Test
+    public void testTotalEmptyProject() {
+        assertEquals(123, emptyProject.getBudget().getTotal());
+    }
+
+    /**
+     * Test to see if no journal entries in empty project
+     */
+    @Test
+    public void testJournalEmptyProject() {
+        assertEquals(0, emptyProject.getJournal().getEntries().size());
+    }
+    /**
+     * Test if we correctly add a new journal entry in empty project
+     */
+    @Test
+    public void testAddJournalEntryEmptyProject() {
+        testJournal.addEntry("Test1", "TestContent");
+        assertEquals(1, emptyProject.getJournal().getEntries().size());
+    }
+
+    /**
+     * Test if we can edit a journal entry within empty project
+     */
+    @Test
+    public void testEditJournalEntryEmptyProject() {
+        testJournal.addEntry("Test1", "TestContent");
+        testJournal.editEntry("Test1", "Tester");
+        assertEquals("Test1", emptyProject.getJournal().getEntries().get(0).getTitle());
+        assertEquals("Tester", emptyProject.getJournal().getEntries().get(0).getContent());
+    }
+
+    /**
+     * Test if we can remove a journal entry within empty project
+     */
+    @Test
+    public void testRemoveJournalEntryEmptyProject() {
+        testJournal.addEntry("Test", "Content");
+        testJournal.deleteEntry("Test");
+        assertEquals(0, emptyProject.getJournal().getEntries().size());
+    }
 }

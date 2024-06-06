@@ -61,6 +61,7 @@ public class CreateProjectFrame extends JFrame {
     /** Tracks if the project should be private. */
     private boolean isPrivate;
 
+    /** The current user. */
     private User myCurrentUser;
 
     /**

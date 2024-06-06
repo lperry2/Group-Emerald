@@ -4,31 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-/**
- * A Journal is used for marking down notes for the project.
- * This is a collection of JournalEntrys.
- *
- * @author Owen Orlic
- */
 public class Journal {
 
-    /** A list of all the entries for the project. */
     private ArrayList<JournalEntry> myEntries;
 
-    /**
-     * Creates a journal whose journal entries are theEntries.
-     *
-     * @param theEntries the entries of the journal
-     */
     public Journal(ArrayList<JournalEntry> theEntries) {
         myEntries = theEntries;
     }
 
-    /**
-     * Getter method for the entries arraylist.
-     *
-     * @return the arraylist of journal entries for this project
-     */
     public ArrayList<JournalEntry> getEntries() {
         return myEntries;
     }
@@ -59,13 +42,6 @@ public class Journal {
 
     }
 
-    /**
-     * Edits an entry by looking for the entry with theTitle and replaces
-     * its content with theContent.
-     *
-     * @param theTitle title of the entry to be edited
-     * @param theContent new content of the entry
-     */
     public void editEntry(String theTitle, String theContent) {
         for (int i = 0; i < myEntries.size(); i++) {
             JournalEntry curr = myEntries.get(i);
@@ -76,12 +52,6 @@ public class Journal {
         }
     }
 
-    /**
-     * Deletes an entry by looking for the one titled by theTitle and
-     * removing it from myEntries.
-     *
-     * @param theTitle the title of the entry to be deleted
-     */
     public void deleteEntry(String theTitle) {
         for (int i = 0; i < myEntries.size(); i++) {
             JournalEntry curr = myEntries.get(i);
