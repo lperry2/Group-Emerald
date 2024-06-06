@@ -697,9 +697,9 @@ public class MainGUI {
 
                     new SearchFrame(myUser, projectField.getText());
 
-                    projectLabel.setText("File not found");
-                    projectLabel.setForeground(Color.RED);
-                    projectLabel.setVisible(true);
+                    //projectLabel.setText("File not found");
+                    //projectLabel.setForeground(Color.RED);
+                    //projectLabel.setVisible(true);
 
 
                 }

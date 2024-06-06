@@ -8,11 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-public class JournalPage extends AbstractPage {
+public class JournalPage extends AbstractPage implements PropertyChangeListener {
 
     private Journal myCurrentJournal;
+
+    private String myProjectName;
 
     /**
      * Sends parameters to the super class constructor and calls setup().
@@ -27,6 +31,10 @@ public class JournalPage extends AbstractPage {
     public JournalPage(User theUser, String theProjectName, String theType) {
         super(theUser, theProjectName, theType);
         myCurrentJournal = myCurrentProject.getJournal();
+        myProjectName = theProjectName;
+        if (myProjectName.charAt(0) == '~') {
+            myProjectName = myProjectName.substring(1);
+        }
         setup();
     }
 
@@ -46,7 +54,7 @@ public class JournalPage extends AbstractPage {
      */
     private void setupHeader() {
 
-        myTitleLabel = new JLabel("Journal for " + myCurrentProject.getProjectName());
+        myTitleLabel = new JLabel("Journal for " + myProjectName);
         myTitleLabel.setFont(new Font("Arial", Font.BOLD, 30));
 
         myTitlePanel = new JPanel();
@@ -94,6 +102,36 @@ public class JournalPage extends AbstractPage {
         });
         myButtonPanel.add(addBtn, new FlowLayout());
 
+        JButton editBtn = new JButton("Edit Item");
+        editBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                new EditSelectionFrame(myCurrentBudget);
+//                writeExpenses();
+                //openEditSelection(myCurrentBudget);
+                String title = "Please Select an Expense to Edit.";
+                JournalSelectionFrame frame = new JournalSelectionFrame(myCurrentJournal, title, BudgetSelectionFrame.EDIT_OPTION);
+                frame.addPropertyChangeListener(JournalPage.this);
+                writeEntries();
+
+            }
+        });
+        myButtonPanel.add(editBtn, new FlowLayout());
+
+        JButton deleteBtn = new JButton("Delete Item");
+        deleteBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String title = "Please Select an Expense to Delete.";
+                JournalSelectionFrame frame = new JournalSelectionFrame(myCurrentJournal, title, BudgetSelectionFrame.DELETE_OPTION);
+                frame.addPropertyChangeListener(JournalPage.this);
+                writeEntries();
+
+            }
+        });
+        myButtonPanel.add(deleteBtn, new FlowLayout());
+
         JButton saveBtn = new JButton("Save");
         saveBtn.addActionListener(new ActionListener() {
             @Override
@@ -102,6 +140,15 @@ public class JournalPage extends AbstractPage {
             }
         });
         myButtonPanel.add(saveBtn, new FlowLayout());
+
+        JButton backBtn = new JButton("Back");
+        backBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JournalPage.this.dispose();
+            }
+        });
+        myButtonPanel.add(backBtn, new FlowLayout());
 
         this.add(myButtonPanel, BorderLayout.SOUTH);
     }
@@ -126,7 +173,7 @@ public class JournalPage extends AbstractPage {
         allEntries += "</html>";
 
         myContentLabel = new JLabel(allEntries);
-        myTitleLabel = new JLabel("Journal for " + myCurrentProject.getProjectName());
+        myTitleLabel = new JLabel("Journal for " + myProjectName);
         myTitleLabel.setFont(new Font("Arial", Font.BOLD, 30));
 
         //add everything back
@@ -136,5 +183,17 @@ public class JournalPage extends AbstractPage {
         this.add(myTitlePanel, BorderLayout.NORTH);
         this.revalidate();
         this.repaint();
+    }
+
+    @Override
+    public void propertyChange(final PropertyChangeEvent theEvent) {
+        System.out.println(theEvent);
+        if (theEvent.getPropertyName().equals("repaintPageJournalEdit")) {
+            myCurrentJournal.editEntry((String) theEvent.getOldValue(), (String) theEvent.getNewValue());
+            writeEntries();
+        } else if (theEvent.getPropertyName().equals("repaintPageJournalDelete")) {
+            myCurrentJournal.deleteEntry((String) theEvent.getOldValue());
+            writeEntries();
+        }
     }
 }

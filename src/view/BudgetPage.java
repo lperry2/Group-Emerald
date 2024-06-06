@@ -1,25 +1,28 @@
 package src.view;
 
-import src.model.Budget;
-import src.model.ExpenseItem;
-import src.model.User;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
+import javax.swing.*;
 import java.util.ArrayList;
+import src.model.Budget;
+import src.model.ExpenseItem;
+import src.model.User;
 
+/**
+ * An implementation of AbstractPage that shows the budget information.
+ * Has a header at the top of the screen that shows the total expenses and budget in
+ * the form: totalExpenses / totalBudget. Listens for PropertyChangeEvents from
+ * BudgetSelectionFrame.
+ *
+ * @author Owen Orlic
+ */
 public class BudgetPage extends AbstractPage implements PropertyChangeListener {
 
-    /** For watching if there are shapes currently drawn. */
-    //private final PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
-
+    /** The budget whose information should be displayed. */
     private Budget myCurrentBudget;
-
 
     /**
      * Sends parameters to the super class constructor and calls setup().
@@ -33,10 +36,8 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
     public BudgetPage(User theUser, String theProjectName, String theType) {
         super(theUser, theProjectName, theType);
         myCurrentBudget = myCurrentProject.getBudget();
-        //System.out.println("Project Name: " + theProjectName);
 
         setup();
-
     }
 
     /**
@@ -45,12 +46,10 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
      * @author Owen Orlic
      */
     private void setup() {
-
         setupHeader();
         setupExpenses();
         setupButtons();
         this.setVisible(true);
-
     }
 
     /**
@@ -58,8 +57,6 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
      * totalExpense / projectBudget.
      */
     private void setupHeader() {
-        //double expenses = myCurrentBudget.getTotalExpenses();
-        //double total = myCurrentBudget.getTotal();
         String expenses = String.format("%.2f", myCurrentBudget.getTotalExpenses());
         String total = String.format("%.2f", myCurrentBudget.getTotal());
         myTitleLabel = new JLabel("Budget: $" + expenses + "/" + total);
@@ -70,6 +67,9 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
         this.add(myTitlePanel, BorderLayout.NORTH);
     }
 
+    /**
+     * Displays the individual expenses down the center of the frame.
+     */
     private void setupExpenses() {
         //will show if there are no expenses yet
         String allExpenses = "There are currently no expenses for this project!";
@@ -91,7 +91,7 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
     }
 
     /**
-     * Sets up the add item and save buttons.
+     * Sets up the add, edit, delete, and save buttons.
      *
      * @author Owen Orlic
      */
@@ -149,13 +149,16 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
         });
         myButtonPanel.add(saveBtn, new FlowLayout());
 
-        this.add(myButtonPanel, BorderLayout.SOUTH);
-    }
+        JButton backBtn = new JButton("Back");
+        backBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BudgetPage.this.dispose();
+            }
+        });
+        myButtonPanel.add(backBtn, new FlowLayout());
 
-    private void openEditSelection(Budget theBudget) {
-        //EditSelectionFrame f = new EditSelectionFrame(theBudget, 0, this);
-        //f.addPropertyChangeListener(this);
-        writeExpenses();
+        this.add(myButtonPanel, BorderLayout.SOUTH);
     }
 
     /**

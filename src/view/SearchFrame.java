@@ -56,7 +56,8 @@ public class SearchFrame extends JFrame {
 
     /**
      * Sets the location and size of the search frame, makes the
-     * search list, and makes the frame visible.
+     * search list, and makes the frame visible. Adds the back button
+     * to the frame.
      *
      * @author Owen Orlic
      */
@@ -65,6 +66,19 @@ public class SearchFrame extends JFrame {
                 SCREEN_HEIGHT / SCALE);
         this.setSize(SCREEN_WIDTH/ SCALE, SCREEN_HEIGHT / SCALE);
         makeSearchList();
+
+        JPanel btnPanel = new JPanel();
+        JButton backBtn = new JButton("Back");
+        backBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SearchFrame.this.dispose();
+            }
+        });
+        btnPanel.add(backBtn, new FlowLayout());
+        this.add(btnPanel, BorderLayout.SOUTH);
+
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 
@@ -81,6 +95,7 @@ public class SearchFrame extends JFrame {
         JPanel projectList = new JPanel(new GridLayout(0, 1, 0, 4));
 
         int searchLen = mySearch.length();
+        boolean oneFound = false;
         for (int i = 0; i < projects.length; i++) {
             String name = projects[i];
             //System.out.println(name);
@@ -97,10 +112,15 @@ public class SearchFrame extends JFrame {
                     JButton btn = new JButton(displayName);
                     addBtnAction(btn, projects[i]);
                     projectList.add(btn);
+                    oneFound = true;
                     break;
                 }
                 j++;
             }
+        }
+        if (!oneFound) {
+            JLabel label = new JLabel("Sorry, no projects found.", 0);
+            projectList.add(label, BorderLayout.CENTER);
         }
         this.add(projectList);
     }

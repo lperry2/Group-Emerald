@@ -66,8 +66,7 @@ public abstract class AbstractPage extends JFrame {
                 SCREEN_HEIGHT / 2 - SCREEN_HEIGHT / 4);
         this.setSize(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 
-        //this.add(myPanel, BorderLayout.CENTER);
-
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 }
