@@ -9,6 +9,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * A class to create the frame when a specific element within a
+ * project (Budget or Journal) and their respective data displayed
+ * @author Daniel Sanchez, Owen Orlic
+ */
 public class MenuReaderPopulation extends JFrame {
     /**
      * A factor for scaling the size of the GUI relative to
@@ -33,16 +38,26 @@ public class MenuReaderPopulation extends JFrame {
      * The height of the screen.
      */
     private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
+    /**the content we need to read from*/
     private final File myContents;
-
+    /**the name of the user*/
     private final String myUser;
-
+    /**The name of the project*/
     private final String myProjName;
-
+    /**the type of element within the proejct*/
     private final String myType;
-
+    /**The panel that will contain all our content*/
     private JPanel myPanel;
 
+    /**
+     * the constructor for a MenuReaderPopulation frame
+     * @param theFile the file we are reading from
+     * @param theUser the name of the user
+     * @param theProjName the name of the project
+     * @param theType the type we are reading
+     * @throws FileNotFoundException if no file is found
+     * @author Daniel Sanchez, Owen Orlic
+     */
     public MenuReaderPopulation(final File theFile, String theUser, String theProjName, String theType) throws FileNotFoundException {
         myContents = theFile;
         myUser = theUser;
@@ -52,6 +67,11 @@ public class MenuReaderPopulation extends JFrame {
         setup();
     }
 
+    /**
+     * sets up the frame's contents and properties
+     * @throws FileNotFoundException if no file is found
+     * @author Owen Orlic, Daniel Sanchez
+     */
     private void setup() throws FileNotFoundException {
         this.setLocation(SCREEN_WIDTH / 2 - this.getWidth() / 2,
                 SCREEN_HEIGHT / 2 - this.getHeight() / 2);

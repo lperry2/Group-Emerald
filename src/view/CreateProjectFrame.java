@@ -14,6 +14,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 
+/**
+ * The frame that allows users to create new projects
+ * @author Daniel Sanchez, Owen Orlic
+ */
 public class CreateProjectFrame extends JFrame {
 
     /**
@@ -60,6 +64,11 @@ public class CreateProjectFrame extends JFrame {
 
     private User myCurrentUser;
 
+    /**
+     * The constructor of the Create Project frame
+     * @param theCurrentUser the current user logged in
+     * @author Owen Orlic, Daniel Sanchez
+     */
     public CreateProjectFrame(User theCurrentUser) {
         super("Create New Project");
         //this.setLayout(new BorderLayout());
@@ -100,7 +109,7 @@ public class CreateProjectFrame extends JFrame {
     /**
      * Sets up the name and budget text fields and adds the create project button action.
      *
-     * @author Owen Orlic
+     * @author Owen Orlic, Daniel Sanchez
      */
     private void setupComponents() {
         JLabel projectNameLabel = new JLabel("Project Name");
@@ -151,6 +160,12 @@ public class CreateProjectFrame extends JFrame {
         this.add(creationPanel, BorderLayout.NORTH);
         JButton createProjectBtn = new JButton("Create Project");
         createProjectBtn.addActionListener(new ActionListener() {
+            /**
+             * creates a new project directory with their respective element files
+             * upon clicking
+             * @param arg0 the event to be processed
+             * @author Daniel Sanchez, Owen Orlic
+             */
             public void actionPerformed(ActionEvent arg0) {
                 // Get project name and budget from the text fields
                 newProjectName = nameField.getText();
@@ -225,10 +240,21 @@ public class CreateProjectFrame extends JFrame {
         this.add(createButtonPanel);
     }
 
+    /**
+     * allows for the frame to have a property change listener
+     * @param actionListener  the PropertyChangeListener to be added
+     * @author Daniel Sanchez
+     */
     public void addPropertyChangeListener(PropertyChangeListener actionListener) {
         myPCS.addPropertyChangeListener(actionListener);
     }
 
+    /**
+     * Initializes the files for budgets and journals
+     * @param theFile the file we are writing to
+     * @param type the type of file we are writing to
+     * @author Daniel Sanchez
+     */
     public void fileInitializer(File theFile, String type) {
         try {
             FileWriter writer = new FileWriter(theFile, true);
