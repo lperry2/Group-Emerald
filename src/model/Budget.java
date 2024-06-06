@@ -1,5 +1,7 @@
 package src.model;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.io.PrintStream;
 
@@ -105,8 +107,24 @@ public class Budget {
      */
     public void addExpense(String theName, double theExpense) {
         ExpenseItem expense = new ExpenseItem(theName, theExpense);
-        myTotalExpenses += theExpense;
-        myExpenses.add(expense);
+        boolean alreadyAName = false;
+        for (int i = 0; i < myExpenses.size(); i++) {
+            if (theName.equals(myExpenses.get(i).getName())) {
+                alreadyAName = true;
+                break;
+            }
+        }
+        if (alreadyAName) {
+            JOptionPane.showMessageDialog(null, "There is already an expense with this name. Please choose a new name.",
+                    "Error with Name", JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
+        } else if (theExpense <= 0.00){
+            JOptionPane.showMessageDialog(null, "Expenses must cost more than $0.00. Please choose a new expense.",
+                    "Error with Expense", JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
+        } else {
+            myTotalExpenses += theExpense;
+            myExpenses.add(expense);
+        }
+
     }
 
     /**
@@ -158,6 +176,22 @@ public class Budget {
             result += myExpenses.get(i).toString() + "\n";
         }
         return result;
+    }
+
+    /**
+     * Method that returns a small pete for JOptionPanes.
+     *
+     * @author Daniel
+     * @return little version of pete
+     */
+    private static ImageIcon makePeteSmall() {
+        //code to make pete normal-sized
+        ImageIcon icon = new ImageIcon("src/images/projectpete.png");
+        Image img = icon.getImage();
+        // Resize the image to 50x50 pixels
+        Image resizedImg = img.getScaledInstance(100, 75, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImg);
+        return resizedIcon;
     }
 
 }

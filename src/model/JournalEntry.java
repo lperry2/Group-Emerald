@@ -1,5 +1,7 @@
 package src.model;
 
+import javax.swing.*;
+
 public class JournalEntry {
 
     private String myTitle;
@@ -26,6 +28,8 @@ public class JournalEntry {
     public void setContent(String theContent) {
         myContent = theContent;
     }
+
+
 
     @Override
     public String toString() {

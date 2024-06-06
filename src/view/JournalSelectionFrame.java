@@ -1,6 +1,8 @@
 package src.view;
 
 import src.model.Budget;
+import src.model.Journal;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,30 +12,30 @@ import java.beans.PropertyChangeSupport;
 
 /**
  * Implementation of an AbstractSelectionFrame that is used for editing and deleting
- * ExpenseItems in the Budget.
+ * JournalEntries in the Journal.
  *
  * @author Owen Orlic
  */
-public class BudgetSelectionFrame extends AbstractSelectionFrame {
+public class JournalSelectionFrame extends AbstractSelectionFrame {
 
     /** Fires to listeners if an expense needs edited or deleted. */
     private final PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
 
     /** The budget being changed. */
-    private Budget myBudget;
+    private Journal myJournal;
 
     /**
      * Sends title and option to the AbstractSelectionFrame. theTitle will become the title
      * of the JFrame and theOption will decide whether the selection is for editing for deleting.
      * Uses theBudget to get all ExpenseItems in that budget.
      *
-     * @param theBudget the budget whose items are being edited or deleted
+     * @param theJournal the budget whose items are being edited or deleted
      * @param theTitle the title of the JFrame
      * @param theOption choice between editing or deleting the selection
      */
-    public BudgetSelectionFrame(Budget theBudget, String theTitle, int theOption) {
+    public JournalSelectionFrame(Journal theJournal, String theTitle, int theOption) {
         super(theTitle, theOption);
-        myBudget = theBudget;
+        myJournal = theJournal;
 
         setupBtnActions();
     }
@@ -48,7 +50,7 @@ public class BudgetSelectionFrame extends AbstractSelectionFrame {
         } else if (myOption == 1) {
             setupDeleteBtns();
         } else {
-            System.out.println("Error with myOption selection. BudgetSelectionFrame.java");
+            System.out.println("Error with myOption selection. JournalSelectionFrame.java");
         }
     }
 
@@ -56,19 +58,18 @@ public class BudgetSelectionFrame extends AbstractSelectionFrame {
      * Makes it so the selected expense can be edited.
      */
     private void setupEditBtns() {
-        for (int i = 0; i < myBudget.getExpenses().size(); i++) {
-            JButton btn = new JButton(myBudget.getExpenses().get(i).getName());
+        for (int i = 0; i < myJournal.getEntries().size(); i++) {
+            JButton btn = new JButton(myJournal.getEntries().get(i).getTitle());
             int finalI = i;
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String newExpense = (String) JOptionPane.showInputDialog(null,"Please Enter New Cost of Expense: ",
-                                                                    "Changing Expense", JOptionPane.INFORMATION_MESSAGE, makePeteSmall(),
-                                                                     null, null);
-                    double expense = Double.parseDouble(newExpense);
+                    String newEntry = (String) JOptionPane.showInputDialog(null,"Please Enter New Entry for the Journal: ",
+                            "Changing Entry", JOptionPane.INFORMATION_MESSAGE, makePeteSmall(),
+                            null, null);
                     //improper use of firePropertyChange(), just go with it
-                    myPcs.firePropertyChange("repaintPageBudgetEdit", btn.getText(), expense);
-                    BudgetSelectionFrame.this.dispose(); //close frame
+                    myPcs.firePropertyChange("repaintPageJournalEdit", btn.getText(), newEntry);
+                    JournalSelectionFrame.this.dispose(); //close frame
                 }
             });
             myPanel.add(btn);
@@ -79,26 +80,26 @@ public class BudgetSelectionFrame extends AbstractSelectionFrame {
      * Makes it so the selected expense will be deleted. Prompts twice before deleting.
      */
     private void setupDeleteBtns() {
-        for (int i = 0; i < myBudget.getExpenses().size(); i++) {
-            JButton btn = new JButton(myBudget.getExpenses().get(i).getName());
+        for (int i = 0; i < myJournal.getEntries().size(); i++) {
+            JButton btn = new JButton(myJournal.getEntries().get(i).getTitle());
             int finalI = i;
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     int firstChoice; //first verification
                     int secondChoice; //second verification
-                    firstChoice = JOptionPane.showConfirmDialog(null, "Would Like To Delete This Expense?",
+                    firstChoice = JOptionPane.showConfirmDialog(null, "Would Like To Delete This Entry?",
                             "Just Confirming", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
                     if (firstChoice == 0) { //chose yes
-                        secondChoice = JOptionPane.showConfirmDialog(null, "Are You Sure You Would Like To Delete This Expense?",
+                        secondChoice = JOptionPane.showConfirmDialog(null, "Are You Sure You Would Like To Delete This Entry?",
                                 "Double Checking", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
                         if (secondChoice == 0) { //chose yes
                             //improper use of firePropertyChange(), just go with it
-                            myPcs.firePropertyChange("repaintPageBudgetDelete", btn.getText(), "neverGetsUsed");
+                            myPcs.firePropertyChange("repaintPageJournalDelete", btn.getText(), "neverGetsUsed");
                         }
                     }
                     //close frame when button is pressed
-                    BudgetSelectionFrame.this.dispose();
+                    JournalSelectionFrame.this.dispose();
                 }
             });
             myPanel.add(btn);
@@ -141,4 +142,3 @@ public class BudgetSelectionFrame extends AbstractSelectionFrame {
     }
 
 }
-
