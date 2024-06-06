@@ -6,12 +6,21 @@ import java.util.ArrayList;
 
 public class Journal {
 
+    /** An array list containing the user's journal entries. */
     private ArrayList<JournalEntry> myEntries;
 
+    /**
+     * The public constructor for the journal class.
+     * @param theEntries the entries to be used in this journal
+     */
     public Journal(ArrayList<JournalEntry> theEntries) {
         myEntries = theEntries;
     }
 
+    /**
+     * Retrieves the entries for this journal.
+     * @return myEntries the entries for this journal
+     */
     public ArrayList<JournalEntry> getEntries() {
         return myEntries;
     }
@@ -42,6 +51,11 @@ public class Journal {
 
     }
 
+    /**
+     * A method used to edit an existing entry.
+     * @param theContent the new content for the entry
+     * @param theTitle the title of the entry to edit
+     */
     public void editEntry(String theTitle, String theContent) {
         for (int i = 0; i < myEntries.size(); i++) {
             JournalEntry curr = myEntries.get(i);
@@ -52,6 +66,10 @@ public class Journal {
         }
     }
 
+    /**
+     * A method used to delete an existing entry.
+     * @param theTitle the title of the entry to delete
+     */
     public void deleteEntry(String theTitle) {
         for (int i = 0; i < myEntries.size(); i++) {
             JournalEntry curr = myEntries.get(i);

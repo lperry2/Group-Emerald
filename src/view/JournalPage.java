@@ -14,8 +14,10 @@ import java.util.ArrayList;
 
 public class JournalPage extends AbstractPage implements PropertyChangeListener {
 
+    /** The current journal. */
     private Journal myCurrentJournal;
 
+    /** The project name. */
     private String myProjectName;
 
     /**
@@ -62,7 +64,9 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
         this.add(myTitlePanel, BorderLayout.NORTH);
     }
 
-
+    /**
+     * Sets up and displays all the entries.
+     */
     private void setupEntries() {
         //will show if there are no entries yet
         String allEntries = "There are currently no journal entries for this project!";

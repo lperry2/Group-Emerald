@@ -6,15 +6,17 @@ import java.util.ArrayList;
 public class Project {
     /** The name of the project. */
     private String myProjectName;
-    /** The description of the project. */
-    //private String myProjectDescription;
+
     /** The project's budget. */
     private Budget myBudget;
 
+    /** The project's journal. */
     private Journal myJournal;
 
+    /** The project's pin. */
     private String myPin;
 
+    /** The state of the project's privacey. */
     private boolean isPrivate;
 
     /**
@@ -111,41 +113,37 @@ public class Project {
         System.out.println(thePin);
     }
 
+    /**
+     * Returns the project's budget.
+     * @return myBudget the project's budget
+     */
     public Budget getBudget() {
         return myBudget;
     }
 
+    /**
+     * Returns the project's Journal.
+     * @return myJournal the project's journal
+     */
     public Journal getJournal() {
         return myJournal;
     }
 
+    /**
+     * Returns whether the project is private or not.
+     * @return isPrivate the state of the project's privacey
+     */
     public boolean getPrivate() {
         return isPrivate;
     }
 
+    /**
+     * Sets the project's privacey.
+     * @param thePrivate a boolean representing if the project is private or not
+     */
     public void setPrivate(boolean thePrivate) {
         isPrivate = thePrivate;
     }
-
-
-
-    /**
-     * Gets the project description.
-     * @return myProjectDescription the description of the project
-     * @author Alex Ewing
-     */
-//    public String getProjectDescription() {
-//        return myProjectDescription;
-//    }
-
-    /**
-     * Sets the project description.
-     * @param theProjectDescription the new description of the project
-     * @author Alex Ewing
-     */
-//    public void setProjectDescription(String theProjectDescription) {
-//        this.myProjectDescription = theProjectDescription;
-//    }
 
     @Override
     public String toString() {

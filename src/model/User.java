@@ -10,33 +10,52 @@ import static java.lang.Character.isDigit;
 
 public class User implements PropertyChangeListener {
 
+    /** The user's name. */
     private String myName;
 
+    /** The user's email. */
     private String myEmail;
 
+    /** An array list for the user's projects. */
     private ArrayList<Project> myProjects;
 
-
+    /**
+     * The public constructor for the User class.
+     * @param theName The user's name
+     * @param theEmail The user's email
+     * @param theProjects The user's projects
+     */
     public User(String theName, String theEmail, ArrayList<Project> theProjects) {
         myName = theName;
         myEmail = theEmail;
         myProjects = theProjects;
     }
 
+    /**
+     * Returns the user's name
+     * @return myName The user's name
+     */
     public String getName() {
         return myName;
     }
-
 
     @Override
     public void propertyChange(PropertyChangeEvent theEvent) {
 
     }
 
+    /**
+     * Returns the user's projects.
+     * @return myProjects The user's projects
+     */
     public ArrayList<Project> getProjects() {
         return myProjects;
     }
 
+    /**
+     * Returns the user's project names.
+     * @return names The user's project names
+     */
     public String[] getProjectNames() {
         String[] names = new String[myProjects.size()];
         for (int i = 0; i < names.length; i++) {
@@ -45,6 +64,11 @@ public class User implements PropertyChangeListener {
         return names;
     }
 
+    /**
+     * Returns a specified project
+     * @param theProjectName The project to be returned
+     * @return myProjects.get(projectIndex) The project in the arrayList to be returned
+     */
     public Project getProject(String theProjectName) {
         String correct = "src/" + myName + "/" + theProjectName;
         int projectIndex = 0;
@@ -59,10 +83,17 @@ public class User implements PropertyChangeListener {
         return myProjects.get(projectIndex);
     }
 
+    /**
+     * Adds a project to the user's project list.
+     * @param theProject the project to be added
+     */
     public void addProject(Project theProject) {
         myProjects.add(theProject);
     }
 
+    /**
+     * Saves the most recent changes to the user's projects.
+     */
     public void save() {
         for (int i = 0; i < myProjects.size(); i++) {
             String projName = myProjects.get(i).getProjectName();
@@ -80,6 +111,11 @@ public class User implements PropertyChangeListener {
         }
     }
 
+    /**
+     * Saves the most recent changes to the user's budget.
+     * @param thePath The project folder file path
+     * @param theProj The project the budget is located in
+     */
     private void saveBudget(String thePath, Project theProj) {
         Budget budget = theProj.getBudget();
         ArrayList<ExpenseItem> expenses = budget.getExpenses();
@@ -101,6 +137,11 @@ public class User implements PropertyChangeListener {
         }
     }
 
+    /**
+     * Saves the most recent changes to the user's journal.
+     * @param thePath The project folder file path
+     * @param theProj The project the journal is located in
+     */
     private void saveJournal(String thePath, Project theProj) {
         Journal journal = theProj.getJournal();
         ArrayList<JournalEntry> entries = journal.getEntries();

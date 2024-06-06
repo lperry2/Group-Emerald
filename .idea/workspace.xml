@@ -9,10 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
+    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="Comments on operating system file path specifics.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_2024_7_26_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_2024_7_26_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_30_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_30_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_6_36_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/ProjectBudget.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Projects.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProjectBudget.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Journal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Journal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/JournalEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AbstractPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/JournalPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/JournalPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OptionFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +87,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowGit.ShowToolbar&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Iteration-3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald&quot;,
@@ -288,46 +305,29 @@
       <updated>1717462424579</updated>
     </task>
     <task id="LOCAL-00022" summary="makin it look better">
-      <option name="closed" value="true" />
-      <created>1717691422707</created>
+      <created>1717607222697</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1717691422707</updated>
+      <updated>1717607222697</updated>
     </task>
-    <task id="LOCAL-00023" summary="makin it look better">
+    <task id="LOCAL-00023" summary="Comments on operating system file path specifics.">
       <option name="closed" value="true" />
-      <created>1717691436639</created>
+      <created>1717634385577</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1717691436640</updated>
+      <updated>1717634385577</updated>
     </task>
-    <task id="LOCAL-00024" summary="makin it look better">
+    <task id="LOCAL-00024" summary="Comments on operating system file path specifics.">
       <option name="closed" value="true" />
-      <created>1717699488641</created>
+      <created>1717634412736</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1717699488641</updated>
+      <updated>1717634412736</updated>
     </task>
-    <task id="LOCAL-00025" summary="makin it look better">
-      <option name="closed" value="true" />
-      <created>1717699496614</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1717699496614</updated>
-    </task>
-    <task id="LOCAL-00026" summary="makin it look better">
-      <option name="closed" value="true" />
-      <created>1717706644067</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1717706644067</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,7 +377,8 @@
     <MESSAGE value="Commit" />
     <MESSAGE value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
     <MESSAGE value="makin it look better" />
-    <option name="LAST_COMMIT_MESSAGE" value="makin it look better" />
+    <MESSAGE value="Comments on operating system file path specifics." />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on operating system file path specifics." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Group_Emerald$Driver.ic" NAME="Driver Coverage Results" MODIFIED="1716341354433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

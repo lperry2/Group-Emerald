@@ -83,6 +83,9 @@ public class OptionFrame extends JFrame {
 
     }
 
+    /**
+     * Displays the setup info.
+     */
     private void setupInfo() {
         JPanel infoPanel = new JPanel();
         JLabel infoLabel = new JLabel();
@@ -142,6 +145,11 @@ public class OptionFrame extends JFrame {
         return theName;
     }
 
+    /**
+     * Checks to see if the project is private (~ means that the project is private).
+     * @param theName the name of the project
+     * @return thename the name of the project (possibly changed)
+     */
     private static String checkIfSqwiggle(String theName) {
         if (theName.charAt(0) == '~') {
             theName = theName.substring(1);
