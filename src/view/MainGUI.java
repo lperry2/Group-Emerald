@@ -316,13 +316,14 @@ public class MainGUI {
         private String[] readProjects(String theUsername) {
             File userDir = new File("src/" + theUsername);
             File[] dirs = userDir.listFiles();
+            System.out.println(dirs.length);
             //stores the strings of project paths besides the Projects.txt file
             String[] projects = new String[dirs.length - 1];
             //used to avoid out of bounds on projects[]
             int counter = 0;
             for (int i = 0; i < dirs.length; i++) {
                 //if the path name isn't for the Projects.txt file
-                if (!dirs[i].toString().equals("src/" + theUsername + "/Projects.txt")) {
+                if (dirs[i].isDirectory()) {
                     projects[counter] = dirs[i].toString();
                     counter++;
                 }
