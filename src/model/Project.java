@@ -11,6 +11,8 @@ public class Project {
     /** The project's budget. */
     private Budget myBudget;
 
+    private FileGroup myFiles;
+
     private Journal myJournal;
 
     private String myPin;
@@ -28,6 +30,7 @@ public class Project {
         myProjectName = theProjectName;
         myPin = "-1";
         myBudget = theBudget;
+        myFiles = new FileGroup(new ArrayList<SingleFile>());
         myJournal = new Journal(new ArrayList<JournalEntry>());
         isPrivate = false;
     }
@@ -45,6 +48,7 @@ public class Project {
         myProjectName = theProjectName;
         myPin = thePin;
         myBudget = theBudget;
+        myFiles = new FileGroup(new ArrayList<SingleFile>());
         myJournal = new Journal(new ArrayList<JournalEntry>());
         isPrivate = true;
     }
@@ -57,10 +61,11 @@ public class Project {
      * @param theBudget the budget of the project
      * @param theJournal the journal for the project
      */
-    public Project(String theProjectName, String thePin, Budget theBudget, Journal theJournal){
+    public Project(String theProjectName, String thePin, Budget theBudget, FileGroup theFiles, Journal theJournal){
         myProjectName = theProjectName;
         myPin = thePin;
         myBudget = theBudget;
+        myFiles = theFiles;
         myJournal = theJournal;
         isPrivate = true;
     }
@@ -74,10 +79,11 @@ public class Project {
      * @param theBudget the budget of the project
      * @param theJournal the journal for the project
      */
-    public Project(String theProjectName, Budget theBudget, Journal theJournal){
+    public Project(String theProjectName, Budget theBudget, FileGroup theFiles, Journal theJournal){
         myProjectName = theProjectName;
         myPin = "-1";
         myBudget = theBudget;
+        myFiles = theFiles;
         myJournal = theJournal;
         isPrivate = false;
     }
@@ -113,6 +119,10 @@ public class Project {
 
     public Budget getBudget() {
         return myBudget;
+    }
+
+    public FileGroup getFiles() {
+        return myFiles;
     }
 
     public Journal getJournal() {

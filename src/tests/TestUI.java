@@ -44,6 +44,10 @@ public class TestUI {
      * An empty budget to test
      */
     private Budget testBudget;
+    /**
+     * An empty file group to test
+     */
+    private FileGroup testFiles;
 
     /**
      * An empty journal to test
@@ -57,8 +61,9 @@ public class TestUI {
     public void setUp() {
         testGUI = new MainGUI();
         testBudget = new Budget(123);
+        testFiles = new FileGroup(new ArrayList<SingleFile>());
         testJournal = new Journal(new ArrayList<JournalEntry>());
-        emptyProject = new Project("test", testBudget, testJournal);
+        emptyProject = new Project("test", testBudget, testFiles, testJournal);
         emptyPrivateProject = new Project("test", "123", testBudget);
     }
 

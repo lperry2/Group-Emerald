@@ -75,6 +75,7 @@ public class User implements PropertyChangeListener {
             //System.out.println("myProjects.get(i).getProjectName(): " + myProjects.get(i).getProjectName());
             //System.out.println("myProjects.get(i): " + myProjects.get(i));
             saveBudget(path, myProjects.get(i));
+            saveFiles(path, myProjects.get(i));
             saveJournal(path, myProjects.get(i));
 
         }
@@ -98,6 +99,20 @@ public class User implements PropertyChangeListener {
             }
         } catch (FileNotFoundException e) {
             System.out.println(e);
+        }
+    }
+
+    private void saveFiles(String thePath, Project theProj) {
+        FileGroup files = theProj.getFiles();
+        ArrayList<SingleFile> singleFiles = files.getFiles();
+        File projFolder = new File(thePath);
+        File oldFileDir = new File(projFolder, "/Files");
+        oldFileDir.delete();
+        File newFileDir = new File(projFolder, "/Files");
+        newFileDir.mkdirs();
+        for (int i = 0; i < singleFiles.size(); i++) {
+            File temp = singleFiles.get(i).getFile();
+            temp.toString();
         }
     }
 

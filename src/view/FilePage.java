@@ -127,6 +127,7 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
                 String fileName = split[split.length - 1];
                 //File file = fileChooser.getSelectedFile();
                 myCurrentFiles.addFile(fileName, file);
+                System.out.println(file.toString());
                 writeFiles();
             }
         });
