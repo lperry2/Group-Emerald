@@ -62,7 +62,9 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
         this.add(myTitlePanel, BorderLayout.NORTH);
     }
 
-
+    /**
+     * Displays the individual journal entries down the center of the frame.
+     */
     private void setupEntries() {
         //will show if there are no entries yet
         String allEntries = "There are currently no journal entries for this project!";
@@ -94,7 +96,7 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
         addBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String entryTitle = JOptionPane.showInputDialog("Please Enter Name of the Entry: ");
+                String entryTitle = JOptionPane.showInputDialog("Please Enter Title of the Entry: ");
                 String entryContent = JOptionPane.showInputDialog("Please Enter Content of Entry: ");
                 myCurrentJournal.addEntry(entryTitle, entryContent);
                 writeEntries();
@@ -106,11 +108,8 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
         editBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                new EditSelectionFrame(myCurrentBudget);
-//                writeExpenses();
-                //openEditSelection(myCurrentBudget);
                 String title = "Please Select an Expense to Edit.";
-                JournalSelectionFrame frame = new JournalSelectionFrame(myCurrentJournal, title, BudgetSelectionFrame.EDIT_OPTION);
+                JournalSelectionFrame frame = new JournalSelectionFrame(myCurrentJournal, title, JournalSelectionFrame.EDIT_OPTION);
                 frame.addPropertyChangeListener(JournalPage.this);
                 writeEntries();
 
@@ -124,7 +123,7 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
             public void actionPerformed(ActionEvent e) {
 
                 String title = "Please Select an Expense to Delete.";
-                JournalSelectionFrame frame = new JournalSelectionFrame(myCurrentJournal, title, BudgetSelectionFrame.DELETE_OPTION);
+                JournalSelectionFrame frame = new JournalSelectionFrame(myCurrentJournal, title, JournalSelectionFrame.DELETE_OPTION);
                 frame.addPropertyChangeListener(JournalPage.this);
                 writeEntries();
 
@@ -154,7 +153,7 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
     }
 
     /**
-     * Used for updating the page when budget info has changed.
+     * Used for updating the page when journal info has changed.
      *
      * @author Owen Orlic
      */

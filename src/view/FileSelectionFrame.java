@@ -1,5 +1,6 @@
 package src.view;
 
+import src.model.FileGroup;
 import src.model.Journal;
 
 import javax.swing.*;
@@ -8,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.File;
 
 /**
  * Implementation of an AbstractSelectionFrame that is used for editing and deleting
@@ -15,27 +17,29 @@ import java.beans.PropertyChangeSupport;
  *
  * @author Owen Orlic
  */
-public class JournalSelectionFrame extends AbstractSelectionFrame {
+public class FileSelectionFrame extends AbstractSelectionFrame {
 
     /** Fires to listeners if an expense needs edited or deleted. */
     private final PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
 
     /** The journal being changed. */
-    private Journal myJournal;
+    private FileGroup myFiles;
+
+    private JFileChooser myChooser;
 
     /**
      * Sends title and option to the AbstractSelectionFrame. theTitle will become the title
      * of the JFrame and theOption will decide whether the selection is for editing for deleting.
      * Uses theJournal to get all JournalEntrys in that journal.
      *
-     * @param theJournal the journal whose items are being edited or deleted
+     * @param theFiles the journal whose items are being edited or deleted
      * @param theTitle the title of the JFrame
      * @param theOption choice between editing or deleting the selection
      */
-    public JournalSelectionFrame(Journal theJournal, String theTitle, int theOption) {
+    public FileSelectionFrame(FileGroup theFiles, String theTitle, int theOption) {
         super(theTitle, theOption);
-        myJournal = theJournal;
-
+        myFiles = theFiles;
+        myChooser = new JFileChooser();
         setupBtnActions();
     }
 
@@ -49,7 +53,7 @@ public class JournalSelectionFrame extends AbstractSelectionFrame {
         } else if (myOption == 1) {
             setupDeleteBtns();
         } else {
-            System.out.println("Error with myOption selection. JournalSelectionFrame.java");
+            System.out.println("Error with myOption selection. FileSelectionFrame.java");
         }
     }
 
@@ -57,18 +61,16 @@ public class JournalSelectionFrame extends AbstractSelectionFrame {
      * Makes it so the selected expense can be edited.
      */
     private void setupEditBtns() {
-        for (int i = 0; i < myJournal.getEntries().size(); i++) {
-            JButton btn = new JButton(myJournal.getEntries().get(i).getTitle());
+        for (int i = 0; i < myFiles.getFiles().size(); i++) {
+            JButton btn = new JButton(myFiles.getFiles().get(i).getName());
             int finalI = i;
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String newEntry = (String) JOptionPane.showInputDialog(null,"Please Enter New Entry for the Journal: ",
-                            "Changing Entry", JOptionPane.INFORMATION_MESSAGE, makePeteSmall(),
-                            null, null);
+                    File newFile = myChooser.getSelectedFile();
                     //improper use of firePropertyChange(), just go with it
-                    myPcs.firePropertyChange("repaintPageJournalEdit", btn.getText(), newEntry);
-                    JournalSelectionFrame.this.dispose(); //close frame
+                    myPcs.firePropertyChange("repaintPageFileEdit", btn.getText(), newFile);
+                    FileSelectionFrame.this.dispose(); //close frame
                 }
             });
             myPanel.add(btn);
@@ -79,26 +81,26 @@ public class JournalSelectionFrame extends AbstractSelectionFrame {
      * Makes it so the selected expense will be deleted. Prompts twice before deleting.
      */
     private void setupDeleteBtns() {
-        for (int i = 0; i < myJournal.getEntries().size(); i++) {
-            JButton btn = new JButton(myJournal.getEntries().get(i).getTitle());
+        for (int i = 0; i < myFiles.getFiles().size(); i++) {
+            JButton btn = new JButton(myFiles.getFiles().get(i).getName());
             int finalI = i;
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     int firstChoice; //first verification
                     int secondChoice; //second verification
-                    firstChoice = JOptionPane.showConfirmDialog(null, "Would Like To Delete This Entry?",
+                    firstChoice = JOptionPane.showConfirmDialog(null, "Would Like To Delete This File?",
                             "Just Confirming", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
                     if (firstChoice == 0) { //chose yes
-                        secondChoice = JOptionPane.showConfirmDialog(null, "Are You Sure You Would Like To Delete This Entry?",
+                        secondChoice = JOptionPane.showConfirmDialog(null, "Are You Sure You Would Like To Delete This File?",
                                 "Double Checking", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, makePeteSmall());
                         if (secondChoice == 0) { //chose yes
                             //improper use of firePropertyChange(), just go with it
-                            myPcs.firePropertyChange("repaintPageJournalDelete", btn.getText(), "neverGetsUsed");
+                            myPcs.firePropertyChange("repaintPageFileDelete", btn.getText(), "neverGetsUsed");
                         }
                     }
                     //close frame when button is pressed
-                    JournalSelectionFrame.this.dispose();
+                    FileSelectionFrame.this.dispose();
                 }
             });
             myPanel.add(btn);
@@ -141,3 +143,4 @@ public class JournalSelectionFrame extends AbstractSelectionFrame {
     }
 
 }
+

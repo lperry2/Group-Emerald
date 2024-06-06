@@ -2,19 +2,30 @@ package src.model;
 
 import java.util.ArrayList;
 
-/** Represents a project */
+/**
+ * Represents a project. Projects can be public or private.
+ * Public projects pins are set to "-1". If files and a journal is not
+ * passed, empty arraylists are made for them.
+ *
+ * @author Alex Ewing
+ */
 public class Project {
     /** The name of the project. */
     private String myProjectName;
-    /** The description of the project. */
-    //private String myProjectDescription;
+
     /** The project's budget. */
     private Budget myBudget;
 
+    /** Files for the project. */
+    private FileGroup myFiles;
+
+    /** The project's journal. */
     private Journal myJournal;
 
+    /** The pin for the project. */
     private String myPin;
 
+    /** Denotes if the project is private. */
     private boolean isPrivate;
 
     /**
@@ -28,6 +39,7 @@ public class Project {
         myProjectName = theProjectName;
         myPin = "-1";
         myBudget = theBudget;
+        myFiles = new FileGroup(new ArrayList<SingleFile>());
         myJournal = new Journal(new ArrayList<JournalEntry>());
         isPrivate = false;
     }
@@ -45,6 +57,7 @@ public class Project {
         myProjectName = theProjectName;
         myPin = thePin;
         myBudget = theBudget;
+        myFiles = new FileGroup(new ArrayList<SingleFile>());
         myJournal = new Journal(new ArrayList<JournalEntry>());
         isPrivate = true;
     }
@@ -57,10 +70,11 @@ public class Project {
      * @param theBudget the budget of the project
      * @param theJournal the journal for the project
      */
-    public Project(String theProjectName, String thePin, Budget theBudget, Journal theJournal){
+    public Project(String theProjectName, String thePin, Budget theBudget, FileGroup theFiles, Journal theJournal){
         myProjectName = theProjectName;
         myPin = thePin;
         myBudget = theBudget;
+        myFiles = theFiles;
         myJournal = theJournal;
         isPrivate = true;
     }
@@ -74,10 +88,11 @@ public class Project {
      * @param theBudget the budget of the project
      * @param theJournal the journal for the project
      */
-    public Project(String theProjectName, Budget theBudget, Journal theJournal){
+    public Project(String theProjectName, Budget theBudget, FileGroup theFiles, Journal theJournal){
         myProjectName = theProjectName;
         myPin = "-1";
         myBudget = theBudget;
+        myFiles = theFiles;
         myJournal = theJournal;
         isPrivate = false;
     }
@@ -115,6 +130,10 @@ public class Project {
         return myBudget;
     }
 
+    public FileGroup getFiles() {
+        return myFiles;
+    }
+
     public Journal getJournal() {
         return myJournal;
     }
@@ -127,25 +146,6 @@ public class Project {
         isPrivate = thePrivate;
     }
 
-
-
-    /**
-     * Gets the project description.
-     * @return myProjectDescription the description of the project
-     * @author Alex Ewing
-     */
-//    public String getProjectDescription() {
-//        return myProjectDescription;
-//    }
-
-    /**
-     * Sets the project description.
-     * @param theProjectDescription the new description of the project
-     * @author Alex Ewing
-     */
-//    public void setProjectDescription(String theProjectDescription) {
-//        this.myProjectDescription = theProjectDescription;
-//    }
 
     @Override
     public String toString() {

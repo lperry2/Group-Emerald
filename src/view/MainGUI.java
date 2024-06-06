@@ -216,7 +216,7 @@ public class MainGUI {
 
                         //try catch was being weird!! needs fixed
                         try {
-                            Scanner temp = new Scanner("src/Users.txt");
+                            //Scanner temp = new Scanner("src/Users.txt");
                             File projects = new File(dir, "Projects.txt");
 
                             projects.createNewFile();
@@ -275,8 +275,9 @@ public class MainGUI {
 
             String[] projectPaths = readProjects(theUsername);
             Budget[] projectBudgets = readBudgets(projectPaths);
+            FileGroup[] projectFiles = readFiles(projectPaths);
             Journal[] projectJournals = readJournals(projectPaths);
-            ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets, projectJournals);
+            ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets, projectFiles, projectJournals);
 
 
             //instantiate the User with this infomation
@@ -292,7 +293,7 @@ public class MainGUI {
          * @param theBudgets an array of the budgets of the projects
          * @return an arraylist of all the user's projects
          */
-        private ArrayList<Project> makeProjectList(String[] thePaths, Budget[] theBudgets, Journal[] theJournals) {
+        private ArrayList<Project> makeProjectList(String[] thePaths, Budget[] theBudgets, FileGroup[] theFiles, Journal[] theJournals) {
             ArrayList<Project> projects = new ArrayList<>();
             for (int i = 0; i < thePaths.length; i++) {
                 String[] pathname = thePaths[i].split("/"); //split up the pathname so that
@@ -308,9 +309,9 @@ public class MainGUI {
                 Project proj;
                 if (checkIfEndsInNums(thePaths[i])) {
                     String pin = getPinNumbers(thePaths[i]);
-                    proj = new Project(projectName, pin, theBudgets[i], theJournals[i]);
+                    proj = new Project(projectName, pin, theBudgets[i], theFiles[i], theJournals[i]);
                 } else {
-                    proj = new Project(projectName, theBudgets[i], theJournals[i]);
+                    proj = new Project(projectName, theBudgets[i], theFiles[i], theJournals[i]);
                 }
 
                 projects.add(proj);
@@ -426,6 +427,84 @@ public class MainGUI {
             //System.out.println(budget);
             return budget;
         }
+
+        /**
+         * Goes through a list of pathnames that are directories, creates a scanner
+         * for the Budget.txt file in those directories, passes that scanner to the
+         * readBudgetFile() method.
+         *
+         * @author Owen Orlic
+         * @param thePaths an array of the project pathnames
+         * @return an array of Budget objects for each project
+         */
+        private FileGroup[] readFiles(String[] thePaths) {
+            FileGroup[] files = new FileGroup[thePaths.length];
+            for (int i = 0; i < thePaths.length; i++) {
+                String path = takeOffPinFromName(thePaths[i]);
+                files[i] = readFilesDir(path + "/Files");
+            }
+            return files;
+        }
+
+        /**
+         * Reads a Files directory to create a FileGroup object with the
+         * single file items if there are any.
+         *
+         * @author Owen Orlic
+         * @param thePath the Files.txt file to be read
+         * @return the FileGroup object representing the Files.txt file
+         */
+        private FileGroup readFilesDir(String thePath) {
+            //Journal journal;
+            ArrayList<SingleFile> files = new ArrayList<>();
+//            BufferedReader reader = null;
+//            int lines = 0;
+//            try {
+//                reader = new BufferedReader(new FileReader(thePath));
+//                while (reader.readLine() != null) {
+//                    lines++;
+//                    //reader.close();
+//                }
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            if (lines > 2) {
+//                try (Scanner scan = new Scanner(new File(thePath))) {
+//                    while (scan.hasNextLine()) {
+//                        String next = scan.nextLine();
+//                        if (next.equals("+")) {
+//                            scan.next(); //skip type word
+//                            scan.next(); //skip bar character
+//                            String mainTitle = scan.next(); //take the main title
+//                            //String[] mainInfo = nextLine.split("| ");
+//
+//                        } else if (next.equals("----")) {
+//                            String fileName = scan.nextLine(); //get the title of the entry
+//                            File fileFile = (File) scan.nextLine(); //get the content of the entry
+//                            SingleFile file = new SingleFile(fileName, fileFile); //create new JournalEntry
+//                            files.add(entry);
+//                        }
+//                    }
+//                } catch (IOException e) {
+//                    System.out.println("Main GUI, readJournalFile()");
+//                }
+
+            File fileDir = new File(thePath);
+            File[] fileArr = fileDir.listFiles();
+            for (int i = 0; i < fileArr.length; i++) {
+                String[] fileNameSplit = fileArr[i].toString().split("/");
+                String fileName = fileNameSplit[fileNameSplit.length - 1];
+                File fileFile = fileArr[i];
+                SingleFile file = new SingleFile(fileName, fileFile);
+                files.add(file);
+            }
+
+            return new FileGroup(files);
+        }
+
+
+
+
 
         /**
          * Goes through a list of pathnames that are directories, creates a scanner

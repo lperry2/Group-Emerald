@@ -12,8 +12,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * The frame that allows us to open the budget, file, or journal frame
- * @author Daniel Sanchez, Owen Orlic
+ * The frame that allows us to open the budget, file, or journal frame.
+ *
+ * @author Daniel Sanchez
  */
 public class OptionFrame extends JFrame {
 
@@ -58,7 +59,8 @@ public class OptionFrame extends JFrame {
     }
 
     /**
-     * sets up the dimensions of the optionframe
+     * Sets up the dimensions of the optionframe.
+     *
      * @author Daniel Sanchez, Owen Orlic
      */
     public void setup() {
@@ -83,6 +85,10 @@ public class OptionFrame extends JFrame {
 
     }
 
+    /**
+     * Puts some info about the project on the frame. As of now
+     * it does not update as the user uses the application.
+     */
     private void setupInfo() {
         JPanel infoPanel = new JPanel();
         JLabel infoLabel = new JLabel();
@@ -142,6 +148,14 @@ public class OptionFrame extends JFrame {
         return theName;
     }
 
+    /**
+     * Checks if a project name is denoted with a ~. If it is
+     * it returns the name without it. Used for displaying project name
+     * so we don't want the ~.
+     *
+     * @param theName the project name
+     * @return the project name with no ~ at the front
+     */
     private static String checkIfSqwiggle(String theName) {
         if (theName.charAt(0) == '~') {
             theName = theName.substring(1);

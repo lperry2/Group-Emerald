@@ -72,8 +72,6 @@ public class User implements PropertyChangeListener {
                 projName = projName.substring(0, projName.length() - 4);
             }
             String path = "src/" + myName + "/" + projName;
-            //System.out.println("myProjects.get(i).getProjectName(): " + myProjects.get(i).getProjectName());
-            //System.out.println("myProjects.get(i): " + myProjects.get(i));
             saveBudget(path, myProjects.get(i));
             saveJournal(path, myProjects.get(i));
 
@@ -100,6 +98,8 @@ public class User implements PropertyChangeListener {
             System.out.println(e);
         }
     }
+
+
 
     private void saveJournal(String thePath, Project theProj) {
         Journal journal = theProj.getJournal();
