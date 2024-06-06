@@ -3,14 +3,13 @@ package src.tests;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
-import src.model.Budget;
-import src.model.ExpenseItem;
-import src.model.Project;
-import src.model.User;
+import src.model.*;
 import src.view.BudgetPage;
 import src.view.MainGUI;
 
 import javax.swing.*;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,13 +46,19 @@ public class TestUI {
     private Budget testBudget;
 
     /**
+     * An empty journal to test
+     */
+    private Journal testJournal;
+
+    /**
      * Set up the test fixture.
      */
     @BeforeEach
     public void setUp() {
         testGUI = new MainGUI();
         testBudget = new Budget(123);
-        emptyProject = new Project("test", testBudget);
+        testJournal = new Journal(new ArrayList<JournalEntry>());
+        emptyProject = new Project("test", testBudget, testJournal);
         emptyPrivateProject = new Project("test", "123", testBudget);
     }
 
@@ -74,6 +79,13 @@ public class TestUI {
         assertEquals("test", emptyProject.getProjectName());
     }
 
+    /**
+     * checks whether we store the correct pin in private empty project
+     */
+    @Test
+    public void testEmptyPrivateProjectPin() {
+        assertEquals("123", emptyPrivateProject.getPin());
+    }
     /**
      * Test if it stores the correct budget in empty project
      */
@@ -136,5 +148,42 @@ public class TestUI {
     @Test
     public void testTotalEmptyProject() {
         assertEquals(123, emptyProject.getBudget().getTotal());
+    }
+
+    /**
+     * Test to see if no journal entries in empty project
+     */
+    @Test
+    public void testJournalEmptyProject() {
+        assertEquals(0, emptyProject.getJournal().getEntries().size());
+    }
+    /**
+     * Test if we correctly add a new journal entry in empty project
+     */
+    @Test
+    public void testAddJournalEntryEmptyProject() {
+        testJournal.addEntry("Test1", "TestContent");
+        assertEquals(1, emptyProject.getJournal().getEntries().size());
+    }
+
+    /**
+     * Test if we can edit a journal entry within empty project
+     */
+    @Test
+    public void testEditJournalEntryEmptyProject() {
+        testJournal.addEntry("Test1", "TestContent");
+        testJournal.editEntry("Test1", "Tester");
+        assertEquals("Test1", emptyProject.getJournal().getEntries().get(0).getTitle());
+        assertEquals("Tester", emptyProject.getJournal().getEntries().get(0).getContent());
+    }
+
+    /**
+     * Test if we can remove a journal entry within empty project
+     */
+    @Test
+    public void testRemoveJournalEntryEmptyProject() {
+        testJournal.addEntry("Test", "Content");
+        testJournal.deleteEntry("Test");
+        assertEquals(0, emptyProject.getJournal().getEntries().size());
     }
 }
