@@ -10,40 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
-      <change afterPath="$PROJECT_DIR$/src/view/JournalSelectionFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Budget.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Journal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Journal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/JournalEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/JournalEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/kitchen/Budget.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/kitchen/Budget.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/oven/Journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/oven/Journal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/AbstractPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/AbstractPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BackButton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BackButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetSelectionFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetSelectionFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetSelectionFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetSelectionFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetSelectionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/BudgetSelectionFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/JournalPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/JournalPage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/JournalPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/JournalPage$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/JournalPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/JournalPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Journal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Journal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/JournalEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/oven/Journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/t/oven/Journal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AbstractPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/BackButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/BudgetPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BudgetPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/BudgetSelectionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BudgetSelectionFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/JournalPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/JournalPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OptionFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717699496614</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717706644067</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1717706644067</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

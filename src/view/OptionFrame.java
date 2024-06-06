@@ -1,22 +1,28 @@
 package src.view;
 
+import src.model.ExpenseItem;
+import src.model.JournalEntry;
+import src.model.Project;
 import src.model.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * The frame that allows us to open the budget, file, or journal frame
  * @author Daniel Sanchez, Owen Orlic
  */
 public class OptionFrame extends JFrame {
+
     /** A ToolKit. */
     private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 
     /** The Dimension of the screen. */
     private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
+
     /** The width of the screen. */
     private static final int SCREEN_WIDTH = SCREEN_SIZE.width;
 
@@ -61,6 +67,8 @@ public class OptionFrame extends JFrame {
                 SCREEN_HEIGHT / 2 - SCREEN_HEIGHT / 4);
         this.setSize(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 
+        setupInfo();
+
         JPanel btnPanel = new JPanel();
         JButton backBtn = new JButton("Back");
         backBtn.addActionListener(new ActionListener() {
@@ -73,6 +81,42 @@ public class OptionFrame extends JFrame {
         this.add(btnPanel, BorderLayout.SOUTH);
 
 
+    }
+
+    private void setupInfo() {
+        JPanel infoPanel = new JPanel();
+        JLabel infoLabel = new JLabel();
+        Project currProject = myCurrentUser.getProject(myProjName);
+        String info = "<html>";
+        info += "Recently Added Expenses: <br/>";
+        if (currProject.getBudget().getExpenses().size() >= 1) {
+            ArrayList<ExpenseItem> expenses = currProject.getBudget().getExpenses();
+            String expenseInfo = expenses.get(expenses.size() - 1).toString();
+            info += "-" + expenseInfo + "<br/>";
+            if (currProject.getBudget().getExpenses().size() >= 2) {
+                //ArrayList<ExpenseItem> expenses = currProject.getBudget().getExpenses();
+                expenseInfo = expenses.get(expenses.size() - 2).toString();
+                info += "-" + expenseInfo + "<br/>";
+            }
+        } else {
+            info += "-There are no expenses for this project. <br/>";
+        }
+
+        info += "<br/><br/>";
+        info += "Recent Journal Entry: <br/>";
+        if (currProject.getJournal().getEntries().size() >= 1) {
+            ArrayList<JournalEntry> entries = currProject.getJournal().getEntries();
+            String entryInfo = entries.get(entries.size() - 1).toString();
+            info += "-" + entryInfo + "<br/>";
+        } else {
+            info += "-There are no journal entries for this project. <br/>";
+        }
+        infoLabel.setVerticalAlignment(0);
+        infoLabel.setText(info);
+
+        infoPanel.add(infoLabel);
+
+        this.add(infoPanel, BorderLayout.WEST);
     }
 
     /**
