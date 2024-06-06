@@ -1,9 +1,6 @@
 package src.model;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.io.File;
 import java.io.PrintStream;
 
 /**
@@ -110,10 +107,18 @@ public class Budget {
         ExpenseItem expense = new ExpenseItem(theName, theExpense);
         myTotalExpenses += theExpense;
         myExpenses.add(expense);
-        //budgetFile.println("----");
-        //budgetFile.println(theName + " | " + theExpense);
     }
 
+    /**
+     * Edits an ExpenseItem in the budget by search through myExpenses to
+     * find an expense item with the same name, subtracting that expense cost from
+     * the total expenses, adding the new expense cost to total expenses, and then
+     * calling setExpense to edit its myExpense field.
+     *
+     * @author Owen Orlic
+     * @param theName the name of the ExpenseItem
+     * @param theNewExpense the new cost of the expense
+     */
     public void editExpense(String theName, double theNewExpense) {
         for (int i = 0; i < myExpenses.size(); i++) {
             ExpenseItem curr = myExpenses.get(i);
@@ -121,7 +126,25 @@ public class Budget {
                 myTotalExpenses -= curr.getExpense(); //subtract the old expense
                 myTotalExpenses += theNewExpense;     // and add the new one
                 curr.setExpense(theNewExpense);
-                //System.out.println("Budget.java editExpense: happened");
+                break;
+            }
+        }
+    }
+
+    /**
+     * Deletes an ExpenseItem by searching through myExpenses to find one
+     * with the same name, subtracting its expense cost from the total expenses,
+     * and then calling remove on myExpenses to remove the expense item from the list.
+     *
+     * @author Owen Orlic
+     * @param theName the name of the expense item to be deleted
+     */
+    public void deleteExpense(String theName) {
+        for (int i = 0; i < myExpenses.size(); i++) {
+            ExpenseItem curr = myExpenses.get(i);
+            if (curr.getName().equals(theName)) {
+                myTotalExpenses -= curr.getExpense();
+                myExpenses.remove(curr);
                 break;
             }
         }

@@ -10,21 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 public class BudgetPage extends AbstractPage implements PropertyChangeListener {
 
-    private Budget myCurrentBudget;
+    /** For watching if there are shapes currently drawn. */
+    //private final PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
 
-//    private JLabel myTitleLabel;
-//
-//    private JPanel myTitlePanel;
-//
-//    private JLabel myExpenseLabel;
-//
-//    private JPanel myExpensePanel;
-//
-//    private JPanel myButtonPanel;
+    private Budget myCurrentBudget;
 
 
     /**
@@ -64,9 +58,10 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
      * totalExpense / projectBudget.
      */
     private void setupHeader() {
-        double expenses = myCurrentBudget.getTotalExpenses();
-        double total = myCurrentBudget.getTotal();
-
+        //double expenses = myCurrentBudget.getTotalExpenses();
+        //double total = myCurrentBudget.getTotal();
+        String expenses = String.format("%.2f", myCurrentBudget.getTotalExpenses());
+        String total = String.format("%.2f", myCurrentBudget.getTotal());
         myTitleLabel = new JLabel("Budget: $" + expenses + "/" + total);
         myTitleLabel.setFont(new Font("Arial", Font.BOLD, 30));
 
@@ -121,11 +116,29 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
             public void actionPerformed(ActionEvent e) {
 //                new EditSelectionFrame(myCurrentBudget);
 //                writeExpenses();
-                helper(myCurrentBudget);
+                //openEditSelection(myCurrentBudget);
+                String title = "Please Select an Expense to Edit.";
+                BudgetSelectionFrame frame = new BudgetSelectionFrame(myCurrentBudget, title, BudgetSelectionFrame.EDIT_OPTION);
+                frame.addPropertyChangeListener(BudgetPage.this);
+                writeExpenses();
 
             }
         });
         myButtonPanel.add(editBtn, new FlowLayout());
+
+        JButton deleteBtn = new JButton("Delete Item");
+        deleteBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String title = "Please Select an Expense to Delete.";
+                BudgetSelectionFrame frame = new BudgetSelectionFrame(myCurrentBudget, title, BudgetSelectionFrame.DELETE_OPTION);
+                frame.addPropertyChangeListener(BudgetPage.this);
+                writeExpenses();
+
+            }
+        });
+        myButtonPanel.add(deleteBtn, new FlowLayout());
 
         JButton saveBtn = new JButton("Save");
         saveBtn.addActionListener(new ActionListener() {
@@ -139,17 +152,10 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
         this.add(myButtonPanel, BorderLayout.SOUTH);
     }
 
-    private void helper(Budget theBudget) {
-        EditSelectionFrame f = new EditSelectionFrame(theBudget);
-        f.addPropertyChangeListener(this);
-        //myCurrentBudget = f.getBudget();
-//        ArrayList<ExpenseItem> expenseItems = f.getBudget().getExpenses();
-//        for (int i = 0; i < expenseItems.size(); i++) {
-//            System.out.println(expenseItems.get(i));
-//        }
+    private void openEditSelection(Budget theBudget) {
+        //EditSelectionFrame f = new EditSelectionFrame(theBudget, 0, this);
+        //f.addPropertyChangeListener(this);
         writeExpenses();
-        //this.revalidate();
-        //this.repaint();
     }
 
     /**
@@ -160,9 +166,6 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
     private void writeExpenses() {
         String allExpenses = "<html>";
         ArrayList<ExpenseItem> expenseItems = myCurrentBudget.getExpenses();
-//        for (int i = 0; i < expenseItems.size(); i++) {
-//            System.out.println(expenseItems.get(i));
-//        }
 
         //remove labels
         myTitlePanel.removeAll();
@@ -173,8 +176,8 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
             allExpenses += expenseItems.get(i).toString() + "<br/>";
         }
         allExpenses += "</html>";
-        double expenses = myCurrentBudget.getTotalExpenses();
-        double total = myCurrentBudget.getTotal();
+        String expenses = String.format("%.2f", myCurrentBudget.getTotalExpenses());
+        String total = String.format("%.2f", myCurrentBudget.getTotal());
         myContentLabel = new JLabel(allExpenses);
         myTitleLabel = new JLabel("Budget: $" + expenses + "/" + total);
         myTitleLabel.setFont(new Font("Arial", Font.BOLD, 30));
@@ -190,9 +193,13 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
 
 
     @Override
-    public void propertyChange(PropertyChangeEvent theEvent) {
-        if (theEvent.equals("repaint page")) {
+    public void propertyChange(final PropertyChangeEvent theEvent) {
+        System.out.println(theEvent);
+        if (theEvent.getPropertyName().equals("repaintPageBudgetEdit")) {
             myCurrentBudget.editExpense((String) theEvent.getOldValue(), (double) theEvent.getNewValue());
+            writeExpenses();
+        } else if (theEvent.getPropertyName().equals("repaintPageBudgetDelete")) {
+            myCurrentBudget.deleteExpense((String) theEvent.getOldValue());
             writeExpenses();
         }
     }

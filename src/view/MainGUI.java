@@ -312,10 +312,7 @@ public class MainGUI {
                 } else {
                     proj = new Project(projectName, theBudgets[i], theJournals[i]);
                 }
-//                Project proj = new Project(projectName, theBudgets[i], theJournals[i]);
-//                System.out.println("passing: " + pathname[1] + " " + thePaths[i]);
-//                System.out.println("returning: " + getPinFromFile(pathname[1], thePaths[i]));
-//                proj.setPin(getPinFromFile(pathname[1], thePaths[i]));
+
                 projects.add(proj);
             }
             return projects;

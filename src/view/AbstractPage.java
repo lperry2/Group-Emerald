@@ -7,7 +7,7 @@ import java.awt.*;
 import java.io.File;
 import javax.swing.*;
 
-public class AbstractPage extends JFrame {
+public abstract class AbstractPage extends JFrame {
     /**
      * A factor for scaling the size of the GUI relative to
      * the current screen size.
