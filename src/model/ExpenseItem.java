@@ -80,6 +80,7 @@ public class ExpenseItem {
      */
     @Override
     public String toString() {
-        return myName + ": " + myExpense;
+        String expense = String.format("$%.2f", myExpense);
+        return myName + ": " + expense;
     }
 }

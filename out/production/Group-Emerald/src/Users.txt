@@ -1,8 +1,5 @@
 dan | 123
-onetwo | onetwo@uw.edu
-peter | peter@uw.edu
-noodle | noodle@uw.edu
-w | w
-raw | raw
-pops | pops
-john | john
+oo | oo@uw.edu
+t | t
+new | new
+p | p

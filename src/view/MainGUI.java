@@ -14,12 +14,8 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.Stream;
-
 import javax.imageio.ImageIO;
 
 /**
@@ -192,7 +188,8 @@ public class MainGUI {
 
                         //if there is no registered user with that username
                         if (notFound) {
-                            JOptionPane.showMessageDialog(null, "No User Found", "Sorry", JOptionPane.OK_OPTION, makePeteSmall());
+                            JOptionPane.showMessageDialog(null, "No User Found", "Sorry",
+                                                           JOptionPane.OK_OPTION, makePeteSmall());
                         }
                     } catch (FileNotFoundException e) {
                         JOptionPane.showMessageDialog(null, "Issue Finding FilePath");
@@ -300,7 +297,23 @@ public class MainGUI {
             for (int i = 0; i < thePaths.length; i++) {
                 String[] pathname = thePaths[i].split("/"); //split up the pathname so that
                 String projectName = pathname[pathname.length - 1]; //we can get the project name
-                projects.add(new Project(projectName, theBudgets[i], theJournals[i]));
+                //System.out.println(pathname[0] + pathname[1] + pathname[2]);
+//                if (checkPrivate(thePaths[i])) {
+//                    //pathname[1] is the username
+//                    String pin = getPinFromFile(pathname[1], thePaths[i]);
+//                    projects.add(new Project(projectName, pin, theBudgets[i], theJournals[i]));
+//                } else {
+//                    projects.add(new Project(projectName, theBudgets[i], theJournals[i]));
+//                }
+                Project proj;
+                if (checkIfEndsInNums(thePaths[i])) {
+                    String pin = getPinNumbers(thePaths[i]);
+                    proj = new Project(projectName, pin, theBudgets[i], theJournals[i]);
+                } else {
+                    proj = new Project(projectName, theBudgets[i], theJournals[i]);
+                }
+
+                projects.add(proj);
             }
             return projects;
         }
@@ -316,7 +329,6 @@ public class MainGUI {
         private String[] readProjects(String theUsername) {
             File userDir = new File("src/" + theUsername);
             File[] dirs = userDir.listFiles();
-            System.out.println(dirs.length);
             //stores the strings of project paths besides the Projects.txt file
             String[] projects = new String[dirs.length - 1];
             //used to avoid out of bounds on projects[]
@@ -324,7 +336,13 @@ public class MainGUI {
             for (int i = 0; i < dirs.length; i++) {
                 //if the path name isn't for the Projects.txt file
                 if (dirs[i].isDirectory()) {
-                    projects[counter] = dirs[i].toString();
+                    if (checkPrivate(dirs[i].toString())) {
+                        //System.out.println("passing in readProjects: " + dirs[i].toString());
+                        String pin = getPinFromFile(theUsername, dirs[i].toString());
+                        projects[counter] = dirs[i].toString() + pin;
+                    } else {
+                        projects[counter] = dirs[i].toString();
+                    }
                     counter++;
                 }
             }
@@ -343,7 +361,8 @@ public class MainGUI {
         private Budget[] readBudgets(String[] thePaths) {
             Budget[] budgets = new Budget[thePaths.length];
             for (int i = 0; i < thePaths.length; i++) {
-                budgets[i] = readBudgetFile(thePaths[i] + "/Budget.txt");
+                String path = takeOffPinFromName(thePaths[i]);
+                budgets[i] = readBudgetFile(path + "/Budget.txt");
             }
             return budgets;
         }
@@ -364,6 +383,7 @@ public class MainGUI {
             BufferedReader reader = null;
             int lines = 0;
             try {
+                //System.out.println(thePath);
                 reader = new BufferedReader(new FileReader(thePath));
                 while (reader.readLine() != null) {
                     lines++;
@@ -372,7 +392,7 @@ public class MainGUI {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            if (lines > 2) {
+            if (lines >= 2) {
                 try (Scanner scan = new Scanner(new File(thePath))) {
                     while (scan.hasNextLine()) {
                         String next = scan.nextLine();
@@ -419,7 +439,8 @@ public class MainGUI {
         private Journal[] readJournals(String[] thePaths) {
             Journal[] journals = new Journal[thePaths.length];
             for (int i = 0; i < thePaths.length; i++) {
-                journals[i] = readJournalFile(thePaths[i] + "/Journal.txt");
+                String path = takeOffPinFromName(thePaths[i]);
+                journals[i] = readJournalFile(path + "/Journal.txt");
             }
             return journals;
         }
@@ -505,6 +526,97 @@ public class MainGUI {
             Image resizedImg = img.getScaledInstance(100, 75, Image.SCALE_SMOOTH);
             ImageIcon resizedIcon = new ImageIcon(resizedImg);
             return resizedIcon;
+        }
+
+        /**
+         * Checks if a project is private by looking for a ~ at the start
+         * of the project name.
+         *
+         * @author Owen Orlic
+         * @param thePathname a pathname to the project
+         * @return if the project is private
+         */
+        private boolean checkPrivate(String thePathname) {
+            String[] split = thePathname.split("/");
+            return split.length > 2 && split[2].charAt(0) == '~';
+        }
+
+        /**
+         * Takes a pathname to a project and looks through the user's Projects.txt
+         * file to find the project name that matches the pathname. Once it finds it,
+         * the pin numbers are taken from that project name. If no project is found that matches
+         * the pathname, -1 is returned.
+         *
+         * @author Owen Orlic
+         * @param theUsername the username of the current user
+         * @param thePath the pathname to the project
+         * @return the pin
+         */
+        private String getPinFromFile(String theUsername, String thePath) {
+            String pin = "-1";
+            System.out.println("getPinFromFile: " + thePath);
+            try (Scanner scan = new Scanner(new File("src/" + theUsername + "/Projects.txt"))) {
+                int strLen = thePath.length();
+                String projName = thePath.split("/")[2];
+                while (scan.hasNext()) {
+                    //System.out.println("projName: " + projName);
+                    String next = scan.next();
+                    if (next.length() >= projName.length() && next.substring(0, next.length() - 4).equals(projName)) {
+                        pin = next.substring(projName.length());
+                        System.out.println("Made it inside: " + pin);
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e);
+            }
+            System.out.println("Inside getPinFromFile() outside if: " + pin);
+            return pin;
+        }
+
+        /**
+         * Sends thePath to checkIfEndsInNums() to see if there are numbers at
+         * the end of the pathname denoting pin numbers for the project.
+         * If there are, it removes the four numbers at the end and if it doesn't
+         * it returns exactly what was passed in.
+         *
+         * @author Owen Orlic
+         * @param thePath a pathname to a project folder
+         * @return the pathname with no pin numbers
+         */
+        private String takeOffPinFromName(String thePath) {
+            if (checkIfEndsInNums(thePath)) {
+                thePath = thePath.substring(0, thePath.length() - 4);
+            }
+            return thePath;
+        }
+
+        /**
+         * Checks if the pathname ends in numbers. If it does,
+         * that means the project has a pin.
+         *
+         * @author Owen Orlic
+         * @param thePath pathname to the project
+         * @return if the project has a pin
+         */
+        private boolean checkIfEndsInNums(String thePath) {
+            char[] digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+            boolean isDigit = false;
+            //checks if the pathname ends in a digit, if it does then remove the pin from the end
+            for (int i = 0; i < digits.length; i++) {
+                if (thePath.charAt(thePath.length() - 1) == digits[i]) {
+                    isDigit = true;
+                }
+            }
+            return isDigit;
+        }
+
+        private String getPinNumbers(String thePath) {
+            String pin = "-1";
+            if (checkIfEndsInNums(thePath)) {
+                pin = thePath.substring(thePath.length() - 4);
+            }
+
+            return pin;
         }
 
     }
@@ -598,7 +710,7 @@ public class MainGUI {
             addProj.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent theEvent) {
-                    //         pass in the currecntUser
+                    //         pass in the currentUser
                     CreateProjectFrame createFrame = new CreateProjectFrame(myUser);
                     createFrame.addPropertyChangeListener(new PropertyChangeListener() {
                         @Override
@@ -690,7 +802,9 @@ public class MainGUI {
 
                         boolean enteredCorrectly = false;
                         while (!enteredCorrectly && '~' == charProjName[0]) {
-                            String givenPin = JOptionPane.showInputDialog("Please Enter PIN");
+                            String givenPin = (String) JOptionPane.showInputDialog(null,"Please Enter PIN",
+                                                                            "Locked Project", JOptionPane.INFORMATION_MESSAGE,
+                                                                            LoginPanel.makePeteSmall(), null, null);
                             if (givenPin.equals(finalPin)) {
                                 enteredCorrectly = true;
                             } else {

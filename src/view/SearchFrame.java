@@ -1,44 +1,65 @@
 package src.view;
 
+import src.model.Project;
 import src.model.User;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
+/**
+ * A JFrame that is used for the search function. Uses buttons
+ * to allow the user to open a project from the frame.
+ *
+ * @author Owen Orlic
+ */
 public class SearchFrame extends JFrame {
+
     /**
      * A factor for scaling the size of the GUI relative to
      * the current screen size.
      */
     private static final int SCALE = 3;
+
     /** A ToolKit. */
     private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 
     /** The Dimension of the screen. */
     private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
+
     /** The width of the screen. */
     private static final int SCREEN_WIDTH = SCREEN_SIZE.width;
 
     /** The height of the screen. */
     private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
 
+    /** User of the application. */
     private User myCurrentUser;
 
+    /** The search word. */
     private String mySearch;
 
+    /**
+     * Title's the frame "Here's What We Found" and calls setup().
+     *
+     * @author Owen Orlic
+     * @param theCurrentUser user using the application
+     * @param theSearch what the user searched
+     */
     public SearchFrame(User theCurrentUser, String theSearch) {
-        super("Hi");
+        super("Here's What We Found");
         myCurrentUser = theCurrentUser;
         mySearch = theSearch;
 
         setup();
     }
 
+    /**
+     * Sets the location and size of the search frame, makes the
+     * search list, and makes the frame visible.
+     *
+     * @author Owen Orlic
+     */
     private void setup() {
         this.setLocation(SCREEN_WIDTH / SCALE,
                 SCREEN_HEIGHT / SCALE);
@@ -47,21 +68,31 @@ public class SearchFrame extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Takes whatever was searched and looks for any project that has
+     * that search word anywhere in its name. If it does, then a button is made
+     * with that project name and it is added to the projectList panel.
+     * The buttons are passed to addBtnAction to give them the ability to open projects.
+     *
+     * @author Owen Orlic
+     */
     private void makeSearchList() {
         String[] projects = myCurrentUser.getProjectNames();
-        JPanel projectList = new JPanel();
+        JPanel projectList = new JPanel(new GridLayout(0, 1, 0, 4));
 
         int searchLen = mySearch.length();
         for (int i = 0; i < projects.length; i++) {
             String name = projects[i];
+            //System.out.println(name);
             int j = 0;
             while (j <= projects[i].length() - searchLen) {
+                //checks if the search is a part of a project name or if it is the project name itself
                 if (name.length() >= mySearch.length() && name.substring(j, j + searchLen).equals(mySearch)
                         || name.equals(mySearch)) {
 
                     String displayName = projects[i];
                     if (projects[i].substring(0, 1).equals("~")) {
-                        displayName = displayName.substring(1, displayName.length());
+                        displayName = displayName.substring(1, displayName.length() - 4);
                     }
                     JButton btn = new JButton(displayName);
                     addBtnAction(btn, projects[i]);
@@ -70,48 +101,36 @@ public class SearchFrame extends JFrame {
                 }
                 j++;
             }
-
-//            if (projects[i].equals(mySearch)) {
-//                JButton btn = new JButton(projects[i]);
-//                projectList.add(btn);
-//            }
-
         }
-        this.add(projectList, BorderLayout.CENTER);
+        this.add(projectList);
     }
 
+    /**
+     * Makes it so these buttons can open up projects. Looks to see if a
+     * project is private to see if it should prompt for the pin before
+     * opening.
+     *
+     * @author Owen Orlic
+     * @param theButton the button that needs its action listener
+     * @param theProjectName the name of the project the button will open
+     */
     private void addBtnAction(JButton theButton, String theProjectName) {
-
         String pin = "-1";
-
-        System.out.println((theProjectName.charAt(0) == '~') + " " + theProjectName);
+        //if the project is private
         if (theProjectName.charAt(0) == '~') {
-            try (Scanner scan = new Scanner(new File("src/" + myCurrentUser.getName() + "/Projects.txt"))) {
-                while (scan.hasNextLine()) {
-                    String nextLine = scan.nextLine();
-                    String[] bigSplit = nextLine.split("\t");
-                    //splits the "Project Name: 'Name Here'" and takes 'Name Here'
-                    String fullName = bigSplit[0].split(": ")[1];
-                    System.out.println(fullName);
-                    if (fullName.substring(0, theProjectName.length()).equals(theProjectName)) {
-                        //takes the pin
-                        pin = fullName.substring(fullName.length() - 4, fullName.length());
-                    }
-
-                }
-            } catch (FileNotFoundException e) {
-                System.out.println(e);
-            }
+            Project proj = myCurrentUser.getProject(theProjectName);
+            pin = proj.getPin();
         }
 
-        char[] charProjName = new char[theProjectName.length()];
         String finalPin = pin;
         theButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean enteredCorrectly = false;
-                while (!enteredCorrectly && '~' == charProjName[0]) {
-                    String givenPin = JOptionPane.showInputDialog("Please Enter PIN");
+                while (!enteredCorrectly && '~' == theProjectName.charAt(0)) {
+                    String givenPin = (String) JOptionPane.showInputDialog(null,"Please Enter PIN",
+                                                              "Locked Project", JOptionPane.INFORMATION_MESSAGE,
+                                                              makePeteSmall(), null, null);
                     if (givenPin.equals(finalPin)) {
                         enteredCorrectly = true;
                     } else {
@@ -123,6 +142,7 @@ public class SearchFrame extends JFrame {
 
                 //System.out.println(projName);
                 new OptionFrame(myCurrentUser, theProjectName);
+                SearchFrame.super.dispose();
             }
         });
     }

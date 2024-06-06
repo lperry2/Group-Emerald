@@ -13,11 +13,12 @@ public class Project {
 
     private Journal myJournal;
 
+    private String myPin;
+
     private boolean isPrivate;
 
-
     /**
-     * The constructor for the Project class.
+     * The constructor for the Project class. Pin gets set to "-1".
      *
      * @author Alex Ewing
      * @param theProjectName the name of the project
@@ -25,8 +26,27 @@ public class Project {
      */
     public Project(String theProjectName, Budget theBudget){
         myProjectName = theProjectName;
+        myPin = "-1";
         myBudget = theBudget;
         myJournal = new Journal(new ArrayList<JournalEntry>());
+        isPrivate = false;
+    }
+
+    /**
+     * The constructor for the Project class. Pin passed in as String,
+     * not int.
+     *
+     * @author Alex Ewing
+     * @param theProjectName the name of the project
+     * @param thePin is the pin for the project.
+     * @param theBudget the budget of the project
+     */
+    public Project(String theProjectName, String thePin, Budget theBudget){
+        myProjectName = theProjectName;
+        myPin = thePin;
+        myBudget = theBudget;
+        myJournal = new Journal(new ArrayList<JournalEntry>());
+        isPrivate = true;
     }
 
     /**
@@ -37,10 +57,29 @@ public class Project {
      * @param theBudget the budget of the project
      * @param theJournal the journal for the project
      */
-    public Project(String theProjectName, Budget theBudget, Journal theJournal){
+    public Project(String theProjectName, String thePin, Budget theBudget, Journal theJournal){
         myProjectName = theProjectName;
+        myPin = thePin;
         myBudget = theBudget;
         myJournal = theJournal;
+        isPrivate = true;
+    }
+
+    /**
+     * The constructor for the Project class, with a Journal too.
+     * myPin gets set to "-1".
+     *
+     * @author Alex Ewing
+     * @param theProjectName the name of the project
+     * @param theBudget the budget of the project
+     * @param theJournal the journal for the project
+     */
+    public Project(String theProjectName, Budget theBudget, Journal theJournal){
+        myProjectName = theProjectName;
+        myPin = "-1";
+        myBudget = theBudget;
+        myJournal = theJournal;
+        isPrivate = false;
     }
 
     /**
@@ -63,6 +102,15 @@ public class Project {
         this.myProjectName = theProjectName;
     }
 
+    public String getPin() {
+        return myPin;
+    }
+
+    public void setPin(String thePin) {
+        myPin = thePin;
+        System.out.println(thePin);
+    }
+
     public Budget getBudget() {
         return myBudget;
     }
@@ -70,6 +118,16 @@ public class Project {
     public Journal getJournal() {
         return myJournal;
     }
+
+    public boolean getPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(boolean thePrivate) {
+        isPrivate = thePrivate;
+    }
+
+
 
     /**
      * Gets the project description.
