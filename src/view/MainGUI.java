@@ -323,9 +323,7 @@ public class MainGUI {
             int counter = 0;
             for (int i = 0; i < dirs.length; i++) {
                 //if the path name isn't for the Projects.txt file
-                // Windows file path: "src\\" + theUsername + "\\Projects.txt"
-                //Mac file path: "src/" + theUsername + "/Projects.txt"
-                if (!dirs[i].toString().equals("src/" + theUsername + "/Projects.txt")) {
+                if (dirs[i].isDirectory()) {
                     projects[counter] = dirs[i].toString();
                     counter++;
                 }
