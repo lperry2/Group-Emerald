@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import static java.lang.Character.isDigit;
 
 public class User implements PropertyChangeListener {
 
@@ -64,7 +65,15 @@ public class User implements PropertyChangeListener {
 
     public void save() {
         for (int i = 0; i < myProjects.size(); i++) {
-            String path = "src/" + myName + "/" + myProjects.get(i).getProjectName();
+            String projName = myProjects.get(i).getProjectName();
+            char end = projName.charAt(projName.length() - 1);
+            //check if project name has pin at end
+            if (isDigit(end)) {
+                projName = projName.substring(0, projName.length() - 4);
+            }
+            String path = "src/" + myName + "/" + projName;
+            //System.out.println("myProjects.get(i).getProjectName(): " + myProjects.get(i).getProjectName());
+            //System.out.println("myProjects.get(i): " + myProjects.get(i));
             saveBudget(path, myProjects.get(i));
             saveJournal(path, myProjects.get(i));
 

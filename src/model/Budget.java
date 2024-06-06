@@ -114,6 +114,19 @@ public class Budget {
         //budgetFile.println(theName + " | " + theExpense);
     }
 
+    public void editExpense(String theName, double theNewExpense) {
+        for (int i = 0; i < myExpenses.size(); i++) {
+            ExpenseItem curr = myExpenses.get(i);
+            if (curr.getName().equals(theName)) {
+                myTotalExpenses -= curr.getExpense(); //subtract the old expense
+                myTotalExpenses += theNewExpense;     // and add the new one
+                curr.setExpense(theNewExpense);
+                //System.out.println("Budget.java editExpense: happened");
+                break;
+            }
+        }
+    }
+
     @Override
     public String toString() {
         String result = "Total: " + myTotal + "\n";

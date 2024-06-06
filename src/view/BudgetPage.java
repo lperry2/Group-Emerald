@@ -8,9 +8,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-public class BudgetPage extends AbstractPage {
+public class BudgetPage extends AbstractPage implements PropertyChangeListener {
 
     private Budget myCurrentBudget;
 
@@ -113,6 +115,18 @@ public class BudgetPage extends AbstractPage {
         });
         myButtonPanel.add(addBtn, new FlowLayout());
 
+        JButton editBtn = new JButton("Edit Item");
+        editBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                new EditSelectionFrame(myCurrentBudget);
+//                writeExpenses();
+                helper(myCurrentBudget);
+
+            }
+        });
+        myButtonPanel.add(editBtn, new FlowLayout());
+
         JButton saveBtn = new JButton("Save");
         saveBtn.addActionListener(new ActionListener() {
             @Override
@@ -125,6 +139,19 @@ public class BudgetPage extends AbstractPage {
         this.add(myButtonPanel, BorderLayout.SOUTH);
     }
 
+    private void helper(Budget theBudget) {
+        EditSelectionFrame f = new EditSelectionFrame(theBudget);
+        f.addPropertyChangeListener(this);
+        //myCurrentBudget = f.getBudget();
+//        ArrayList<ExpenseItem> expenseItems = f.getBudget().getExpenses();
+//        for (int i = 0; i < expenseItems.size(); i++) {
+//            System.out.println(expenseItems.get(i));
+//        }
+        writeExpenses();
+        //this.revalidate();
+        //this.repaint();
+    }
+
     /**
      * Used for updating the page when budget info has changed.
      *
@@ -133,6 +160,9 @@ public class BudgetPage extends AbstractPage {
     private void writeExpenses() {
         String allExpenses = "<html>";
         ArrayList<ExpenseItem> expenseItems = myCurrentBudget.getExpenses();
+//        for (int i = 0; i < expenseItems.size(); i++) {
+//            System.out.println(expenseItems.get(i));
+//        }
 
         //remove labels
         myTitlePanel.removeAll();
@@ -159,4 +189,11 @@ public class BudgetPage extends AbstractPage {
     }
 
 
+    @Override
+    public void propertyChange(PropertyChangeEvent theEvent) {
+        if (theEvent.equals("repaint page")) {
+            myCurrentBudget.editExpense((String) theEvent.getOldValue(), (double) theEvent.getNewValue());
+            writeExpenses();
+        }
+    }
 }

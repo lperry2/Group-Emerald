@@ -10,22 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
-      <change afterPath="$PROJECT_DIR$/src/view/SearchFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AbstractPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/BackButton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/BackButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/BudgetPage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/BudgetPage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/BudgetPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuBar$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuBar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/OptionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/Users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/AddItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/MenuReaderPopulation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/testa/Journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/t/testa/Journal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/CreateProjectFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" afterDir="false" />
@@ -33,17 +31,14 @@
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Journal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Journal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/JournalEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/SearchFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t/testa/Journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/t/testa/Journal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AbstractPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/BudgetPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BudgetPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/JournalPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/JournalPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProjectFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OptionFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

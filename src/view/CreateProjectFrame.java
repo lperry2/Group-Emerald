@@ -12,7 +12,6 @@ import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 /**
  * The frame that allows users to create new projects
@@ -220,7 +219,11 @@ public class CreateProjectFrame extends JFrame {
                                                 "Success", JOptionPane.INFORMATION_MESSAGE, resizedIcon);
 
                     //add project to the user's project list
-                    myCurrentUser.addProject(new Project(newProjectName, new Budget(newProjectBudget)));
+                    if (privateCheckBox.isSelected()) {
+                        myCurrentUser.addProject(new Project(newProjectName, pinField.getText(), new Budget(newProjectBudget)));
+                    } else {
+                        myCurrentUser.addProject(new Project(newProjectName, new Budget(newProjectBudget)));
+                    }
 
                     myPCS.firePropertyChange("repaint", null, null);
                     dispose();
