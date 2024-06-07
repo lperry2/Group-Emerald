@@ -108,23 +108,20 @@ public class User implements PropertyChangeListener {
         ArrayList<SingleFile> singleFiles = files.getFiles();
         System.out.println(singleFiles.size());
         File projFolder = new File(thePath);
-        File oldFileDir = new File(projFolder, "/Files");
-        oldFileDir.delete();
-        File newFileDir = new File(projFolder, "/Files");
-        newFileDir.mkdirs();
-
-        for (int i = 0; i < singleFiles.size(); i++) {
-            String pathName = singleFiles.get(i).getFile().toString();
-            String[] split = pathName.split("/");
-            String name = split[split.length - 1];
-            File file = new File(newFileDir, "/" + name);
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        File oldFiles = new File(projFolder, "/Files.txt");
+        oldFiles.delete();
+        File newFiles = new File(projFolder, "/Files.txt");
+        try (PrintStream out = new PrintStream(newFiles)) {
+            out.println("+");
+            out.println("Files | placeholderInUser.javaSaveFiles");
+            for (int i = 0; i < singleFiles.size(); i++) {
+                SingleFile f = singleFiles.get(i);
+                out.println("\n----");                   //----
+                out.println(f.getName());                //Entry Title
+                out.print(f.getFile().toString());       //Entry Content
             }
-            File temp = singleFiles.get(i).getFile();
-            temp.toString();
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
         }
     }
 

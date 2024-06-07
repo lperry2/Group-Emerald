@@ -279,10 +279,8 @@ public class MainGUI {
             Journal[] projectJournals = readJournals(projectPaths);
             ArrayList<Project> projects = makeProjectList(projectPaths, projectBudgets, projectFiles, projectJournals);
 
-
             //instantiate the User with this infomation
             myUser = new User(theUsername, theEmail, projects);
-            //System.out.println(myUser);
         }
 
         /**
@@ -298,14 +296,6 @@ public class MainGUI {
             for (int i = 0; i < thePaths.length; i++) {
                 String[] pathname = thePaths[i].split("/"); //split up the pathname so that
                 String projectName = pathname[pathname.length - 1]; //we can get the project name
-                //System.out.println(pathname[0] + pathname[1] + pathname[2]);
-//                if (checkPrivate(thePaths[i])) {
-//                    //pathname[1] is the username
-//                    String pin = getPinFromFile(pathname[1], thePaths[i]);
-//                    projects.add(new Project(projectName, pin, theBudgets[i], theJournals[i]));
-//                } else {
-//                    projects.add(new Project(projectName, theBudgets[i], theJournals[i]));
-//                }
                 Project proj;
                 if (checkIfEndsInNums(thePaths[i])) {
                     String pin = getPinNumbers(thePaths[i]);
@@ -338,7 +328,6 @@ public class MainGUI {
                 //if the path name isn't for the Projects.txt file
                 if (dirs[i].isDirectory()) {
                     if (checkPrivate(dirs[i].toString())) {
-                        //System.out.println("passing in readProjects: " + dirs[i].toString());
                         String pin = getPinFromFile(theUsername, dirs[i].toString());
                         projects[counter] = dirs[i].toString() + pin;
                     } else {
@@ -424,7 +413,6 @@ public class MainGUI {
             } else {
                 budget = new Budget(total, totalExpenses, expenses);
             }
-            //System.out.println(budget);
             return budget;
         }
 
@@ -441,7 +429,7 @@ public class MainGUI {
             FileGroup[] files = new FileGroup[thePaths.length];
             for (int i = 0; i < thePaths.length; i++) {
                 String path = takeOffPinFromName(thePaths[i]);
-                files[i] = readFilesDir(path + "/Files");
+                files[i] = readFilesDir(path + "/Files.txt");
             }
             return files;
         }
@@ -457,48 +445,39 @@ public class MainGUI {
         private FileGroup readFilesDir(String thePath) {
             //Journal journal;
             ArrayList<SingleFile> files = new ArrayList<>();
-//            BufferedReader reader = null;
-//            int lines = 0;
-//            try {
-//                reader = new BufferedReader(new FileReader(thePath));
-//                while (reader.readLine() != null) {
-//                    lines++;
-//                    //reader.close();
-//                }
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//            if (lines > 2) {
-//                try (Scanner scan = new Scanner(new File(thePath))) {
-//                    while (scan.hasNextLine()) {
-//                        String next = scan.nextLine();
-//                        if (next.equals("+")) {
-//                            scan.next(); //skip type word
-//                            scan.next(); //skip bar character
-//                            String mainTitle = scan.next(); //take the main title
-//                            //String[] mainInfo = nextLine.split("| ");
-//
-//                        } else if (next.equals("----")) {
-//                            String fileName = scan.nextLine(); //get the title of the entry
-//                            File fileFile = (File) scan.nextLine(); //get the content of the entry
-//                            SingleFile file = new SingleFile(fileName, fileFile); //create new JournalEntry
-//                            files.add(entry);
-//                        }
-//                    }
-//                } catch (IOException e) {
-//                    System.out.println("Main GUI, readJournalFile()");
-//                }
-
-            File fileDir = new File(thePath);
-            File[] fileArr = fileDir.listFiles();
-            for (int i = 0; i < fileArr.length; i++) {
-                String[] fileNameSplit = fileArr[i].toString().split("/");
-                String fileName = fileNameSplit[fileNameSplit.length - 1];
-                File fileFile = fileArr[i];
-                SingleFile file = new SingleFile(fileName, fileFile);
-                files.add(file);
+            BufferedReader reader = null;
+            int lines = 0;
+            try {
+                reader = new BufferedReader(new FileReader(thePath));
+                while (reader.readLine() != null) {
+                    lines++;
+                    //reader.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
+            if (lines > 2) {
+                try (Scanner scan = new Scanner(new File(thePath))) {
+                    while (scan.hasNextLine()) {
+                        String next = scan.nextLine();
+                        if (next.equals("+")) {
+                            scan.next(); //skip type word
+                            scan.next(); //skip bar character
+                            String mainTitle = scan.next(); //take the main title
+                            //String[] mainInfo = nextLine.split("| ");
 
+                        } else if (next.equals("----")) {
+                            String fileName = scan.nextLine(); //get the title of the entry
+                            String pathName = scan.nextLine(); //get the content of the entry
+                            File fileFile = new File(pathName);
+                            SingleFile file = new SingleFile(fileName, fileFile); //create new JournalEntry
+                            files.add(file);
+                        }
+                    }
+                } catch (IOException e) {
+                    System.out.println("Main GUI, readJournalFile()");
+                }
+            }
             return new FileGroup(files);
         }
 
