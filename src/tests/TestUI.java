@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Unit tests for the UI and components.
  *
- * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar
+ * @author Alex Ewing, Owen Orlic, Daniel Alberto Sanchez Aguilar
  * @version v0.00
  */
 public class TestUI {

@@ -83,6 +83,9 @@ public class OptionFrame extends JFrame {
 
     }
 
+    /**
+     * Sets up the info prompt.
+     */
     private void setupInfo() {
         JPanel infoPanel = new JPanel();
         JLabel infoLabel = new JLabel();

@@ -117,22 +117,42 @@ public class Project {
         System.out.println(thePin);
     }
 
+    /**
+     * Gets the project's budget.
+     * @return myBudget the project's budget
+     */
     public Budget getBudget() {
         return myBudget;
     }
 
+    /**
+     * Gets the project's files
+     * @return myFiles the project's files
+     */
     public FileGroup getFiles() {
         return myFiles;
     }
 
+    /**
+     * Gets the project's journal
+     * @return myJournal the project's journal
+     */
     public Journal getJournal() {
         return myJournal;
     }
 
+    /**
+     * Gets the state of the project's privacey
+     * @return isPrivate the boolean state of the project's privacey
+     */
     public boolean getPrivate() {
         return isPrivate;
     }
 
+    /**
+     * Sets the state of the project's privacey
+     * @param thePrivate the new boolean state of the project's privacey
+     */
     public void setPrivate(boolean thePrivate) {
         isPrivate = thePrivate;
     }
