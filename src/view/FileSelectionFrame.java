@@ -1,8 +1,6 @@
 package src.view;
 
 import src.model.FileGroup;
-import src.model.Journal;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,8 +23,6 @@ public class FileSelectionFrame extends AbstractSelectionFrame {
     /** The journal being changed. */
     private FileGroup myFiles;
 
-    private JFileChooser myChooser;
-
     /**
      * Sends title and option to the AbstractSelectionFrame. theTitle will become the title
      * of the JFrame and theOption will decide whether the selection is for editing for deleting.
@@ -39,7 +35,6 @@ public class FileSelectionFrame extends AbstractSelectionFrame {
     public FileSelectionFrame(FileGroup theFiles, String theTitle, int theOption) {
         super(theTitle, theOption);
         myFiles = theFiles;
-        myChooser = new JFileChooser();
         setupBtnActions();
     }
 
@@ -67,13 +62,13 @@ public class FileSelectionFrame extends AbstractSelectionFrame {
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    //pull up the file chooser again to select a new file
                     JFileChooser chooser = new JFileChooser("./");
                     int result = chooser.showOpenDialog(null);
                     while (result != JFileChooser.APPROVE_OPTION) {
                         result = chooser.showOpenDialog(null);
                     }
                     File file = chooser.getSelectedFile();
-                    //File newFile = myChooser.getSelectedFile();
                     //improper use of firePropertyChange(), just go with it
                     myPcs.firePropertyChange("repaintPageFileEdit", btn.getText(), file);
                     FileSelectionFrame.this.dispose(); //close frame

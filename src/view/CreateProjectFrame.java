@@ -120,10 +120,7 @@ public class CreateProjectFrame extends JFrame {
         creationPanel.add(budgetLabel);
         creationPanel.add(budgetField);
 
-
-
         JLabel pinLabel = new JLabel("Enter PIN"); // make label but don't add immediately
-        //pinField = new JTextField(5);
         pinField.setVisible(false);
 
         JCheckBox privateCheckBox = new JCheckBox("Private");
@@ -197,7 +194,6 @@ public class CreateProjectFrame extends JFrame {
                         dirName = "src/" + userName + "/" + newProjectName;
                     }
                     dir.mkdirs();
-                    //PrintStream budgetFile = new PrintStream(new File(dirName + "/Budget.txt"));
                     File budgetFile = new File(dir, "Budget.txt");
                     budgetFile.createNewFile();
                     fileInitializer(budgetFile, "Budget | " + budgetField.getText());
@@ -205,9 +201,8 @@ public class CreateProjectFrame extends JFrame {
                     journalFile.createNewFile();
                     fileInitializer(journalFile, "Journal | " + nameField.getText());
                     File fileFile = new File(dir, "Files.txt");
-                    fileFile.createNewFile(); //erase this
-                    //fileFile.mkdirs(); //bring this back
-                    fileInitializer(fileFile, "Files | " + nameField.getText()); //erase this
+                    fileFile.createNewFile();
+                    fileInitializer(fileFile, "Files | " + nameField.getText());
 
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/images/projectpete.png");

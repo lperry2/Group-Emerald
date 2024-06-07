@@ -2,11 +2,15 @@ package src.view;
 
 import src.model.Project;
 import src.model.User;
-
 import java.awt.*;
-import java.io.File;
 import javax.swing.*;
 
+/**
+ * A page that will show infomation for the project. theType denotes if this
+ * will should Budget, Journal, or File infomation.
+ *
+ * @author Owen Orlic
+ */
 public abstract class AbstractPage extends JFrame {
     /**
      * A factor for scaling the size of the GUI relative to
@@ -57,7 +61,7 @@ public abstract class AbstractPage extends JFrame {
      * The public constructor for the AbstractPage class.
      * @param theUser The user
      * @param theProjectName The project name
-     * @param theType The type
+     * @param theType The type (Budget, Journal, or FileGroup)
      */
     public AbstractPage(User theUser, String theProjectName, String theType) {
         super(theType);

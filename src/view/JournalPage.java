@@ -3,7 +3,6 @@ package src.view;
 import src.model.Journal;
 import src.model.JournalEntry;
 import src.model.User;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,10 +11,18 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+/**
+ * An abstraction of AbstractPage that will allow the user to see their
+ * journal entries as well as add, edit, or delete them.
+ *
+ * @author Owen Orlic
+ */
 public class JournalPage extends AbstractPage implements PropertyChangeListener {
 
+    /** The journal for this project. */
     private Journal myCurrentJournal;
 
+    /** The name of the current project. */
     private String myProjectName;
 
     /**
@@ -63,6 +70,9 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
     }
 
 
+    /**
+     * Sets up all the journal entries to appear in the center of the frame.
+     */
     private void setupEntries() {
         //will show if there are no entries yet
         String allEntries = "There are currently no journal entries for this project!";
@@ -154,7 +164,7 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
     }
 
     /**
-     * Used for updating the page when budget info has changed.
+     * Used for updating the page when journal info has changed.
      *
      * @author Owen Orlic
      */
@@ -185,6 +195,12 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
         this.repaint();
     }
 
+    /**
+     * Watches for editing or deletion changes.
+     *
+     * @param theEvent A PropertyChangeEvent object describing the event source
+     *          and the property that has changed.
+     */
     @Override
     public void propertyChange(final PropertyChangeEvent theEvent) {
         System.out.println(theEvent);

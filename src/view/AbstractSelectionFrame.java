@@ -23,8 +23,10 @@ public abstract class AbstractSelectionFrame extends JFrame {
     /** The height of the screen. */
     private static final int SCREEN_HEIGHT = SCREEN_SIZE.height;
 
+    /** Makes the frame used for editing. */
     public static final int EDIT_OPTION = 0;
 
+    /** Makes the frame used for deleting. */
     public static final int DELETE_OPTION = 1;
 
     /** Panel that will hold all the buttons with the ExpenseItem's names on them. */
@@ -37,6 +39,13 @@ public abstract class AbstractSelectionFrame extends JFrame {
      */
     protected int myOption;
 
+    /**
+     * A frame for selecting items (ExpenseItem, JournalEntry, SingleFile). theOption denotes
+     * whether this is used for editing or deleting.
+     *
+     * @param theTitle title of the frame
+     * @param theOption denotes whether frame used for editing or deleting
+     */
     public AbstractSelectionFrame(String theTitle, int theOption) {
         super(theTitle);
         myPanel = new JPanel(new GridLayout(0, 1, 0, 4));

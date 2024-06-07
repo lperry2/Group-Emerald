@@ -13,13 +13,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * An abstraction of AbstractPage that will allow the user to see their
+ * files for the project as well as add, edit, or delete them.
+ *
+ * @author Owen Orlic
+ */
 public class FilePage extends AbstractPage implements PropertyChangeListener {
 
+    /** The files for this project. */
     private FileGroup myCurrentFiles;
 
+    /** The current project being worked on. */
     private String myProjectName;
-
-    private JFileChooser myFileChooser;
 
     /**
      * Sends parameters to the super class constructor and calls setup().
@@ -37,7 +43,6 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
         if (myProjectName.charAt(0) == '~') {
             myProjectName = myProjectName.substring(1);
         }
-        myFileChooser = new JFileChooser();
         setup();
     }
 
@@ -92,17 +97,8 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
                 });
                 myContentPanel.add(btn);
             }
-//            allEntries = "<html>";
-//            ArrayList<SingleFile> files = myCurrentFiles.getFiles();
-//            for (int i = 0; i < files.size(); i++) {
-//                allEntries += entries.get(i).toString() + "<br/>"; //<br/> is line break for JLabel
-//            }
-//            allEntries += "</html>";
         }
-        //myContentLabel = new JLabel(allEntries);
-        //myContentPanel = new JPanel(new GridLayout(6, 5, 0, 1));
 
-        //myContentPanel.add(myContentLabel);
         this.add(myContentPanel, BorderLayout.CENTER);
     }
 
@@ -125,7 +121,6 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
                 File file = fileChooser.getSelectedFile();
                 String[] split = file.getName().split("/");
                 String fileName = split[split.length - 1];
-                //File file = fileChooser.getSelectedFile();
                 myCurrentFiles.addFile(fileName, file);
                 System.out.println(file.toString());
                 writeFiles();
@@ -137,9 +132,6 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
         editBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                new EditSelectionFrame(myCurrentBudget);
-//                writeExpenses();
-                //openEditSelection(myCurrentBudget);
                 String title = "Please Select an Expense to Edit.";
                 FileSelectionFrame frame = new FileSelectionFrame(myCurrentFiles, title, FileSelectionFrame.EDIT_OPTION);
                 frame.addPropertyChangeListener(FilePage.this);
@@ -190,9 +182,6 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
      * @author Owen Orlic
      */
     private void writeFiles() {
-        String allEntries = "<html>";
-        //ArrayList<SingleFile> files = myCurrentFiles.getFiles();
-
         //remove labels
         myTitlePanel.removeAll();
         myContentPanel.removeAll();
@@ -222,13 +211,18 @@ public class FilePage extends AbstractPage implements PropertyChangeListener {
 
         //add everything back
         myTitlePanel.add(myTitleLabel);
-        //myContentPanel.add(myContentLabel);
         this.add(myContentPanel, BorderLayout.CENTER);
         this.add(myTitlePanel, BorderLayout.NORTH);
         this.revalidate();
         this.repaint();
     }
 
+    /**
+     * Watches for editing or deletion changes.
+     *
+     * @param theEvent A PropertyChangeEvent object describing the event source
+     *          and the property that has changed.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent theEvent) {
         if (theEvent.getPropertyName().equals("repaintPageFileEdit")) {

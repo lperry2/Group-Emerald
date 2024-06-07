@@ -480,10 +480,6 @@ public class MainGUI {
             return new FileGroup(files);
         }
 
-
-
-
-
         /**
          * Goes through a list of pathnames that are directories, creates a scanner
          * for the Journal.txt file in those directories, passes that scanner to the
@@ -667,6 +663,13 @@ public class MainGUI {
             return isDigit;
         }
 
+        /**
+         * If the pathname ends in numbers then there is a pin for the
+         * project. Takes the pin from the end if this is case.
+         *
+         * @param thePath pathname to the project
+         * @return the pin for the project
+         */
         private String getPinNumbers(String thePath) {
             String pin = "-1";
             if (checkIfEndsInNums(thePath)) {
@@ -694,7 +697,8 @@ public class MainGUI {
             setup();
         }
 
-        /** Sets up the AboutPanel.
+        /**
+         * Sets up the AboutPanel.
          *
          * @author Alex Ewing
          */
@@ -707,12 +711,10 @@ public class MainGUI {
                     JOptionPane.showMessageDialog(null, "This app is registered to: " + myUserInfo.getCurrentUser() + " (" + myUserInfo.getCurrentEmail() + ")" + "\n \n"  +
                             "This app provided by: Team Emerald\nAlexander Dean Ewing - Alex for short\nOwen Orlic - He's cool\n" +
                             "Lucas Perry - GitHub Guy\nDaniel Alberto Sanchez Aguilar - GUI Guy\n \nVersion: " + VERSION + "\n <-- Project Pete!",
-                            "About", JOptionPane.PLAIN_MESSAGE, new ImageIcon("src/images/projectpete.png"));
+                            "About", JOptionPane.PLAIN_MESSAGE, LoginPanel.makePeteSmall());
                 }
             });
         }
-
-
     }
 
     /**

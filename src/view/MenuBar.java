@@ -1,11 +1,15 @@
 package src.view;
 
 import src.model.User;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Menu Bar used for the OptionFrame.
+ *
+ * @author Owen Orlic
+ */
 public class MenuBar extends JMenuBar {
 
     /** The budget menu. */
@@ -95,11 +99,6 @@ public class MenuBar extends JMenuBar {
                 } else if (theType.equals("Journal")) {
                     new JournalPage(myCurrentUser, myProjectName, theType);
                 }
-//                try {
-//                    new MenuReaderPopulation(f, myCurrentUser, myProjectName, theType);
-//                } catch (FileNotFoundException ex) {
-//                    throw new RuntimeException(ex);
-//                }
 
             }
         });

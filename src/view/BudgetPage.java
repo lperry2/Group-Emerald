@@ -195,6 +195,12 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
     }
 
 
+    /**
+     * Watches for editing or deletion changes.
+     *
+     * @param theEvent A PropertyChangeEvent object describing the event source
+     *          and the property that has changed.
+     */
     @Override
     public void propertyChange(final PropertyChangeEvent theEvent) {
         System.out.println(theEvent);

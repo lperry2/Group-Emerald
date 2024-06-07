@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * The frame that allows us to open the budget, file, or journal frame
+ *
  * @author Daniel Sanchez, Owen Orlic
  */
 public class OptionFrame extends JFrame {
