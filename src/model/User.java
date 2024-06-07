@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import static java.lang.Character.isDigit;
 
+/** A class representing a user.*/
 public class User implements PropertyChangeListener {
 
     /** The user's name. */
