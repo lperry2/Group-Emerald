@@ -1,0 +1,6 @@
++
+Journal | placeholderInUser.javaSaveJournal
+
+----
+hello
+hi

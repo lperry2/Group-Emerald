@@ -229,7 +229,6 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
      */
     @Override
     public void propertyChange(final PropertyChangeEvent theEvent) {
-        System.out.println(theEvent);
         if (theEvent.getPropertyName().equals("repaintPageBudgetEdit")) {
             myCurrentBudget.editExpense((String) theEvent.getOldValue(), (double) theEvent.getNewValue());
             writeExpenses();

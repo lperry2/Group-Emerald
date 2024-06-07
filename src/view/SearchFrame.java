@@ -98,7 +98,6 @@ public class SearchFrame extends JFrame {
         boolean oneFound = false;
         for (int i = 0; i < projects.length; i++) {
             String name = projects[i];
-            //System.out.println(name);
             int j = 0;
             while (j <= projects[i].length() - searchLen) {
                 //checks if the search is a part of a project name or if it is the project name itself
@@ -160,7 +159,6 @@ public class SearchFrame extends JFrame {
                     }
                 }
 
-                //System.out.println(projName);
                 new OptionFrame(myCurrentUser, theProjectName);
                 SearchFrame.super.dispose();
             }

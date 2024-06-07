@@ -81,7 +81,6 @@ public class User implements PropertyChangeListener {
         int projectIndex = 0;
         for (int i = 0; i < myProjects.size(); i++) {
             String projPath = "src/" + myName + "/" + myProjects.get(i).getProjectName();
-            //System.out.println(correct + " = " + projPath);
             if (correct.equals(projPath)) {
                 projectIndex = i;
                 break;
@@ -109,9 +108,13 @@ public class User implements PropertyChangeListener {
             if (isDigit(end)) {
                 projName = projName.substring(0, projName.length() - 4);
             }
-            String path = "src/" + myName + "/" + projName;
-            //System.out.println("myProjects.get(i).getProjectName(): " + myProjects.get(i).getProjectName());
-            //System.out.println("myProjects.get(i): " + myProjects.get(i));
+            String path = "";
+            if (myProjects.get(i).getPrivate() && projName.charAt(0) != '~') {
+                path = "src/" + myName + "/~" + projName;
+            } else {
+                path = "src/" + myName + "/" + projName;
+            }
+
             saveBudget(path, myProjects.get(i));
             saveFiles(path, myProjects.get(i));
             saveJournal(path, myProjects.get(i));
@@ -153,7 +156,6 @@ public class User implements PropertyChangeListener {
     private void saveFiles(String thePath, Project theProj) {
         FileGroup files = theProj.getFiles();
         ArrayList<SingleFile> singleFiles = files.getFiles();
-        System.out.println(singleFiles.size());
         File projFolder = new File(thePath);
         File oldFiles = new File(projFolder, "/Files.txt");
         oldFiles.delete();
@@ -195,6 +197,7 @@ public class User implements PropertyChangeListener {
             }
         } catch (FileNotFoundException e) {
             System.out.println(e);
+
         }
     }
 

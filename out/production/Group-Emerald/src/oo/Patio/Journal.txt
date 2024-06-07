@@ -1,0 +1,12 @@
++
+Journal | placeholderInUser.javaSaveJournal
+
+----
+June 8
+heloehlohe
+----
+June 9
+byebyebye
+----
+private
+blahablahabla

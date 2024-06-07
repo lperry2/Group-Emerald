@@ -1,2 +1,5 @@
 
 oo | oo
+p | p
+l | l
+k | k

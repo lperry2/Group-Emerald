@@ -1,6 +1,6 @@
 +
-Budget | 2000.0
+Budget | 4.0
 
 ----
-balls
-30.0
+table
+3.0

@@ -319,6 +319,7 @@ public class MainGUI {
         private String[] readProjects(String theUsername) {
             File userDir = new File("src/" + theUsername);
             File[] dirs = userDir.listFiles();
+
             //stores the strings of project paths besides the Projects.txt file
             String[] projects = new String[dirs.length - 1];
             //used to avoid out of bounds on projects[]
@@ -372,7 +373,6 @@ public class MainGUI {
             BufferedReader reader = null;
             int lines = 0;
             try {
-                //System.out.println(thePath);
                 reader = new BufferedReader(new FileReader(thePath));
                 while (reader.readLine() != null) {
                     lines++;
@@ -428,7 +428,7 @@ public class MainGUI {
             FileGroup[] files = new FileGroup[thePaths.length];
             for (int i = 0; i < thePaths.length; i++) {
                 String path = takeOffPinFromName(thePaths[i]);
-                files[i] = readFilesDir(path + "/Files.txt");
+                files[i] = readFilesFile(path + "/Files.txt");
             }
             return files;
         }
@@ -441,8 +441,7 @@ public class MainGUI {
          * @param thePath the Files.txt file to be read
          * @return the FileGroup object representing the Files.txt file
          */
-        private FileGroup readFilesDir(String thePath) {
-            //Journal journal;
+        private FileGroup readFilesFile(String thePath) {
             ArrayList<SingleFile> files = new ArrayList<>();
             BufferedReader reader = null;
             int lines = 0;
@@ -495,6 +494,7 @@ public class MainGUI {
                 String path = takeOffPinFromName(thePaths[i]);
                 journals[i] = readJournalFile(path + "/Journal.txt");
             }
+
             return journals;
         }
 
@@ -607,22 +607,18 @@ public class MainGUI {
          */
         private String getPinFromFile(String theUsername, String thePath) {
             String pin = "-1";
-            System.out.println("getPinFromFile: " + thePath);
             try (Scanner scan = new Scanner(new File("src/" + theUsername + "/Projects.txt"))) {
                 int strLen = thePath.length();
                 String projName = thePath.split("/")[2];
                 while (scan.hasNext()) {
-                    //System.out.println("projName: " + projName);
                     String next = scan.next();
                     if (next.length() >= projName.length() && next.substring(0, next.length() - 4).equals(projName)) {
                         pin = next.substring(projName.length());
-                        System.out.println("Made it inside: " + pin);
                     }
                 }
             } catch (FileNotFoundException e) {
                 System.out.println(e);
             }
-            System.out.println("Inside getPinFromFile() outside if: " + pin);
             return pin;
         }
 
@@ -752,14 +748,8 @@ public class MainGUI {
             JButton searchBtn = new JButton("Search");
             searchBtn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
-                    // TODO: Implement Project Search
 
                     new SearchFrame(myUser, projectField.getText());
-
-                    //projectLabel.setText("File not found");
-                    //projectLabel.setForeground(Color.RED);
-                    //projectLabel.setVisible(true);
-
 
                 }
             });
@@ -873,7 +863,6 @@ public class MainGUI {
                             }
                         }
 
-                        //System.out.println(projName);
                         new OptionFrame(myUser, projName);
                     }
                 });
