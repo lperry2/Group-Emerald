@@ -131,7 +131,6 @@ public class Project {
      */
     public void setPin(String thePin) {
         myPin = thePin;
-        System.out.println(thePin);
     }
 
     /**

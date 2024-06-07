@@ -203,7 +203,6 @@ public class JournalPage extends AbstractPage implements PropertyChangeListener 
      */
     @Override
     public void propertyChange(final PropertyChangeEvent theEvent) {
-        System.out.println(theEvent);
         if (theEvent.getPropertyName().equals("repaintPageJournalEdit")) {
             myCurrentJournal.editEntry((String) theEvent.getOldValue(), (String) theEvent.getNewValue());
             writeEntries();

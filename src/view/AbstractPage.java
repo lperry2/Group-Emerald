@@ -66,7 +66,6 @@ public abstract class AbstractPage extends JFrame {
     public AbstractPage(User theUser, String theProjectName, String theType) {
         super(theType);
         myCurrentUser = theUser;
-        System.out.println(theProjectName);
         myCurrentProject = theUser.getProject(theProjectName);
         setup();
 

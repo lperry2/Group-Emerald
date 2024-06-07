@@ -101,4 +101,19 @@ public class Journal {
         ImageIcon resizedIcon = new ImageIcon(resizedImg);
         return resizedIcon;
     }
+
+    /**
+     * String representation of a journal that returns all of the
+     * journal entries.
+     *
+     * @return a string representation of a journal
+     */
+    @Override
+    public String toString() {
+        String result = "";
+        for (int i = 0; i < myEntries.size(); i++) {
+            result += myEntries.get(i) + "\n";
+        }
+        return result;
+    }
 }
