@@ -4,12 +4,16 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import static java.lang.Character.isDigit;
 
-/** A class representing a user.*/
+/**
+ * A class representing a user.
+ *
+ * @author Owen Orlic
+ * @author Alex Ewing
+ */
 public class User implements PropertyChangeListener {
 
     /** The user's name. */
@@ -194,6 +198,11 @@ public class User implements PropertyChangeListener {
         }
     }
 
+    /**
+     * A string representation of a User.
+     *
+     * @return a string representation of a user
+     */
     @Override
     public String toString() {
         String result = "Name: " + myName + "\nEmail: " + myEmail + "\n";

@@ -64,6 +64,17 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
 
         myTitlePanel = new JPanel();
         myTitlePanel.add(myTitleLabel);
+        JButton editTotalBtn = new JButton("Edit Total");
+        editTotalBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String newTotal = (String) JOptionPane.showInputDialog(null, "Enter New Total: ", "Edit Total",
+                                        JOptionPane.INFORMATION_MESSAGE, makePeteSmall(), null, null);
+                myCurrentBudget.setTotal(Double.parseDouble(newTotal));
+                writeExpenses();
+            }
+        });
+        myTitlePanel.add(editTotalBtn);
         this.add(myTitlePanel, BorderLayout.NORTH);
     }
 
@@ -194,6 +205,21 @@ public class BudgetPage extends AbstractPage implements PropertyChangeListener {
         this.repaint();
     }
 
+    /**
+     * Method that returns a small pete for JOptionPanes.
+     *
+     * @author Daniel
+     * @return little version of pete
+     */
+    private static ImageIcon makePeteSmall() {
+        //code to make pete normal-sized
+        ImageIcon icon = new ImageIcon("src/images/projectpete.png");
+        Image img = icon.getImage();
+        // Resize the image to 50x50 pixels
+        Image resizedImg = img.getScaledInstance(100, 75, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImg);
+        return resizedIcon;
+    }
 
     /**
      * Watches for editing or deletion changes.

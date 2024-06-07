@@ -4,7 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * A journal is used for tracking notes on a project. A journal is just a list of
+ * JournalEntrys.
+ *
+ * @author Owen Orlic
+ */
 public class Journal {
+
     /** The journal entries. */
     private ArrayList<JournalEntry> myEntries;
 

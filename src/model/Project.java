@@ -2,7 +2,11 @@ package src.model;
 
 import java.util.ArrayList;
 
-/** Represents a project */
+/**
+ * Represents a project.
+ *
+ * @author Alex Ewing
+ */
 public class Project {
     /** The name of the project. */
     private String myProjectName;
@@ -10,12 +14,16 @@ public class Project {
     /** The project's budget. */
     private Budget myBudget;
 
+    /** The files for the project. */
     private FileGroup myFiles;
 
+    /** The Journal for the project. */
     private Journal myJournal;
 
+    /** The projects pin. */
     private String myPin;
 
+    /** Denotes if the project is private. */
     private boolean isPrivate;
 
     /**
@@ -107,10 +115,20 @@ public class Project {
         this.myProjectName = theProjectName;
     }
 
+    /**
+     * Gets the pin of the project.
+     *
+     * @return the project's pin
+     */
     public String getPin() {
         return myPin;
     }
 
+    /**
+     * Sets the pin of the project.
+     *
+     * @param thePin the new pin
+     */
     public void setPin(String thePin) {
         myPin = thePin;
         System.out.println(thePin);
@@ -141,8 +159,8 @@ public class Project {
     }
 
     /**
-     * Gets the state of the project's privacey
-     * @return isPrivate the boolean state of the project's privacey
+     * Gets the state of the project's privacy
+     * @return isPrivate the boolean state of the project's privacy
      */
     public boolean getPrivate() {
         return isPrivate;
@@ -156,6 +174,12 @@ public class Project {
         isPrivate = thePrivate;
     }
 
+    /**
+     * String representation of a project that gives the project name followed
+     * by the budget info.
+     *
+     * @return a string representation of the project
+     */
     @Override
     public String toString() {
         String result = "Project " + myProjectName;

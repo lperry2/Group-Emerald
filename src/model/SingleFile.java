@@ -1,9 +1,12 @@
 package src.model;
 
 import java.io.File;
-import java.util.ArrayList;
 
-/** Assosiates a string with a file. */
+/**
+ * Associates a string with a file.
+ *
+ * @author Owen Orlic
+ */
 public class SingleFile {
 
     /** The file name. */
@@ -51,7 +54,5 @@ public class SingleFile {
     public void setFile(File theFile) {
         myFile = theFile;
     }
-
-
 
 }

@@ -3,7 +3,6 @@ package src.model;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.io.PrintStream;
 
 /**
  * Class to hold individual expenses of a project's budget.
@@ -90,6 +89,11 @@ public class Budget {
         return myTotalExpenses;
     }
 
+    /**
+     * Gets the list of expense items.
+     *
+     * @return the expense items
+     */
     public ArrayList<ExpenseItem> getExpenses() {
         return myExpenses;
     }
@@ -165,6 +169,12 @@ public class Budget {
         }
     }
 
+    /**
+     * A string representation of a Budget that labels the budget total, the expense total,
+     * and then lists all expense items of the budget.
+     *
+     * @return a string representation of the budget.
+     */
     @Override
     public String toString() {
         String result = "Total: " + myTotal + "\n";
