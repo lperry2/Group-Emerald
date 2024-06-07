@@ -204,10 +204,10 @@ public class CreateProjectFrame extends JFrame {
                     File journalFile = new File(dir, "Journal.txt");
                     journalFile.createNewFile();
                     fileInitializer(journalFile, "Journal | " + nameField.getText());
-                    File fileFile = new File(dir, "Files");
-                    //fileFile.createNewFile();
-                    fileFile.mkdirs();
-                    //fileInitializer(fileFile, "Files | " + nameField.getText());
+                    File fileFile = new File(dir, "Files.txt");
+                    fileFile.createNewFile(); //erase this
+                    //fileFile.mkdirs(); //bring this back
+                    fileInitializer(fileFile, "Files | " + nameField.getText()); //erase this
 
                     // Load the custom PNG file
                     ImageIcon icon = new ImageIcon("src/images/projectpete.png");
