@@ -1,4 +1,0 @@
-Project Name: kitchen	Project Budget: 2500
-Project Name: oven	Project Budget: 500
-Project Name: bathroom	Project Budget: 5678
-Project Name: ~bedroom1234	Project Budget: 700
