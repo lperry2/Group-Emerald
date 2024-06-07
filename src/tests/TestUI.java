@@ -1,5 +1,11 @@
 package src.tests;
 
+
+/**
+ * The class that tests the functionality of the user interface
+ * @author Daniel Sanchez
+ */
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
@@ -10,6 +16,7 @@ import src.view.MainGUI;
 import javax.swing.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,6 +58,11 @@ public class TestUI {
     private Journal testJournal;
 
     /**
+     * an empty user to test
+     */
+    private User testUser;
+
+    /**
      * Set up the test fixture.
      */
     @BeforeEach
@@ -60,6 +72,7 @@ public class TestUI {
         testJournal = new Journal(new ArrayList<JournalEntry>());
         emptyProject = new Project("test", testBudget, testJournal);
         emptyPrivateProject = new Project("test", "123", testBudget);
+        testUser = new User("Test", "Test@email.com", new ArrayList<Project>());
     }
 
     /**
@@ -73,6 +86,7 @@ public class TestUI {
 
     /**
      * Test if the correct project name is stored in empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testEmptyProjectName() {
@@ -81,6 +95,7 @@ public class TestUI {
 
     /**
      * checks whether we store the correct pin in private empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testEmptyPrivateProjectPin() {
@@ -88,6 +103,7 @@ public class TestUI {
     }
     /**
      * Test if it stores the correct budget in empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testEmptyProjectBudget() {
@@ -96,6 +112,7 @@ public class TestUI {
 
     /**
      * Test if it stores the correct budget value in empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testEmptyProjectBudgetValue() {
@@ -104,6 +121,7 @@ public class TestUI {
 
     /**
      * Test if we have 0 expenses in our empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testNumBudgetExpensesEmptyProject() {
@@ -113,6 +131,7 @@ public class TestUI {
 
     /**
      * Test if the storage of a Expense item is correct within empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void TestNewExpenseItemEmptyProject() {
@@ -123,6 +142,7 @@ public class TestUI {
 
     /**
      * Tests if we can edit an expense within empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void TestEditExpenseItemEmptyProject() {
@@ -133,6 +153,7 @@ public class TestUI {
 
     /**
      * Tests if we can delete an expense within empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void TestDeleteExpenseItemEmptyProject() {
@@ -144,6 +165,7 @@ public class TestUI {
 
     /**
      * Test if we have the correct budget of the empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testTotalEmptyProject() {
@@ -152,6 +174,7 @@ public class TestUI {
 
     /**
      * Test to see if no journal entries in empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testJournalEmptyProject() {
@@ -159,6 +182,7 @@ public class TestUI {
     }
     /**
      * Test if we correctly add a new journal entry in empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testAddJournalEntryEmptyProject() {
@@ -168,6 +192,7 @@ public class TestUI {
 
     /**
      * Test if we can edit a journal entry within empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testEditJournalEntryEmptyProject() {
@@ -179,11 +204,42 @@ public class TestUI {
 
     /**
      * Test if we can remove a journal entry within empty project
+     * @author Daniel Sanchez
      */
     @Test
     public void testRemoveJournalEntryEmptyProject() {
         testJournal.addEntry("Test", "Content");
         testJournal.deleteEntry("Test");
         assertEquals(0, emptyProject.getJournal().getEntries().size());
+    }
+
+    /**
+     * Test if testUser returns the correct user
+     * @author Daniel Sanchez
+     */
+    @Test
+    public void testNameTestUser() {
+        assertEquals("Test", testUser.getName());
+    }
+
+    /**
+     * Test if testUser has no current Projects
+     * @author Daniel Sanchez
+     */
+    @Test
+    public void testProjListTestUser() {
+        assertEquals(0, testUser.getProjects().size());
+    }
+
+    /**
+     * Test if we can get a correct implementation of proj names
+     * within testUser
+     * @author Daniel Sanchez
+     */
+    @Test
+    public void testGetProjNamesTestUser() {
+        testUser.addProject(emptyProject);
+        assertEquals(emptyProject.getProjectName(), testUser.getProjectNames()[0]);
+        assertEquals(emptyProject, testUser.getProject("test"));
     }
 }
