@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class SingleFile {
 
+    /** The file name. */
     private String myName;
 
     private File myFile;
