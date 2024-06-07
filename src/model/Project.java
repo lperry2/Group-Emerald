@@ -116,10 +116,19 @@ public class Project {
     }
 
     /**
+     * Gets the pin of the project.
+     *
+     * @return the project's pin
+     */
     public String getPin() {
         return myPin;
     }
 
+    /**
+     * Sets the pin of the project.
+     *
+     * @param thePin the new pin
+     */
     public void setPin(String thePin) {
         myPin = thePin;
         System.out.println(thePin);
@@ -150,8 +159,8 @@ public class Project {
     }
 
     /**
-     * Gets the state of the project's privacey
-     * @return isPrivate the boolean state of the project's privacey
+     * Gets the state of the project's privacy
+     * @return isPrivate the boolean state of the project's privacy
      */
     public boolean getPrivate() {
         return isPrivate;
