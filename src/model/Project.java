@@ -2,21 +2,28 @@ package src.model;
 
 import java.util.ArrayList;
 
-/** Represents a project */
+/**
+ * Represents a project.
+ *
+ * @author Alex Ewing
+ */
 public class Project {
     /** The name of the project. */
     private String myProjectName;
-    /** The description of the project. */
-    //private String myProjectDescription;
+
     /** The project's budget. */
     private Budget myBudget;
 
+    /** The files for the project. */
     private FileGroup myFiles;
 
+    /** The Journal for the project. */
     private Journal myJournal;
 
+    /** The projects pin. */
     private String myPin;
 
+    /** Denotes if the project is private. */
     private boolean isPrivate;
 
     /**
@@ -158,26 +165,12 @@ public class Project {
         isPrivate = thePrivate;
     }
 
-
-
     /**
-     * Gets the project description.
-     * @return myProjectDescription the description of the project
-     * @author Alex Ewing
+     * String representation of a project that gives the project name followed
+     * by the budget info.
+     *
+     * @return a string representation of the project
      */
-//    public String getProjectDescription() {
-//        return myProjectDescription;
-//    }
-
-    /**
-     * Sets the project description.
-     * @param theProjectDescription the new description of the project
-     * @author Alex Ewing
-     */
-//    public void setProjectDescription(String theProjectDescription) {
-//        this.myProjectDescription = theProjectDescription;
-//    }
-
     @Override
     public String toString() {
         String result = "Project " + myProjectName;
