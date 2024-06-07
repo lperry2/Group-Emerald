@@ -1,6 +1,0 @@
-+
-Journal | placeholderInUser.javaSaveJournal
-
-----
-June 5
-This is today
