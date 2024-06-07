@@ -1,6 +1,5 @@
 package src.view;
 
-import src.model.Budget;
 import src.model.Journal;
 
 import javax.swing.*;
@@ -21,15 +20,15 @@ public class JournalSelectionFrame extends AbstractSelectionFrame {
     /** Fires to listeners if an expense needs edited or deleted. */
     private final PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
 
-    /** The budget being changed. */
+    /** The journal being changed. */
     private Journal myJournal;
 
     /**
      * Sends title and option to the AbstractSelectionFrame. theTitle will become the title
      * of the JFrame and theOption will decide whether the selection is for editing for deleting.
-     * Uses theBudget to get all ExpenseItems in that budget.
+     * Uses theJournal to get all JournalEntrys in that journal.
      *
-     * @param theJournal the budget whose items are being edited or deleted
+     * @param theJournal the journal whose items are being edited or deleted
      * @param theTitle the title of the JFrame
      * @param theOption choice between editing or deleting the selection
      */

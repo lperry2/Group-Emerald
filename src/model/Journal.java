@@ -5,13 +5,21 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Journal {
-
+/** The journal entries. */
     private ArrayList<JournalEntry> myEntries;
 
+    /**
+     * The public constructor for the Journal class.
+     * @param theEntries the journal entries
+     */
     public Journal(ArrayList<JournalEntry> theEntries) {
         myEntries = theEntries;
     }
 
+    /**
+     * Retrieves the journal's entries.
+     * @return myEntries the journal's entries
+     */
     public ArrayList<JournalEntry> getEntries() {
         return myEntries;
     }
@@ -42,6 +50,11 @@ public class Journal {
 
     }
 
+    /**
+     * Edit's the specified existing entry.
+     * @param theTitle the name of the entry to edit
+     * @param theContent the entrie's new content
+     */
     public void editEntry(String theTitle, String theContent) {
         for (int i = 0; i < myEntries.size(); i++) {
             JournalEntry curr = myEntries.get(i);
@@ -52,6 +65,10 @@ public class Journal {
         }
     }
 
+    /**
+     * Deletes a specified existing entry.
+     * @param theTitle the title of the entry to delete
+     */
     public void deleteEntry(String theTitle) {
         for (int i = 0; i < myEntries.size(); i++) {
             JournalEntry curr = myEntries.get(i);

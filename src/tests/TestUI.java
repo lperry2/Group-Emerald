@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Unit tests for the UI and components.
  *
- * @author Alex Ewing, Owen Orlic, Lucas Perry, Daniel Alberto Sanchez Aguilar
+ * @author Alex Ewing, Owen Orlic, Daniel Alberto Sanchez Aguilar
  * @version v0.00
  */
 public class TestUI {
@@ -51,6 +51,10 @@ public class TestUI {
      * An empty budget to test
      */
     private Budget testBudget;
+    /**
+     * An empty file group to test
+     */
+    private FileGroup testFiles;
 
     /**
      * An empty journal to test
@@ -69,8 +73,9 @@ public class TestUI {
     public void setUp() {
         testGUI = new MainGUI();
         testBudget = new Budget(123);
+        testFiles = new FileGroup(new ArrayList<SingleFile>());
         testJournal = new Journal(new ArrayList<JournalEntry>());
-        emptyProject = new Project("test", testBudget, testJournal);
+        emptyProject = new Project("test", testBudget, testFiles, testJournal);
         emptyPrivateProject = new Project("test", "123", testBudget);
         testUser = new User("Test", "Test@email.com", new ArrayList<Project>());
     }

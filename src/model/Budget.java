@@ -22,9 +22,6 @@ public class Budget {
     /** List of all the individual expenses. */
     private ArrayList<ExpenseItem> myExpenses;
 
-    /** File that will hold all the project's budget and expense info. */
-    private PrintStream budgetFile;
-
     /**
      * Creates the new budget for the entire project. Sets expenses to zero and instantiates the
      * myExpense list as an empty ArrayList.

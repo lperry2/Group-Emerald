@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
+    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="More javaDoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/OptionFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/OptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OptionFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SingleFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SingleFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +326,31 @@
       <option name="project" value="LOCAL" />
       <updated>1717706644067</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717716852691</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1717716852691</updated>
+    </task>
+    <task id="LOCAL-00028" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717718045314</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1717718045314</updated>
+    </task>
+    <task id="LOCAL-00029" summary="More javaDoc">
+      <option name="closed" value="true" />
+      <created>1717719011076</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1717719011076</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,7 +400,8 @@
     <MESSAGE value="Commit" />
     <MESSAGE value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
     <MESSAGE value="makin it look better" />
-    <option name="LAST_COMMIT_MESSAGE" value="makin it look better" />
+    <MESSAGE value="More javaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="More javaDoc" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Group_Emerald$Driver.ic" NAME="Driver Coverage Results" MODIFIED="1716341354433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -1,2 +1,6 @@
 +
 Journal | placeholderInUser.javaSaveJournal
+
+----
+June 6
+Time to finish
