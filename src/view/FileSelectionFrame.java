@@ -67,9 +67,15 @@ public class FileSelectionFrame extends AbstractSelectionFrame {
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    File newFile = myChooser.getSelectedFile();
+                    JFileChooser chooser = new JFileChooser("./");
+                    int result = chooser.showOpenDialog(null);
+                    while (result != JFileChooser.APPROVE_OPTION) {
+                        result = chooser.showOpenDialog(null);
+                    }
+                    File file = chooser.getSelectedFile();
+                    //File newFile = myChooser.getSelectedFile();
                     //improper use of firePropertyChange(), just go with it
-                    myPcs.firePropertyChange("repaintPageFileEdit", btn.getText(), newFile);
+                    myPcs.firePropertyChange("repaintPageFileEdit", btn.getText(), file);
                     FileSelectionFrame.this.dispose(); //close frame
                 }
             });

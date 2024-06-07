@@ -10,7 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better">
-      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/SingleFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/SingleFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/r/Kitchen/Budget.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/r/Kitchen/Files/CalcSemWeekSeven.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/r/Kitchen/Files/CalcSemWeekThree.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/r/Kitchen/Journal.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/r/Projects.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/tests/TestUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/tests/TestUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$AboutPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$LoginPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectListPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI$ProjectViewPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Group-Emerald/src/view/MainGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/t/kitchen/Files.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/t/kitchen/Files.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/FileSelectionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/FileSelectionFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717720558753</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717720735803</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717720735803</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
