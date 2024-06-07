@@ -1,6 +1,0 @@
-+
-Journal | placeholderInUser.javaSaveJournal
-
-----
-hellolastPriv
-please

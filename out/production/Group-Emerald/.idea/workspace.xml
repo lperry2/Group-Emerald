@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="Comments on operating system file path specifics.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2da3d9ce-1a86-405f-bfd5-66409d5dc53c" name="Changes" comment="makin it look better" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +66,6 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ToolWindowGit.ShowToolbar&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Iteration-3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/je21/OneDrive/Documents/GitHub/Group-Emerald&quot;,
@@ -286,29 +283,166 @@
       <updated>1717462424579</updated>
     </task>
     <task id="LOCAL-00022" summary="makin it look better">
-      <created>1717607222697</created>
+      <option name="closed" value="true" />
+      <created>1717691422707</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1717607222697</updated>
+      <updated>1717691422707</updated>
     </task>
-    <task id="LOCAL-00023" summary="Comments on operating system file path specifics.">
+    <task id="LOCAL-00023" summary="makin it look better">
       <option name="closed" value="true" />
-      <created>1717634385577</created>
+      <created>1717691436639</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1717634385577</updated>
+      <updated>1717691436640</updated>
     </task>
-    <task id="LOCAL-00024" summary="Comments on operating system file path specifics.">
+    <task id="LOCAL-00024" summary="makin it look better">
       <option name="closed" value="true" />
-      <created>1717634412736</created>
+      <created>1717699488641</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1717634412736</updated>
+      <updated>1717699488641</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717699496614</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1717699496614</updated>
+    </task>
+    <task id="LOCAL-00026" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717706644067</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1717706644067</updated>
+    </task>
+    <task id="LOCAL-00027" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717716852691</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1717716852691</updated>
+    </task>
+    <task id="LOCAL-00028" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717718045314</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1717718045314</updated>
+    </task>
+    <task id="LOCAL-00029" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717718691166</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1717718691166</updated>
+    </task>
+    <task id="LOCAL-00030" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717720523457</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717720523457</updated>
+    </task>
+    <task id="LOCAL-00031" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717720539526</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717720539526</updated>
+    </task>
+    <task id="LOCAL-00032" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717720558753</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717720558753</updated>
+    </task>
+    <task id="LOCAL-00033" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717720735803</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717720735803</updated>
+    </task>
+    <task id="LOCAL-00034" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717721919671</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1717721919671</updated>
+    </task>
+    <task id="LOCAL-00035" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717723803214</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1717723803214</updated>
+    </task>
+    <task id="LOCAL-00036" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717723942606</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1717723942606</updated>
+    </task>
+    <task id="LOCAL-00037" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717724040243</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1717724040243</updated>
+    </task>
+    <task id="LOCAL-00038" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717724121718</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717724121718</updated>
+    </task>
+    <task id="LOCAL-00039" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717724209243</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1717724209243</updated>
+    </task>
+    <task id="LOCAL-00040" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717724906289</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1717724906289</updated>
+    </task>
+    <task id="LOCAL-00041" summary="makin it look better">
+      <option name="closed" value="true" />
+      <created>1717724914157</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1717724914157</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,8 +492,8 @@
     <MESSAGE value="Commit" />
     <MESSAGE value="I fixed the privacy of some of the instance variables in MainGUI (I guess I forgot to make them private)" />
     <MESSAGE value="makin it look better" />
-    <MESSAGE value="Comments on operating system file path specifics." />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on operating system file path specifics." />
+    <MESSAGE value="Push" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Group_Emerald$Driver.ic" NAME="Driver Coverage Results" MODIFIED="1716341354433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
