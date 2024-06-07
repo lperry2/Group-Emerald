@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Journal {
-/** The journal entries. */
+    /** The journal entries. */
     private ArrayList<JournalEntry> myEntries;
 
     /**
