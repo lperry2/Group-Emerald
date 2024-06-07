@@ -3,7 +3,6 @@ package src.model;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.io.PrintStream;
 
 /**
  * Class to hold individual expenses of a project's budget.

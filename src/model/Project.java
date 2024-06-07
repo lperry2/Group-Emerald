@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class Project {
     /** The name of the project. */
     private String myProjectName;
-
+    /** The description of the project. */
+    //private String myProjectDescription;
     /** The project's budget. */
     private Budget myBudget;
 
@@ -107,6 +108,7 @@ public class Project {
         this.myProjectName = theProjectName;
     }
 
+    /**
     public String getPin() {
         return myPin;
     }
@@ -155,6 +157,26 @@ public class Project {
     public void setPrivate(boolean thePrivate) {
         isPrivate = thePrivate;
     }
+
+
+
+    /**
+     * Gets the project description.
+     * @return myProjectDescription the description of the project
+     * @author Alex Ewing
+     */
+//    public String getProjectDescription() {
+//        return myProjectDescription;
+//    }
+
+    /**
+     * Sets the project description.
+     * @param theProjectDescription the new description of the project
+     * @author Alex Ewing
+     */
+//    public void setProjectDescription(String theProjectDescription) {
+//        this.myProjectDescription = theProjectDescription;
+//    }
 
     @Override
     public String toString() {

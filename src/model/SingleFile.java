@@ -1,7 +1,6 @@
 package src.model;
 
 import java.io.File;
-import java.util.ArrayList;
 
 /** Assosiates a string with a file. */
 public class SingleFile {

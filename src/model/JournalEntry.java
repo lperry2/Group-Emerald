@@ -1,7 +1,10 @@
 package src.model;
 
-import javax.swing.*;
-
+/**
+ * A JournalEntry is the title of the journal and the content of the journal.
+ *
+ * @author Owen Orlic
+ */
 public class JournalEntry {
 
     /** The title of the journal entry. */
@@ -52,6 +55,12 @@ public class JournalEntry {
         myContent = theContent;
     }
 
+    /**
+     * String representation of a journal entry that looks like
+     * 'Title: Content".
+     *
+     * @return the journal entry
+     */
     @Override
     public String toString() {
         return myTitle + ": " + myContent;
