@@ -4,6 +4,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import static java.lang.Character.isDigit;
@@ -105,12 +106,23 @@ public class User implements PropertyChangeListener {
     private void saveFiles(String thePath, Project theProj) {
         FileGroup files = theProj.getFiles();
         ArrayList<SingleFile> singleFiles = files.getFiles();
+        System.out.println(singleFiles.size());
         File projFolder = new File(thePath);
         File oldFileDir = new File(projFolder, "/Files");
         oldFileDir.delete();
         File newFileDir = new File(projFolder, "/Files");
         newFileDir.mkdirs();
+
         for (int i = 0; i < singleFiles.size(); i++) {
+            String pathName = singleFiles.get(i).getFile().toString();
+            String[] split = pathName.split("/");
+            String name = split[split.length - 1];
+            File file = new File(newFileDir, "/" + name);
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             File temp = singleFiles.get(i).getFile();
             temp.toString();
         }
